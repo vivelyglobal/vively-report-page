@@ -867,35 +867,22 @@
       "reels-juno": "juno",
       "reels-jaimdang": "jaimdang"
     };
-    const EXTS = ["mp4", "webm", "gif", "jpg", "png"];
+    function tryLoad(slot, name) {
+  const img = document.createElement("img");
 
-    function tryLoad(slot, name, extIndex) {
-      if (extIndex >= EXTS.length) return; // nothing found → placeholder stays
-      const ext = EXTS[extIndex];
-      const src = "media/" + name + "." + ext;
-      if (ext === "mp4" || ext === "webm") {
-        const v = document.createElement("video");
-        v.muted = true;
-        v.loop = true;
-        v.autoplay = true;
-        v.playsInline = true;
-        v.setAttribute("playsinline", "");
-        v.addEventListener("loadeddata", () => {
-          slot.classList.add("filled");
-          v.play().catch(() => {});
-        });
-        v.addEventListener("error", () => { v.remove(); tryLoad(slot, name, extIndex + 1); });
-        v.src = src;
-        slot.appendChild(v);
-      } else {
-        const img = document.createElement("img");
-        img.alt = name;
-        img.addEventListener("load", () => slot.classList.add("filled"));
-        img.addEventListener("error", () => { img.remove(); tryLoad(slot, name, extIndex + 1); });
-        img.src = src;
-        slot.appendChild(img);
-      }
-    }
+  img.src = "media/" + name + ".gif";
+  img.alt = name;
+
+  img.addEventListener("load", () => {
+    slot.classList.add("filled");
+  });
+
+  img.addEventListener("error", () => {
+    console.error("Could not load:", img.src);
+  });
+
+  slot.appendChild(img);
+}
 
     function buildReels(containerId, prefix) {
       const wrap = document.getElementById(containerId);
@@ -906,9 +893,9 @@
         slot.style.cursor = "default";
         slot.innerHTML =
           '<div class="ico">▶</div>' +
-          '<div class="reel-hint">media/' + name + ".mp4<br />파일을 media 폴더에 넣으면 자동 표시</div>" +
+          '<div class="reel-hint">media/' + name + ".gif<br />파일을 media 폴더에 넣으면 자동 표시</div>" +
           '<span class="ratio-tag">REELS · 1080 × 1920</span>';
-        tryLoad(slot, name, 0);
+        tryLoad(slot, name);
         wrap.appendChild(slot);
       }
     }
