@@ -34,14 +34,7 @@
       line-height: 1.6;
       overflow-x: hidden;
     }
-    /* ambient background glow */
-    .glow-field {
-      position: fixed;
-      inset: 0;
-      pointer-events: none;
-      z-index: 0;
-      overflow: hidden;
-    }
+    .glow-field { position: fixed; inset: 0; pointer-events: none; z-index: 0; overflow: hidden; }
     .glow {
       position: absolute;
       width: 720px;
@@ -58,14 +51,7 @@
       from { transform: translate(0, 0) scale(1); }
       to { transform: translate(60px, -50px) scale(1.12); }
     }
-    .report {
-      position: relative;
-      z-index: 1;
-      max-width: var(--max-width);
-      margin: 0 auto;
-      padding: 56px 40px 90px;
-    }
-    /* ---------- hero ---------- */
+    .report { position: relative; z-index: 1; max-width: var(--max-width); margin: 0 auto; padding: 56px 40px 90px; }
     .hero { padding: 44px 0 40px; border-bottom: 1px solid var(--line); }
     .eyebrow {
       display: inline-flex;
@@ -90,50 +76,23 @@
       animation: pulse 2s infinite;
     }
     @keyframes pulse {
-      0% { box-shadow: 0 0 0 0 rgba(52, 211, 153, 0.55); }
-      70% { box-shadow: 0 0 0 10px rgba(52, 211, 153, 0); }
-      100% { box-shadow: 0 0 0 0 rgba(52, 211, 153, 0); }
+      0% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.55); }
+      70% { box-shadow: 0 0 0 10px rgba(16, 185, 129, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
     }
-    .title {
-      font-size: 60px;
-      line-height: 1.1;
-      font-weight: 800;
-      letter-spacing: -0.035em;
-      margin: 0 0 20px;
-    }
+    .title { font-size: 60px; line-height: 1.1; font-weight: 800; letter-spacing: -0.035em; margin: 0 0 20px; }
     .title .grad {
       background: linear-gradient(92deg, var(--accent) 0%, var(--accent-2) 60%, var(--gold) 120%);
       -webkit-background-clip: text;
       background-clip: text;
       color: transparent;
     }
-    .subtitle {
-      font-size: 24px;
-      font-weight: 600;
-      letter-spacing: -0.02em;
-      color: #4a5264;
-      line-height: 1.5;
-      max-width: 820px;
-    }
-    /* ---------- sections ---------- */
+    .subtitle { font-size: 24px; font-weight: 600; letter-spacing: -0.02em; color: #4a5264; line-height: 1.5; max-width: 820px; }
     .section { padding: 46px 0; border-bottom: 1px solid var(--line); }
-    .section h2 {
-      font-size: 30px;
-      line-height: 1.2;
-      margin: 0 0 8px;
-      letter-spacing: -0.02em;
-      font-weight: 700;
-    }
-    .section h2 .num {
-      font-size: 13px;
-      color: var(--accent);
-      font-weight: 700;
-      letter-spacing: 0.12em;
-      display: block;
-      margin-bottom: 8px;
-    }
+    .section h2 { font-size: 30px; line-height: 1.2; margin: 0 0 8px; letter-spacing: -0.02em; font-weight: 700; }
+    .section h2 .num { font-size: 13px; color: var(--accent); font-weight: 700; letter-spacing: 0.12em; display: block; margin-bottom: 8px; }
     .section-intro { color: var(--muted); max-width: 860px; margin: 0 0 26px; font-size: 16px; }
-    .grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+    .grid-4 { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; }
     .grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
     .card {
       border: 1px solid var(--line);
@@ -142,12 +101,7 @@
       background: linear-gradient(180deg, var(--surface) 0%, var(--surface-2) 100%);
       transition: transform 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease;
     }
-    .card:hover {
-      transform: translateY(-4px);
-      border-color: var(--line-strong);
-      box-shadow: 0 18px 44px rgba(15, 23, 42, 0.1);
-    }
-    /* KPI highlight cards */
+    .card:hover { transform: translateY(-4px); border-color: var(--line-strong); box-shadow: 0 18px 44px rgba(15, 23, 42, 0.1); }
     .kpi.card { position: relative; overflow: hidden; }
     .kpi.hot {
       border: 1px solid transparent;
@@ -164,10 +118,7 @@
       background: linear-gradient(100deg, transparent, rgba(139, 92, 246, 0.06), transparent);
       animation: sheen 4.5s ease-in-out infinite;
     }
-    @keyframes sheen {
-      0% { left: -80%; }
-      55%, 100% { left: 130%; }
-    }
+    @keyframes sheen { 0% { left: -80%; } 55%, 100% { left: 130%; } }
     .kpi-label {
       font-size: 11px;
       text-transform: uppercase;
@@ -179,14 +130,7 @@
       gap: 8px;
       flex-wrap: wrap;
     }
-    .kpi-value {
-      font-size: 38px;
-      line-height: 1.05;
-      font-weight: 800;
-      letter-spacing: -0.03em;
-      margin-bottom: 10px;
-      font-variant-numeric: tabular-nums;
-    }
+    .kpi-value { font-size: 38px; line-height: 1.05; font-weight: 800; letter-spacing: -0.03em; margin-bottom: 10px; font-variant-numeric: tabular-nums; }
     .kpi.hot .kpi-value {
       background: linear-gradient(92deg, #6d28d9, #db2777);
       -webkit-background-clip: text;
@@ -240,24 +184,12 @@
     .list li { margin-bottom: 9px; }
     .list li::marker { color: var(--accent); }
     .metric-strip { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-top: 18px; }
-    .metric-mini {
-      border: 1px solid var(--line);
-      border-radius: var(--radius-sm);
-      padding: 14px;
-      background: rgba(15, 23, 42, 0.02);
-    }
-    .metric-mini.win {
-      border-color: rgba(14, 163, 113, 0.4);
-      background: rgba(14, 163, 113, 0.06);
-    }
+    .metric-strip.cols-2 { grid-template-columns: repeat(2, 1fr); }
+    .metric-mini { border: 1px solid var(--line); border-radius: var(--radius-sm); padding: 14px; background: rgba(15, 23, 42, 0.02); }
+    .metric-mini.win { border-color: rgba(14, 163, 113, 0.4); background: rgba(14, 163, 113, 0.06); }
     .metric-mini span { display: block; font-size: 12.5px; color: var(--muted); margin-bottom: 6px; }
-    .metric-mini strong {
-      font-size: 22px;
-      letter-spacing: -0.02em;
-      font-variant-numeric: tabular-nums;
-    }
+    .metric-mini strong { font-size: 22px; letter-spacing: -0.02em; font-variant-numeric: tabular-nums; }
     .metric-mini.win strong { color: var(--mint); }
-    /* ---------- charts ---------- */
     .chart-card { padding-bottom: 16px; }
     .chart-wrap { position: relative; width: 100%; height: 320px; }
     .live-badge {
@@ -270,16 +202,10 @@
       letter-spacing: 0.14em;
       color: var(--mint);
     }
-    /* ---------- reel gallery ---------- */
-    .reel-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 14px;
-      margin-top: 18px;
-    }
+    .reel-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; margin-top: 18px; }
     .reel {
       position: relative;
-      aspect-ratio: 9 / 16; /* Instagram Reels ratio (1080×1920) */
+      aspect-ratio: 9 / 16;
       border: 1.5px dashed var(--line-strong);
       border-radius: var(--radius-sm);
       background: rgba(15, 23, 42, 0.02);
@@ -295,13 +221,7 @@
       transition: border-color 0.3s ease, background 0.3s ease, transform 0.3s ease;
     }
     .reel:hover { border-color: var(--accent); background-color: rgba(139, 92, 246, 0.08); transform: translateY(-3px); }
-    .reel video, .reel img {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
+    .reel video, .reel img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
     .reel .ico {
       width: 40px; height: 40px;
       border-radius: 50%;
@@ -314,15 +234,8 @@
     .reel.filled { border-style: solid; border-color: var(--line-strong); }
     .reel.filled .reel-hint { opacity: 0; }
     .reel .reel-hint { padding: 0 12px; transition: opacity 0.3s; }
-    .reel .ratio-tag {
-      position: absolute;
-      bottom: 10px;
-      font-size: 10px;
-      letter-spacing: 0.1em;
-      color: var(--subtle);
-    }
+    .reel .ratio-tag { position: absolute; bottom: 10px; font-size: 10px; letter-spacing: 0.1em; color: var(--subtle); }
     .reel.filled .ratio-tag, .reel.filled .ico { display: none; }
-    /* ---------- table / quote / footer ---------- */
     table { width: 100%; border-collapse: collapse; font-size: 14px; }
     th, td { text-align: left; vertical-align: top; padding: 13px 10px; border-bottom: 1px solid var(--line); }
     th { font-size: 11px; text-transform: uppercase; letter-spacing: 0.1em; color: var(--muted); }
@@ -341,7 +254,6 @@
     }
     .footer { font-size: 13px; color: var(--muted); line-height: 1.7; padding-top: 28px; }
     .footer a { color: var(--text); text-decoration: none; border-bottom: 1px solid var(--line-strong); }
-    /* reveal on scroll */
     .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.7s ease, transform 0.7s ease; }
     .reveal.in { opacity: 1; transform: none; }
     @media (max-width: 1024px) {
@@ -361,368 +273,478 @@
     <div class="glow g3"></div>
   </div>
 
-  <div class="report">
-    <!-- HERO -->
-    <section class="hero reveal">
-      <div class="eyebrow"><span class="live-dot"></span> Performance Report · Korea Client Edition · LIVE</div>
-      <h1 class="title"><span class="grad">Vively 퍼포먼스 리포트</span></h1>
-      <div class="subtitle">
-        비블리와 함께<br />
-        글로벌 성장을 극대화하세요
-      </div>
-    </section>
-
-    <!-- KPI SUMMARY -->
-    <section class="section reveal">
-      <h2><span class="num">01 — KEY RESULTS</span>핵심 성과 요약</h2>
-      <div class="section-intro">
-        신규 고객이 가장 빠르게 이해할 수 있도록, 비용 효율·도달 규모·참여 반응·매출 연결 신호를 우선 배치했습니다.
-      </div>
-      <div class="grid-4">
-        <div class="card kpi hot">
-          <div class="kpi-label">Juno CPM <span class="tag">BEST-IN-CLASS</span></div>
-          <div class="kpi-value">₩<span class="count" data-target="2731">0</span></div>
-          <div class="kpi-note">Vively Global Organic Campaign</div>
-        </div>
-        <div class="card kpi">
-          <div class="kpi-label">Jaimdang CPM</div>
-          <div class="kpi-value">₩<span class="count" data-target="3165">0</span></div>
-          <div class="kpi-note">Vively Organic Campaign</div>
-        </div>
-        <div class="card kpi hot">
-          <div class="kpi-label">Juno 첫날 매출 <span class="tag">SALES SIGNAL</span></div>
-          <div class="kpi-value">약 <span class="count" data-target="150">0</span>만원</div>
-          <div class="kpi-note">예약 도달 기준</div>
-        </div>
-        <div class="card kpi hot">
-          <div class="kpi-label">Jaimdang 첫날 매출 <span class="tag">SALES SIGNAL</span></div>
-          <div class="kpi-value">약 <span class="count" data-target="500">0</span>만원</div>
-          <div class="kpi-note">해외 구매자 타깃 기준</div>
-        </div>
-      </div>
-      <div class="insight">
-        <strong>인사이트</strong> — 본 리포트의 강점은 단순 노출 수치가 아니라,
-        저예산 집행·글로벌 타깃 도달·실제 세일즈 연계 가능성을 함께 보여준다는 점입니다.
-      </div>
-    </section>
-
-    <!-- POSITIONING -->
-    <section class="section reveal">
-      <h2><span class="num">02 — POSITIONING</span>Vively 포지셔닝</h2>
-      <div class="grid-2">
-        <div class="card">
-          <div class="label">Positioning</div>
-          <div class="case-title">Global Expansion &amp; Growth Partner</div>
-          <div class="kpi-note">
-            브랜드 인지도 형성에서 끝나지 않고, 해외 타깃 도달과 초기 매출 전환 테스트까지 연결하는 실행형 파트너.
-          </div>
-        </div>
-        <div class="card">
-          <div class="label">What Clients Buy</div>
-          <div class="case-title">콘텐츠 생산 + 국가 테스트 + 세일즈 연계</div>
-          <div class="kpi-note">
-            인플루언서 시딩, 공동 작업형 콘텐츠, 프로모션 연계, 초기 시장 검증을 하나의 구조로 설계.
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- CPM -->
-    <section class="section reveal">
-      <h2><span class="num">03 — COST EFFICIENCY</span>비용 효율성 비교</h2>
-      <div class="grid-2">
-        <div class="card chart-card">
-          <div class="label">CPM Benchmark <span class="live-badge"><span class="live-dot"></span>LIVE</span></div>
-          <div class="chart-wrap"><canvas id="cpmChart"></canvas></div>
-          <div class="insight">
-            <strong>인사이트</strong> — Juno와 Jaimdang 모두 일반 광고 매체 범위 대비 낮은 CPM을 보여주며,
-            유기적 캠페인의 효율성을 설명할 수 있습니다.
-          </div>
-        </div>
-        <div class="card">
-          <div class="case-title">핵심 해석</div>
-          <ul class="list">
-            <li>Meta Ads 일반 범위: ₩7,000–₩20,000+</li>
-            <li>TikTok Ads 일반 범위: ₩3,000–₩12,000</li>
-            <li>Juno Seoul 유기적 캠페인 CPM: ₩2,731</li>
-            <li>Jaimdang 유기적 캠페인 CPM: ₩3,165</li>
-          </ul>
-          <div class="metric-strip">
-            <div class="metric-mini win"><span>Juno ✦</span><strong>₩2,731</strong></div>
-            <div class="metric-mini win"><span>Jaimdang ✦</span><strong>₩3,165</strong></div>
-            <div class="metric-mini"><span>광고 매체 대비</span><strong>낮은 단가</strong></div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- CASE 1 -->
-    <section class="section reveal">
-      <h2><span class="num">04 — CASE STUDY 1</span>Juno Seoul 한남 플래그쉽 오프닝</h2>
-      <div class="grid-2">
-        <div class="card">
-          <div class="case-title">프로젝트 개요 <span class="tag violet">MARKETING → SALES</span></div>
-          <ul class="list">
-            <li>캠페인 유형: 글로벌 마케팅·세일즈 연계 캠페인 / Influencer Seeding Campaign</li>
-            <li>목표: Brand awareness → Early market validation test</li>
-            <li>예산: 약 100만원 (VAT 미포함)</li>
-            <li>참여 인원: 외국인 인플루언서 4명 + 외국인 모델 1명</li>
-            <li>캠페인 기간: 시딩 7일 / 마케팅-투-세일즈 3일</li>
-            <li>산출물: 인스타그램 전용 캠페인 7개</li>
-            <li>도달 국가: Russia · Indonesia · Canada</li>
-            <li>프로모션 연계: 전 시술 20% 할인</li>
-          </ul>
-          <div class="metric-strip">
-            <div class="metric-mini win"><span>조회수</span><strong><span class="count" data-target="366126">0</span></strong></div>
-            <div class="metric-mini"><span>통합 참여</span><strong><span class="count" data-target="389653">0</span></strong></div>
-            <div class="metric-mini win"><span>첫날 매출</span><strong>약 150만원</strong></div>
-          </div>
-        </div>
-        <div class="card">
-          <div class="case-title">ROI 하이라이트</div>
-          <div class="kpi-note" style="margin-bottom: 14px;">
-            예산 약 100만원 → 첫날 예약 매출 약 150만원. 브랜딩을 넘어 실질적인 세일즈 신호까지 확보.
-          </div>
-          <div class="metric-strip" style="grid-template-columns: repeat(2, 1fr); margin-top: 0;">
-            <div class="metric-mini"><span>투입 예산</span><strong>₩1,000,000</strong></div>
-            <div class="metric-mini win"><span>첫날 회수율</span><strong><span class="count" data-target="150">0</span>%</strong></div>
-          </div>
-          <div class="insight">
-            <strong>인사이트</strong> — 약 100만원 수준의 예산으로 첫날 예약 매출 약 150만원 도달은,
-            브랜딩을 넘어 실질적인 세일즈 신호까지 확보했다는 점에서 설득력이 높습니다.
-          </div>
-        </div>
-      </div>
-      <div class="label" style="margin-top: 26px;">Campaign Visuals (Reels 9:16)</div>
-      <div class="reel-grid" id="reels-juno"></div>
-    </section>
-
-    <!-- JUNO ENGAGEMENT -->
-    <section class="section reveal">
-      <h2><span class="num">05 — ENGAGEMENT</span>Juno Seoul 반응 지표</h2>
-      <div class="grid-2">
-        <div class="card chart-card">
-          <div class="label">Engagement Breakdown <span class="live-badge"><span class="live-dot"></span>LIVE</span></div>
-          <div class="chart-wrap"><canvas id="junoEngagementChart"></canvas></div>
-          <div class="insight">
-            <strong>인사이트</strong> — 조회수 볼륨이 충분히 형성되었고, 좋아요·댓글·공유 반응이 후행하며
-            브랜드 인지도와 관심도를 함께 보여줍니다.
-          </div>
-        </div>
-        <div class="card">
-          <div class="case-title">세부 지표</div>
-          <ul class="list">
-            <li><strong>총 조회수: 366,126</strong></li>
-            <li><strong>좋아요: 22,868</strong></li>
-            <li>댓글: 410</li>
-            <li>공유/리포스트: 249</li>
-            <li>통합 참여: 389,653</li>
-          </ul>
-          <div class="metric-strip" style="grid-template-columns: repeat(2, 1fr);">
-            <div class="metric-mini win"><span>Views</span><strong><span class="count" data-target="366126">0</span></strong></div>
-            <div class="metric-mini"><span>Likes</span><strong><span class="count" data-target="22868">0</span></strong></div>
-            <div class="metric-mini"><span>Comments</span><strong><span class="count" data-target="410">0</span></strong></div>
-            <div class="metric-mini"><span>Shares</span><strong><span class="count" data-target="249">0</span></strong></div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- CASE 2 -->
-    <section class="section reveal">
-      <h2><span class="num">06 — CASE STUDY 2</span>자임당 다이어트 한의원 <span class="tag" style="vertical-align: middle;">진행중</span></h2>
-      <div class="grid-2">
-        <div class="card">
-          <div class="case-title">프로젝트 개요</div>
-          <ul class="list">
-            <li>상태: 진행중</li>
-            <li>캠페인 유형: Influencer Seeding + Marketing to Sales Campaign</li>
-            <li>목표: Brand awareness → Early market validation test</li>
-            <li>예산: 약 150만원 (VAT 미포함)</li>
-            <li>참여 인원: 외국인 마이크로 인플루언서 총 30명 (1만명 이하)</li>
-            <li>캠페인 기간: 시딩 30일 / 마케팅-투-세일즈 7일</li>
-            <li>산출물 계획: 인스타그램 전용 영상 30개</li>
-            <li>현재 업로드: 5개 완료</li>
-            <li>추가 구조: 인도네시아·우즈벡 크리에이터 공동구매</li>
-            <li>파트너십 유형: 수수료 지급 방식</li>
-          </ul>
-          <div class="metric-strip">
-            <div class="metric-mini"><span>예산</span><strong>약 150만원</strong></div>
-            <div class="metric-mini"><span>인플루언서</span><strong><span class="count" data-target="30">0</span>명</strong></div>
-            <div class="metric-mini win"><span>첫날 매출</span><strong>약 500만원</strong></div>
-          </div>
-        </div>
-        <div class="card">
-          <div class="case-title">ROI 하이라이트</div>
-          <div class="kpi-note" style="margin-bottom: 14px;">
-            예산 약 150만원 → 첫날 매출 약 500만원. 다국가 마이크로 인플루언서 구조로 초기 수요 검증과 판매 연결을 동시에 테스트.
-          </div>
-          <div class="metric-strip" style="grid-template-columns: repeat(2, 1fr); margin-top: 0;">
-            <div class="metric-mini"><span>투입 예산</span><strong>₩1,500,000</strong></div>
-            <div class="metric-mini win"><span>첫날 회수율</span><strong><span class="count" data-target="333">0</span>%</strong></div>
-          </div>
-          <div class="insight">
-            <strong>인사이트</strong> — 자임당은 단순 브랜딩 사례가 아니라, 다국가 마이크로 인플루언서를 활용해
-            초기 수요 검증과 판매 연결을 함께 테스트하는 확장형 구조로 해석할 수 있습니다.
-          </div>
-        </div>
-      </div>
-      <div class="label" style="margin-top: 26px;">Campaign Visuals (Reels 9:16)</div>
-      <div class="reel-grid" id="reels-jaimdang"></div>
-    </section>
-
-    <!-- JAIMDANG ENGAGEMENT -->
-    <section class="section reveal">
-      <h2><span class="num">07 — ENGAGEMENT</span>Jaimdang 반응 지표</h2>
-      <div class="grid-2">
-        <div class="card chart-card">
-          <div class="label">Ongoing Performance Snapshot <span class="live-badge"><span class="live-dot"></span>LIVE</span></div>
-          <div class="chart-wrap"><canvas id="jaimdangEngagementChart"></canvas></div>
-          <div class="insight">
-            <strong>인사이트</strong> — 본 수치는 현재 공개/집계된 일부 참여자 지표 기준의 스냅샷으로,
-            캠페인 진행에 따라 추가 확대 가능성이 있습니다.
-          </div>
-        </div>
-        <div class="card">
-          <div class="case-title">세부 지표</div>
-          <ul class="list">
-            <li><strong>총 조회수: 63,179</strong></li>
-            <li>좋아요: 1,250</li>
-            <li>댓글: 207</li>
-            <li>공유: 50</li>
-            <li>통합 참여: 64,686</li>
-            <li><strong>유기적 CPM: ₩3,165</strong></li>
-          </ul>
-          <div class="metric-strip" style="grid-template-columns: repeat(2, 1fr);">
-            <div class="metric-mini win"><span>Views (진행중)</span><strong><span class="count tick" data-target="63179">0</span></strong></div>
-            <div class="metric-mini"><span>통합 참여</span><strong><span class="count" data-target="64686">0</span></strong></div>
-          </div>
-          <div class="note-box">
-            주석 — 보고서상 자임당 성과 수치는 일부 크리에이터 공개 지표 및 현재 업로드된 콘텐츠 기준으로 해석해야 합니다.
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- BUDGET VS SALES -->
-    <section class="section reveal">
-      <h2><span class="num">08 — ROI</span>예산 대비 매출 신호</h2>
-      <div class="grid-2">
-        <div class="card chart-card">
-          <div class="label">Budget vs Sales Signal <span class="live-badge"><span class="live-dot"></span>LIVE</span></div>
-          <div class="chart-wrap"><canvas id="budgetSalesChart"></canvas></div>
-          <div class="insight">
-            <strong>인사이트</strong> — 두 사례 모두 비교적 제한된 예산 구조에서도 세일즈 연결 신호를 설명할 수 있습니다.
-          </div>
-        </div>
-        <div class="card">
-          <table>
-            <thead>
-              <tr><th>브랜드</th><th>예산</th><th>매출 신호</th><th>해석</th></tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td><strong>Juno Seoul</strong></td>
-                <td>약 100만원</td>
-                <td><strong style="color: var(--mint);">약 150만원</strong></td>
-                <td>오프닝 첫날 예약 전환 신호 확인</td>
-              </tr>
-              <tr>
-                <td><strong>자임당</strong></td>
-                <td>약 150만원</td>
-                <td><strong style="color: var(--mint);">약 500만원</strong></td>
-                <td>진행 중 케이스지만 초기 판매 연결 강도 높음</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-    </section>
-
-    <!-- GEO -->
-    <section class="section reveal">
-      <h2><span class="num">09 — GLOBAL REACH</span>글로벌 도달 범위</h2>
-      <div class="grid-2">
-        <div class="card chart-card">
-          <div class="label">Geographic Reach <span class="live-badge"><span class="live-dot"></span>LIVE</span></div>
-          <div class="chart-wrap"><canvas id="geoChart"></canvas></div>
-          <div class="insight">
-            <strong>인사이트</strong> — Juno Seoul은 3개 국가 중심의 집중 테스트,
-            자임당은 7개 권역 수준의 확장 테스트로 해석할 수 있습니다.
-          </div>
-        </div>
-        <div class="card">
-          <table>
-            <thead>
-              <tr><th>브랜드</th><th>도달 국가/권역</th><th>해석</th></tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td><strong>Juno Seoul</strong></td>
-                <td>Russia, Indonesia, Canada</td>
-                <td>플래그쉽 오프닝에 맞춘 선택적 글로벌 테스트</td>
-              </tr>
-              <tr>
-                <td><strong>자임당</strong></td>
-                <td>Russia, Uzbekistan, Indonesia, Japan, China, US, Middle East</td>
-                <td>초기 시장 검증을 위한 다국가 확장형 도달</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-    </section>
-
-    <!-- WHY -->
-    <section class="section reveal">
-      <h2><span class="num">10 — WHY VIVELY</span>한국에서 시작하는 글로벌 확장</h2>
-      <div class="grid-2">
-        <div class="card">
-          <div class="case-title">설득 포인트</div>
-          <ul class="list">
-            <li>적은 예산에서도 바로 설명 가능한 숫자가 존재</li>
-            <li>단순 광고 운영이 아니라 글로벌 세일즈 테스트 구조에 가까움</li>
-            <li>콘텐츠 산출물, 국가 도달, 프로모션 연계가 하나의 체계로 연결</li>
-            <li>조회수 중심이 아니라 CPM·참여·매출 신호까지 함께 제시 가능</li>
-          </ul>
-        </div>
-        <div class="quote-box">
-          “Vively는 해외 타깃 대상 인플루언서 시딩을 통해,
-          브랜드 인지도 확보와 초기 세일즈 검증을 동시에 수행하는 파트너입니다.
-          저예산 구조에서도 CPM 효율과 실제 예약 또는 구매 전환 신호를 함께 제시할 수 있습니다.”
-        </div>
-      </div>
-      <div class="footer">
-        Source PDF:
-        <a href="https://www.genspark.ai/api/files/s/gkMjuw3s" target="_blank">Final Reports (1).pdf</a>
-        <br /><br />
-        주석: 일부 수치는 추정치이며, 플랫폼 알고리즘 및 일부 크리에이터의 제한적 데이터 공개로 인해 변동될 수 있습니다.
-        자임당 사례는 진행 중 케이스이므로, 현재 성과 수치는 일부 공개/집계 시점 기준의 스냅샷으로 해석해야 합니다.
-      </div>
-    </section>
-  </div>
+  <div class="report" id="app"></div>
 
   <script>
-    /* ============ shared config ============ */
+  /* ═════════════════════════════════════════════════════════════════════
+     ★★★  데이터 블록 — 여기만 수정하면 됩니다  ★★★
+     ─────────────────────────────────────────────────────────────────────
+     새 프로젝트 추가 방법:
+       1. REPORT.projects 배열에 기존 항목을 복사해 붙여넣고 값만 바꾸세요.
+       2. 영상/이미지는 media 폴더에 "<id>-1.mp4" ~ "<id>-4.mp4"로 저장하세요.
+          (id는 아래 프로젝트의 id 값. 예: id가 "newbrand"면 newbrand-1.mp4)
+       3. KPI 카드(kpis)도 필요하면 추가/수정하세요. 카드 수는 자유입니다.
+     섹션 번호, 차트, 표, 릴 슬롯은 모두 자동으로 생성됩니다.
+     ═════════════════════════════════════════════════════════════════════ */
+  const REPORT = {
+    hero: {
+      eyebrow: "Performance Report · Korea Client Edition · LIVE",
+      title: "Vively 퍼포먼스 리포트",
+      subtitle: ["비블리와 함께", "글로벌 성장을 극대화하세요"]
+    },
+
+    /* ---- 01 핵심 성과 요약 ----
+       hot: true → 그라데이션 강조 카드 / tag → 카드 라벨 옆 뱃지 */
+    kpiIntro: "Juno, 자임당, LaBab 3개 캠페인의 핵심 성과를 한눈에 정리했습니다. 비용 효율·도달 규모·참여 반응·매출 연결 신호를 우선 배치했습니다.",
+    kpis: [
+      { label: "Juno CPM", tag: "BEST-IN-CLASS", prefix: "₩", value: 2731, suffix: "", note: "Vively Global Organic Campaign", hot: true },
+      { label: "Jaimdang CPM", prefix: "₩", value: 3165, suffix: "", note: "Vively Organic Campaign", hot: false },
+      { label: "LaBab PVV", tag: "BEST-IN-MARKET", prefix: "₩", value: 15, suffix: "/뷰", note: "시장 범위 ₩14–56 대비 최저 수준", hot: true },
+      { label: "Juno 첫날 매출", tag: "SALES SIGNAL", prefix: "약 ", value: 150, suffix: "만원", note: "예약 도달 기준", hot: true },
+      { label: "Jaimdang 첫날 매출", tag: "SALES SIGNAL", prefix: "약 ", value: 500, suffix: "만원", note: "해외 구매자 타깃 기준", hot: true }
+    ],
+    kpiInsight: "본 리포트의 강점은 단순 노출 수치가 아니라, 저예산 집행·글로벌 타깃 도달·실제 세일즈 연계 가능성을 함께 보여준다는 점입니다.",
+
+    /* ---- 02 포지셔닝 ---- */
+    positioning: [
+      { label: "Positioning", title: "Global Expansion & Growth Partner",
+        note: "브랜드 인지도 형성에서 끝나지 않고, 해외 타깃 도달과 초기 매출 전환 테스트까지 연결하는 실행형 파트너." },
+      { label: "What Clients Buy", title: "콘텐츠 생산 + 국가 테스트 + 세일즈 연계",
+        note: "인플루언서 시딩, 공동 작업형 콘텐츠, 프로모션 연계, 초기 시장 검증을 하나의 구조로 설계." }
+    ],
+
+    /* ---- 03 비용 효율성 (CPM 벤치마크) ----
+       프로젝트별 CPM은 아래 projects의 cpm 값에서 자동으로 가져옵니다 */
+    cpmBenchmarks: [
+      { label: "Meta Low", value: 7000 },
+      { label: "Meta High", value: 20000 },
+      { label: "TikTok Low", value: 3000 },
+      { label: "TikTok High", value: 12000 }
+    ],
+    cpmInsight: "Juno와 Jaimdang 모두 일반 광고 매체 범위 대비 낮은 CPM을 보여주며, 유기적 캠페인의 효율성을 설명할 수 있습니다.",
+    cpmInterpretation: [
+      "Meta Ads 일반 범위: ₩7,000–₩20,000+",
+      "TikTok Ads 일반 범위: ₩3,000–₩12,000",
+      "Juno Seoul 유기적 캠페인 CPM: ₩2,731",
+      "Jaimdang 유기적 캠페인 CPM: ₩3,165"
+    ],
+    cpmNote: "LaBab 캠페인은 View당 지급 단가(PVV) 모델로 운영되어 위 CPM 차트와는 단위가 달라 별도로 비교합니다. 해당 캠페인의 케이스 스터디 섹션에서 확인할 수 있습니다.",
+
+    /* ---- 프로젝트 (케이스 스터디) ----
+       ★ 새 프로젝트는 여기에 추가하세요 ★
+       live: true → 진행중 표시 + 조회수가 실시간처럼 계속 올라감 */
+    projects: [
+      {
+        id: "juno",                          // media 파일명 접두사 (juno-1.mp4 …)
+        name: "Juno Seoul",
+        heading: "Juno Seoul 한남 플래그쉽 오프닝",
+        live: false,
+        typeTag: "MARKETING → SALES",
+        overview: [
+          "캠페인 유형: 글로벌 마케팅·세일즈 연계 캠페인 / Influencer Seeding Campaign",
+          "목표: Brand awareness → Early market validation test",
+          "예산: 약 100만원 (VAT 미포함)",
+          "참여 인원: 외국인 인플루언서 4명 + 외국인 모델 1명",
+          "캠페인 기간: 시딩 7일 / 마케팅-투-세일즈 3일",
+          "산출물: 인스타그램 전용 캠페인 7개",
+          "도달 국가: Russia · Indonesia · Canada",
+          "프로모션 연계: 전 시술 20% 할인"
+        ],
+        /* 케이스 카드 하단 미니 지표 3개 (count: 숫자 카운트업 / text: 문자 그대로) */
+        metrics: [
+          { label: "조회수", count: 366126, win: true },
+          { label: "통합 참여", count: 389653 },
+          { label: "첫날 매출", text: "약 150만원", win: true }
+        ],
+        roi: {
+          desc: "예산 약 100만원 → 첫날 예약 매출 약 150만원. 브랜딩을 넘어 실질적인 세일즈 신호까지 확보.",
+          budgetText: "₩1,000,000",
+          recoveryPct: 150
+        },
+        caseInsight: "약 100만원 수준의 예산으로 첫날 예약 매출 약 150만원 도달은, 브랜딩을 넘어 실질적인 세일즈 신호까지 확보했다는 점에서 설득력이 높습니다.",
+        engagement: {
+          chartLabel: "Engagement Breakdown",
+          views: 366126, likes: 22868, comments: 410, shares: 249,
+          total: 389653,
+          insight: "조회수 볼륨이 충분히 형성되었고, 좋아요·댓글·공유 반응이 후행하며 브랜드 인지도와 관심도를 함께 보여줍니다.",
+          details: [
+            "총 조회수: 366,126", "좋아요: 22,868", "댓글: 410",
+            "공유/리포스트: 249", "통합 참여: 389,653"
+          ],
+          note: null
+        },
+        cpm: 2731,
+        budget: 1000000,
+        sales: 1500000,
+        budgetText: "약 100만원",
+        salesText: "약 150만원",
+        salesInterpretation: "오프닝 첫날 예약 전환 신호 확인",
+        countries: "Russia, Indonesia, Canada",
+        geoCount: 3,
+        geoInterpretation: "플래그쉽 오프닝에 맞춘 선택적 글로벌 테스트"
+      },
+      {
+        id: "jaimdang",
+        name: "자임당",
+        heading: "자임당 다이어트 한의원",
+        live: true,                          // 진행중 → LIVE 카운터 작동
+        typeTag: null,
+        overview: [
+          "상태: 진행중",
+          "캠페인 유형: Influencer Seeding + Marketing to Sales Campaign",
+          "목표: Brand awareness → Early market validation test",
+          "예산: 약 150만원 (VAT 미포함)",
+          "참여 인원: 외국인 마이크로 인플루언서 총 30명 (1만명 이하)",
+          "캠페인 기간: 시딩 30일 / 마케팅-투-세일즈 7일",
+          "산출물 계획: 인스타그램 전용 영상 30개",
+          "현재 업로드: 5개 완료",
+          "추가 구조: 인도네시아·우즈벡 크리에이터 공동구매",
+          "파트너십 유형: 수수료 지급 방식"
+        ],
+        metrics: [
+          { label: "예산", text: "약 150만원" },
+          { label: "인플루언서", count: 30, suffix: "명" },
+          { label: "첫날 매출", text: "약 500만원", win: true }
+        ],
+        roi: {
+          desc: "예산 약 150만원 → 첫날 매출 약 500만원. 다국가 마이크로 인플루언서 구조로 초기 수요 검증과 판매 연결을 동시에 테스트.",
+          budgetText: "₩1,500,000",
+          recoveryPct: 333
+        },
+        caseInsight: "자임당은 단순 브랜딩 사례가 아니라, 다국가 마이크로 인플루언서를 활용해 초기 수요 검증과 판매 연결을 함께 테스트하는 확장형 구조로 해석할 수 있습니다.",
+        engagement: {
+          chartLabel: "Ongoing Performance Snapshot",
+          views: 63179, likes: 1250, comments: 207, shares: 50,
+          total: 64686,
+          insight: "본 수치는 현재 공개/집계된 일부 참여자 지표 기준의 스냅샷으로, 캠페인 진행에 따라 추가 확대 가능성이 있습니다.",
+          details: [
+            "총 조회수: 63,179", "좋아요: 1,250", "댓글: 207",
+            "공유: 50", "통합 참여: 64,686", "유기적 CPM: ₩3,165"
+          ],
+          note: "주석 — 보고서상 자임당 성과 수치는 일부 크리에이터 공개 지표 및 현재 업로드된 콘텐츠 기준으로 해석해야 합니다."
+        },
+        cpm: 3165,
+        budget: 1500000,
+        sales: 5000000,
+        budgetText: "약 150만원",
+        salesText: "약 500만원",
+        salesInterpretation: "진행 중 케이스지만 초기 판매 연결 강도 높음",
+        countries: "Russia, Uzbekistan, Indonesia, Japan, China, US, Middle East",
+        geoCount: 7,
+        geoInterpretation: "초기 시장 검증을 위한 다국가 확장형 도달"
+      },
+      {
+        id: "labab",
+        name: "LaBab",
+        heading: "LaBab 글로벌 크리에이터 캠페인",
+        live: true,                          // 진행중 → LIVE 카운터 작동
+        typeTag: "GLOBAL SEEDING",
+        overview: [
+          "캠페인: LaBab x Vively 글로벌 인플루언서 시딩 캠페인",
+          "구조: 매장 방문 → 현장 경험 → 인스타그램 릴스 업로드",
+          "참여: 외국인 크리에이터 73명 확정 (지원 116명)",
+          "분포: 26개국 · 7개 권역 (동남아·남아시아·유럽·CIS 등)",
+          "산출물: 릴스 48개 업로드 완료 · 25개 진행 대기",
+          "지점 커버리지: 서울 전역 20여개 지점 방문 인증",
+          "집계 기준: 2026년 7월 16일 (캠페인 진행 중)"
+        ],
+        metrics: [
+          { label: "조회수", count: 253890, win: true },
+          { label: "참여 크리에이터", count: 73, suffix: "명" },
+          { label: "공유", count: 798, win: true }
+        ],
+        roi: {
+          desc: "지원자 116명 중 73명 확정 → 48개 콘텐츠 업로드 → 총 253,890 조회수. 세일즈 전환보다 인지도 확장과 도달에 초점을 맞춘 리치형 캠페인.",
+          budgetText: "약 279만원 (지급+예정 합산)",
+          metricLabel: "업로드당 평균 조회수",
+          metricValue: 5289,
+          metricSuffix: ""
+        },
+        caseInsight: "상위 5명의 크리에이터가 전체 조회수의 약 62%를 견인하는 구조로, 73명 규모의 다국가 포트폴리오 시딩이 바이럴 확률을 높이는 전략으로 작동했습니다.",
+        engagement: {
+          chartLabel: "Engagement Breakdown",
+          views: 253890, likes: null, comments: 276, shares: 798,
+          total: 254964,
+          insight: "공유 798회는 댓글(276회)의 약 3배로, 콘텐츠가 저장하고 공유하는 실용 정보형 반응을 얻고 있음을 보여줍니다. 매장 방문 유도형 캠페인에서 특히 의미 있는 신호입니다.",
+          details: [
+            "총 조회수: 253,890 (48개 콘텐츠)",
+            "공유/리포스트: 798 — 최다 공유 단일 콘텐츠 361회",
+            "댓글: 276",
+            "통합 참여: 254,964",
+            "업로드당 평균 조회수: 약 5,289"
+          ],
+          note: "주석 — 2026년 7월 16일 집계 기준 스냅샷이며, 대기 중인 25개 콘텐츠가 업로드되면 수치는 추가로 증가합니다."
+        },
+        /* CPM 대신 View당 지급 단가(PVV) 모델 — 아래 extra 섹션에서 별도 비교 */
+        countries: "Indonesia, India, Japan, Russia, Iraq 등 26개국",
+        geoCount: 26,
+        geoInterpretation: "동남아·남아시아 중심에 중동·CIS까지 더한 최대 규모의 다국가 확장 테스트",
+        /* 프로젝트 전용 추가 섹션 (선택 사항) — 이 프로젝트만의 별도 비교 차트가 필요할 때 사용 */
+        extra: {
+          kicker: "COST EFFICIENCY",
+          title: "LaBab View당 지급 단가 (PVV) 비교",
+          intro: "LaBab은 View당 지급 단가(PVV) 모델로 운영되며, 시장 일반 범위(₩14–56/뷰) 대비 최저 수준의 단가를 기록했습니다.",
+          chartId: "pvv-labab",
+          insight: "LaBab의 PVV는 ₩15/뷰로 시장 범위의 최하단에 위치하며, 대기 중인 콘텐츠가 업로드될수록 실효 단가는 더 낮아질 수 있습니다.",
+          interpretationTitle: "핵심 해석",
+          interpretation: [
+            "시장 일반 범위: View당 ₩14 ~ ₩56",
+            "LaBab 지급 기준 단가: View당 ₩15",
+            "마이크로 크리에이터 중심 시딩이 저단가 구조의 핵심"
+          ],
+          metrics: [
+            { label: "시장 최저", text: "₩14/뷰" },
+            { label: "시장 최고", text: "₩56/뷰" },
+            { label: "LaBab ✦", text: "₩15/뷰", win: true }
+          ],
+          chartData: { labels: ["시장 최저", "시장 최고", "LaBab ✦"], values: [14, 56, 15], highlightIndex: 2 }
+        }
+      }
+    ],
+
+    /* ---- 예산 대비 매출 / 글로벌 도달 (차트는 위 projects에서 자동 생성) ---- */
+    budgetSalesInsight: "두 사례 모두 비교적 제한된 예산 구조에서도 세일즈 연결 신호를 설명할 수 있습니다.",
+    budgetSalesNote: "LaBab 캠페인은 세일즈 전환보다 인지도 확장과 도달에 초점을 맞춘 리치형 캠페인으로, 매출 신호 대신 총 조회수 253,890 (예산 약 279만원)을 핵심 성과로 제시합니다.",
+    geoInsight: "Juno Seoul은 3개 국가 중심의 집중 테스트, 자임당은 7개 권역 수준의 확장 테스트, LaBab은 26개국을 아우르는 최대 규모의 다국가 확장 테스트로 해석할 수 있습니다.",
+
+    /* ---- 마지막 섹션 ---- */
+    whyPoints: [
+      "적은 예산에서도 바로 설명 가능한 숫자가 존재",
+      "단순 광고 운영이 아니라 글로벌 세일즈 테스트 구조에 가까움",
+      "콘텐츠 산출물, 국가 도달, 프로모션 연계가 하나의 체계로 연결",
+      "조회수 중심이 아니라 CPM·참여·매출 신호까지 함께 제시 가능"
+    ],
+    quote: "“Vively는 해외 타깃 대상 인플루언서 시딩을 통해, 브랜드 인지도 확보와 초기 세일즈 검증을 동시에 수행하는 파트너입니다. 저예산 구조에서도 CPM 효율과 실제 예약 또는 구매 전환 신호를 함께 제시할 수 있습니다.”",
+    footer: {
+      sourceName: "Final Reports (1).pdf",
+      sourceUrl: "https://www.genspark.ai/api/files/s/gkMjuw3s",
+      note: "주석: 일부 수치는 추정치이며, 플랫폼 알고리즘 및 일부 크리에이터의 제한적 데이터 공개로 인해 변동될 수 있습니다. 진행 중 케이스의 성과 수치는 일부 공개/집계 시점 기준의 스냅샷으로 해석해야 합니다. LaBab 데이터는 LaBab x ScoutLab Collaboration (Responses) 시트의 Report 탭(2026년 7월 16일 집계) 기준입니다."
+    }
+  };
+  /* ═══════════════════ 데이터 블록 끝 — 아래는 수정 불필요 ═══════════════════ */
+  </script>
+
+  <script>
+    /* ============ theme constants ============ */
     const axisColor = "#5c6474";
     const gridColor = "rgba(15,23,42,0.07)";
     const VIOLET = "#8b5cf6";
     const PINK = "#ec4899";
     const MINT = "#10b981";
+    const GOLD = "#f59e0b";
     const GRAY = "rgba(15,23,42,0.2)";
     const GRAY2 = "rgba(15,23,42,0.36)";
+    /* per-project accent color pairs (cycles if more than 4 projects) */
+    const PROJECT_COLORS = [
+      ["rgba(16,185,129,0.5)", MINT],
+      ["rgba(139,92,246,0.5)", VIOLET],
+      ["rgba(236,72,153,0.4)", PINK],
+      ["rgba(245,158,11,0.45)", GOLD]
+    ];
+    const projColor = (i) => PROJECT_COLORS[i % PROJECT_COLORS.length];
 
     Chart.defaults.font.family = '"Pretendard", -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", Arial, sans-serif';
     Chart.defaults.color = axisColor;
 
+    /* ============ html helpers ============ */
+    const esc = (s) => String(s ?? "").replace(/&/g, "&amp;").replace(/</g, "&lt;");
+    const countSpan = (v, live) => '<span class="count' + (live ? " tick" : "") + '" data-target="' + v + '">0</span>';
+    const liveBadge = '<span class="live-badge"><span class="live-dot"></span>LIVE</span>';
+    const num2 = (n) => String(n).padStart(2, "0");
+    const listHtml = (items) => '<ul class="list">' + items.map((li) => "<li>" + li + "</li>").join("") + "</ul>";
+
+    function metricMini(m) {
+      const val = m.text !== undefined
+        ? esc(m.text)
+        : countSpan(m.count, m.liveTick) + (m.suffix || "");
+      return '<div class="metric-mini' + (m.win ? " win" : "") + '"><span>' + esc(m.label) + "</span><strong>" + val + "</strong></div>";
+    }
+
+    /* ============ build sections ============ */
+    let sectionNo = 0;
+    const parts = [];
+    const R = REPORT;
+
+    /* hero */
+    parts.push(
+      '<section class="hero reveal">' +
+      '<div class="eyebrow"><span class="live-dot"></span> ' + esc(R.hero.eyebrow) + "</div>" +
+      '<h1 class="title"><span class="grad">' + esc(R.hero.title) + "</span></h1>" +
+      '<div class="subtitle">' + R.hero.subtitle.map(esc).join("<br />") + "</div>" +
+      "</section>"
+    );
+
+    /* 01 — KPI summary */
+    sectionNo++;
+    parts.push(
+      '<section class="section reveal">' +
+      '<h2><span class="num">' + num2(sectionNo) + " — KEY RESULTS</span>핵심 성과 요약</h2>" +
+      '<div class="section-intro">' + esc(R.kpiIntro) + "</div>" +
+      '<div class="grid-4">' +
+      R.kpis.map((k) =>
+        '<div class="card kpi' + (k.hot ? " hot" : "") + '">' +
+        '<div class="kpi-label">' + esc(k.label) + (k.tag ? ' <span class="tag">' + esc(k.tag) + "</span>" : "") + "</div>" +
+        '<div class="kpi-value">' + esc(k.prefix || "") + countSpan(k.value) + esc(k.suffix || "") + "</div>" +
+        '<div class="kpi-note">' + esc(k.note) + "</div></div>"
+      ).join("") +
+      "</div>" +
+      '<div class="insight"><strong>인사이트</strong> — ' + esc(R.kpiInsight) + "</div>" +
+      "</section>"
+    );
+
+    /* 02 — positioning */
+    sectionNo++;
+    parts.push(
+      '<section class="section reveal">' +
+      '<h2><span class="num">' + num2(sectionNo) + " — POSITIONING</span>Vively 포지셔닝</h2>" +
+      '<div class="grid-2">' +
+      R.positioning.map((p) =>
+        '<div class="card"><div class="label">' + esc(p.label) + '</div><div class="case-title">' + esc(p.title) + '</div><div class="kpi-note">' + esc(p.note) + "</div></div>"
+      ).join("") +
+      "</div></section>"
+    );
+
+    /* 03 — CPM benchmark */
+    sectionNo++;
+    parts.push(
+      '<section class="section reveal">' +
+      '<h2><span class="num">' + num2(sectionNo) + " — COST EFFICIENCY</span>비용 효율성 비교</h2>" +
+      '<div class="grid-2">' +
+      '<div class="card chart-card"><div class="label">CPM Benchmark ' + liveBadge + "</div>" +
+      '<div class="chart-wrap"><canvas id="cpmChart"></canvas></div>' +
+      '<div class="insight"><strong>인사이트</strong> — ' + esc(R.cpmInsight) + "</div></div>" +
+      '<div class="card"><div class="case-title">핵심 해석</div>' + listHtml(R.cpmInterpretation.map(esc)) +
+      '<div class="metric-strip">' +
+      R.projects.filter((p) => p.cpm != null).map((p) => metricMini({ label: p.name + " ✦", text: "₩" + p.cpm.toLocaleString(), win: true })).join("") +
+      metricMini({ label: "광고 매체 대비", text: "낮은 단가" }) +
+      "</div>" +
+      (R.cpmNote ? '<div class="note-box">' + esc(R.cpmNote) + "</div>" : "") +
+      "</div></div></section>"
+    );
+
+    /* per-project: case study + engagement sections */
+    R.projects.forEach((p, pi) => {
+      sectionNo++;
+      parts.push(
+        '<section class="section reveal">' +
+        '<h2><span class="num">' + num2(sectionNo) + " — CASE STUDY " + (pi + 1) + "</span>" + esc(p.heading) +
+        (p.live ? ' <span class="tag" style="vertical-align: middle;">진행중</span>' : "") + "</h2>" +
+        '<div class="grid-2">' +
+        '<div class="card"><div class="case-title">프로젝트 개요' +
+        (p.typeTag ? ' <span class="tag violet">' + esc(p.typeTag) + "</span>" : "") + "</div>" +
+        listHtml(p.overview.map(esc)) +
+        '<div class="metric-strip">' + p.metrics.map(metricMini).join("") + "</div></div>" +
+        '<div class="card"><div class="case-title">ROI 하이라이트</div>' +
+        '<div class="kpi-note" style="margin-bottom: 14px;">' + esc(p.roi.desc) + "</div>" +
+        '<div class="metric-strip cols-2" style="margin-top: 0;">' +
+        metricMini({ label: "투입 예산", text: p.roi.budgetText }) +
+        metricMini({
+          label: p.roi.metricLabel || "첫날 회수율",
+          count: p.roi.metricValue ?? p.roi.recoveryPct,
+          suffix: p.roi.metricSuffix ?? "%",
+          win: true
+        }) +
+        "</div>" +
+        '<div class="insight"><strong>인사이트</strong> — ' + esc(p.caseInsight) + "</div></div></div>" +
+        '<div class="label" style="margin-top: 26px;">Campaign Visuals (Reels 9:16)</div>' +
+        '<div class="reel-grid" id="reels-' + p.id + '"></div>' +
+        "</section>"
+      );
+
+      sectionNo++;
+      const e = p.engagement;
+      parts.push(
+        '<section class="section reveal">' +
+        '<h2><span class="num">' + num2(sectionNo) + " — ENGAGEMENT</span>" + esc(p.name) + " 반응 지표</h2>" +
+        '<div class="grid-2">' +
+        '<div class="card chart-card"><div class="label">' + esc(e.chartLabel) + " " + liveBadge + "</div>" +
+        '<div class="chart-wrap"><canvas id="eng-' + p.id + '"></canvas></div>' +
+        '<div class="insight"><strong>인사이트</strong> — ' + esc(e.insight) + "</div></div>" +
+        '<div class="card"><div class="case-title">세부 지표</div>' + listHtml(e.details.map(esc)) +
+        '<div class="metric-strip cols-2">' +
+        metricMini({ label: p.live ? "Views (진행중)" : "Views", count: e.views, liveTick: p.live, win: true }) +
+        metricMini({ label: "통합 참여", count: e.total }) +
+        "</div>" +
+        (e.note ? '<div class="note-box">' + esc(e.note) + "</div>" : "") +
+        "</div></div></section>"
+      );
+
+      /* 프로젝트 전용 추가 섹션 (선택 사항) */
+      if (p.extra) {
+        sectionNo++;
+        const x = p.extra;
+        parts.push(
+          '<section class="section reveal">' +
+          '<h2><span class="num">' + num2(sectionNo) + " — " + esc(x.kicker) + "</span>" + esc(x.title) + "</h2>" +
+          (x.intro ? '<div class="section-intro">' + esc(x.intro) + "</div>" : "") +
+          '<div class="grid-2">' +
+          '<div class="card chart-card"><div class="label">' + esc(x.title) + " " + liveBadge + "</div>" +
+          '<div class="chart-wrap"><canvas id="' + x.chartId + '"></canvas></div>' +
+          '<div class="insight"><strong>인사이트</strong> — ' + esc(x.insight) + "</div></div>" +
+          '<div class="card"><div class="case-title">' + esc(x.interpretationTitle || "핵심 해석") + "</div>" +
+          listHtml(x.interpretation.map(esc)) +
+          '<div class="metric-strip">' + x.metrics.map(metricMini).join("") + "</div>" +
+          "</div></div></section>"
+        );
+      }
+    });
+
+    /* budget vs sales */
+    sectionNo++;
+    parts.push(
+      '<section class="section reveal">' +
+      '<h2><span class="num">' + num2(sectionNo) + " — ROI</span>예산 대비 매출 신호</h2>" +
+      '<div class="grid-2">' +
+      '<div class="card chart-card"><div class="label">Budget vs Sales Signal ' + liveBadge + "</div>" +
+      '<div class="chart-wrap"><canvas id="budgetSalesChart"></canvas></div>' +
+      '<div class="insight"><strong>인사이트</strong> — ' + esc(R.budgetSalesInsight) + "</div></div>" +
+      '<div class="card"><table><thead><tr><th>브랜드</th><th>예산</th><th>매출 신호</th><th>해석</th></tr></thead><tbody>' +
+      R.projects.filter((p) => p.sales != null).map((p) =>
+        "<tr><td><strong>" + esc(p.name) + "</strong></td><td>" + esc(p.budgetText) +
+        '</td><td><strong style="color: var(--mint);">' + esc(p.salesText) + "</strong></td><td>" + esc(p.salesInterpretation) + "</td></tr>"
+      ).join("") +
+      "</tbody></table>" +
+      (R.budgetSalesNote ? '<div class="note-box">' + esc(R.budgetSalesNote) + "</div>" : "") +
+      "</div></div></section>"
+    );
+
+    /* geo */
+    sectionNo++;
+    parts.push(
+      '<section class="section reveal">' +
+      '<h2><span class="num">' + num2(sectionNo) + " — GLOBAL REACH</span>글로벌 도달 범위</h2>" +
+      '<div class="grid-2">' +
+      '<div class="card chart-card"><div class="label">Geographic Reach ' + liveBadge + "</div>" +
+      '<div class="chart-wrap"><canvas id="geoChart"></canvas></div>' +
+      '<div class="insight"><strong>인사이트</strong> — ' + esc(R.geoInsight) + "</div></div>" +
+      '<div class="card"><table><thead><tr><th>브랜드</th><th>도달 국가/권역</th><th>해석</th></tr></thead><tbody>' +
+      R.projects.map((p) =>
+        "<tr><td><strong>" + esc(p.name) + "</strong></td><td>" + esc(p.countries) + "</td><td>" + esc(p.geoInterpretation) + "</td></tr>"
+      ).join("") +
+      "</tbody></table></div></div></section>"
+    );
+
+    /* why + footer */
+    sectionNo++;
+    parts.push(
+      '<section class="section reveal">' +
+      '<h2><span class="num">' + num2(sectionNo) + " — WHY VIVELY</span>왜 신규 한국 클라이언트가 주목해야 하는가</h2>" +
+      '<div class="grid-2">' +
+      '<div class="card"><div class="case-title">설득 포인트</div>' + listHtml(R.whyPoints.map(esc)) + "</div>" +
+      '<div class="quote-box">' + esc(R.quote) + "</div></div>" +
+      '<div class="footer">Source PDF: <a href="' + R.footer.sourceUrl + '" target="_blank">' + esc(R.footer.sourceName) + "</a><br /><br />" +
+      esc(R.footer.note) + "</div></section>"
+    );
+
+    document.getElementById("app").innerHTML = parts.join("");
+
+    /* ============ chart plumbing ============ */
     function vGradient(ctx, area, from, to) {
       const g = ctx.createLinearGradient(0, area.bottom, 0, area.top);
       g.addColorStop(0, from);
       g.addColorStop(1, to);
       return g;
     }
-
-    /* value labels drawn above bars (all datasets) */
     const valueLabels = {
       id: "valueLabels",
       afterDatasetsDraw(chart, _, opts) {
@@ -738,12 +760,10 @@
           meta.data.forEach((bar, i) => {
             const text = fmt(ds.data[i]);
             if (horizontal) {
-              ctx.textAlign = "left";
-              ctx.textBaseline = "middle";
+              ctx.textAlign = "left"; ctx.textBaseline = "middle";
               ctx.fillText(text, bar.x + 8, bar.y);
             } else {
-              ctx.textAlign = "center";
-              ctx.textBaseline = "bottom";
+              ctx.textAlign = "center"; ctx.textBaseline = "bottom";
               ctx.fillText(text, bar.x, bar.y - 6);
             }
           });
@@ -751,8 +771,6 @@
         ctx.restore();
       }
     };
-
-    /* log-scale ticks: show only clean powers of 10 */
     const logTicks = {
       color: axisColor,
       autoSkip: false,
@@ -762,56 +780,34 @@
       }
     };
 
-    function engagementBarColor(c) {
-      const { ctx, chartArea } = c.chart;
-      if (!chartArea) return VIOLET;
-      const pairs = [
-        ["rgba(139,92,246,0.45)", VIOLET],
-        ["rgba(236,72,153,0.4)", PINK],
-        ["rgba(15,23,42,0.12)", GRAY2],
-        ["rgba(15,23,42,0.08)", GRAY]
-      ];
-      const [a, b] = pairs[c.dataIndex];
-      return vGradient(ctx, chartArea, a, b);
-    }
+    const charts = {};       // id → Chart instance
+    const baseData = {};     // id → original data (for live breathing)
 
-    const engagementOptions = {
-      responsive: true,
-      maintainAspectRatio: false,
-      animation: { duration: 1400, easing: "easeOutQuart", delay: (c) => c.dataIndex * 160 },
-      plugins: {
-        legend: { display: false },
-        valueLabels: {},
-        tooltip: { callbacks: { label: (ctx) => " " + Math.round(ctx.raw).toLocaleString() } }
-      },
-      scales: {
-        x: { ticks: { color: axisColor }, grid: { display: false } },
-        y: { type: "logarithmic", min: 10, ticks: logTicks, grid: { color: gridColor } }
-      }
-    };
-
-    /* ============ charts ============ */
-    const cpmChart = new Chart(document.getElementById("cpmChart"), {
+    /* CPM chart: benchmarks (gray) + one colored bar per project that defines a cpm value */
+    const cpmProjects = R.projects.filter((p) => p.cpm != null);
+    const cpmLabels = R.cpmBenchmarks.map((b) => b.label).concat(cpmProjects.map((p) => p.name + " ✦"));
+    const cpmValues = R.cpmBenchmarks.map((b) => b.value).concat(cpmProjects.map((p) => p.cpm));
+    const nBench = R.cpmBenchmarks.length;
+    charts.cpmChart = new Chart(document.getElementById("cpmChart"), {
       type: "bar",
       data: {
-        labels: ["Meta Low", "Meta High", "TikTok Low", "TikTok High", "Juno ✦", "Jaimdang ✦"],
+        labels: cpmLabels,
         datasets: [{
-          data: [7000, 20000, 3000, 12000, 2731, 3165],
+          data: cpmValues.slice(),
           backgroundColor: (c) => {
             const { ctx, chartArea } = c.chart;
             if (!chartArea) return GRAY;
-            if (c.dataIndex === 4) return vGradient(ctx, chartArea, "rgba(16,185,129,0.5)", MINT);
-            if (c.dataIndex === 5) return vGradient(ctx, chartArea, "rgba(139,92,246,0.5)", VIOLET);
+            if (c.dataIndex >= nBench) {
+              const [a, b] = projColor(c.dataIndex - nBench);
+              return vGradient(ctx, chartArea, a, b);
+            }
             return vGradient(ctx, chartArea, "rgba(15,23,42,0.1)", GRAY2);
           },
-          borderRadius: 8,
-          borderSkipped: false,
-          maxBarThickness: 58
+          borderRadius: 8, borderSkipped: false, maxBarThickness: 58
         }]
       },
       options: {
-        responsive: true,
-        maintainAspectRatio: false,
+        responsive: true, maintainAspectRatio: false,
         animation: { duration: 1400, easing: "easeOutQuart", delay: (c) => c.dataIndex * 130 },
         plugins: {
           legend: { display: false },
@@ -820,77 +816,87 @@
         },
         scales: {
           x: { ticks: { color: axisColor, maxRotation: 0, minRotation: 0 }, grid: { display: false } },
-          y: {
-            ticks: { color: axisColor, callback: (v) => "₩" + v.toLocaleString() },
-            grid: { color: gridColor }
-          }
+          y: { ticks: { color: axisColor, callback: (v) => "₩" + v.toLocaleString() }, grid: { color: gridColor } }
         }
       },
       plugins: [valueLabels]
     });
+    baseData.cpmChart = cpmValues;
 
-    const junoEngagementChart = new Chart(document.getElementById("junoEngagementChart"), {
-      type: "bar",
-      data: {
-        labels: ["Views", "Likes", "Comments", "Shares"],
-        datasets: [{
-          data: [366126, 22868, 410, 249],
-          backgroundColor: engagementBarColor,
-          borderRadius: 8,
-          borderSkipped: false,
-          maxBarThickness: 72
-        }]
-      },
-      options: engagementOptions,
-      plugins: [valueLabels]
+    /* engagement chart per project (skips metrics a project doesn't report, e.g. no "likes" data) */
+    R.projects.forEach((p) => {
+      const id = "eng-" + p.id;
+      const e = p.engagement;
+      const engPairs = [["Views", e.views], ["Likes", e.likes], ["Comments", e.comments], ["Shares", e.shares]]
+        .filter(([, v]) => v != null);
+      const engLabels = engPairs.map(([l]) => l);
+      const vals = engPairs.map(([, v]) => v);
+      charts[id] = new Chart(document.getElementById(id), {
+        type: "bar",
+        data: {
+          labels: engLabels,
+          datasets: [{
+            data: vals.slice(),
+            backgroundColor: (c) => {
+              const { ctx, chartArea } = c.chart;
+              if (!chartArea) return VIOLET;
+              const pairs = [
+                ["rgba(139,92,246,0.45)", VIOLET],
+                ["rgba(236,72,153,0.4)", PINK],
+                ["rgba(15,23,42,0.12)", GRAY2],
+                ["rgba(15,23,42,0.08)", GRAY]
+              ];
+              const [a, b] = pairs[c.dataIndex];
+              return vGradient(ctx, chartArea, a, b);
+            },
+            borderRadius: 8, borderSkipped: false, maxBarThickness: 72
+          }]
+        },
+        options: {
+          responsive: true, maintainAspectRatio: false,
+          animation: { duration: 1400, easing: "easeOutQuart", delay: (c) => c.dataIndex * 160 },
+          plugins: {
+            legend: { display: false },
+            valueLabels: {},
+            tooltip: { callbacks: { label: (ctx) => " " + Math.round(ctx.raw).toLocaleString() } }
+          },
+          scales: {
+            x: { ticks: { color: axisColor }, grid: { display: false } },
+            y: { type: "logarithmic", min: 10, ticks: Object.assign({}, logTicks), grid: { color: gridColor } }
+          }
+        },
+        plugins: [valueLabels]
+      });
+      baseData[id] = vals;
     });
 
-    const jaimdangEngagementChart = new Chart(document.getElementById("jaimdangEngagementChart"), {
+    /* budget vs sales (grouped) — only projects that report an actual sales/revenue signal */
+    const salesProjects = R.projects.filter((p) => p.sales != null);
+    charts.budgetSalesChart = new Chart(document.getElementById("budgetSalesChart"), {
       type: "bar",
       data: {
-        labels: ["Views", "Likes", "Comments", "Shares"],
-        datasets: [{
-          data: [63179, 1250, 207, 50],
-          backgroundColor: engagementBarColor,
-          borderRadius: 8,
-          borderSkipped: false,
-          maxBarThickness: 72
-        }]
-      },
-      options: engagementOptions,
-      plugins: [valueLabels]
-    });
-
-    const budgetSalesChart = new Chart(document.getElementById("budgetSalesChart"), {
-      type: "bar",
-      data: {
-        labels: ["Juno Seoul", "자임당"],
+        labels: salesProjects.map((p) => p.name),
         datasets: [
           {
             label: "예산",
-            data: [1000000, 1500000],
+            data: salesProjects.map((p) => p.budget),
             backgroundColor: GRAY2,
-            borderRadius: 8,
-            borderSkipped: false,
-            maxBarThickness: 58
+            borderRadius: 8, borderSkipped: false, maxBarThickness: 58
           },
           {
             label: "매출 신호",
-            data: [1500000, 5000000],
+            data: salesProjects.map((p) => p.sales),
             backgroundColor: (c) => {
               const { ctx, chartArea } = c.chart;
               if (!chartArea) return MINT;
               return vGradient(ctx, chartArea, "rgba(16,185,129,0.5)", MINT);
             },
-            borderRadius: 8,
-            borderSkipped: false,
-            maxBarThickness: 58
+            borderRadius: 8, borderSkipped: false, maxBarThickness: 58
           }
         ]
       },
       options: {
-        responsive: true,
-        maintainAspectRatio: false,
+        responsive: true, maintainAspectRatio: false,
         animation: { duration: 1400, easing: "easeOutQuart", delay: (c) => c.dataIndex * 180 + c.datasetIndex * 120 },
         plugins: {
           legend: { position: "top", labels: { color: axisColor, usePointStyle: true, pointStyle: "circle" } },
@@ -899,74 +905,102 @@
         },
         scales: {
           x: { ticks: { color: axisColor, font: { size: 13, weight: "700" } }, grid: { display: false } },
-          y: {
-            ticks: { color: axisColor, callback: (v) => (v / 10000).toLocaleString() + "만원" },
-            grid: { color: gridColor }
-          }
+          y: { ticks: { color: axisColor, callback: (v) => (v / 10000).toLocaleString() + "만원" }, grid: { color: gridColor } }
         }
       },
       plugins: [valueLabels]
     });
 
-    const geoChart = new Chart(document.getElementById("geoChart"), {
+    /* geo (horizontal) */
+    charts.geoChart = new Chart(document.getElementById("geoChart"), {
       type: "bar",
       data: {
-        labels: ["Juno Seoul", "자임당"],
+        labels: R.projects.map((p) => p.name),
         datasets: [{
           label: "도달 국가/권역 수",
-          data: [3, 7],
+          data: R.projects.map((p) => p.geoCount),
           backgroundColor: (c) => {
             const { ctx, chartArea } = c.chart;
             if (!chartArea) return VIOLET;
             const g = ctx.createLinearGradient(chartArea.left, 0, chartArea.right, 0);
-            if (c.dataIndex === 1) { g.addColorStop(0, "rgba(139,92,246,0.5)"); g.addColorStop(1, PINK); }
-            else { g.addColorStop(0, "rgba(15,23,42,0.12)"); g.addColorStop(1, GRAY2); }
+            const [a, b] = projColor(c.dataIndex);
+            g.addColorStop(0, a); g.addColorStop(1, b);
             return g;
           },
-          borderRadius: 8,
-          borderSkipped: false,
-          maxBarThickness: 54
+          borderRadius: 8, borderSkipped: false, maxBarThickness: 54
         }]
       },
       options: {
         indexAxis: "y",
-        responsive: true,
-        maintainAspectRatio: false,
+        responsive: true, maintainAspectRatio: false,
         animation: { duration: 1400, easing: "easeOutQuart", delay: (c) => c.dataIndex * 200 },
-        plugins: {
-          legend: { display: false },
-          valueLabels: { suffix: "개 권역" }
-        },
+        plugins: { legend: { display: false }, valueLabels: { suffix: "개 권역" } },
         scales: {
-          x: { beginAtZero: true, max: 8, ticks: { stepSize: 1, color: axisColor }, grid: { color: gridColor } },
+          x: {
+            beginAtZero: true,
+            max: Math.max(...R.projects.map((p) => p.geoCount)) + 1,
+            ticks: { stepSize: 1, color: axisColor },
+            grid: { color: gridColor }
+          },
           y: { ticks: { color: axisColor, font: { size: 14, weight: "700" } }, grid: { display: false } }
         }
       },
       plugins: [valueLabels]
     });
 
-    /* replay chart animation each time it scrolls into view */
-    const chartByCanvas = { cpmChart, junoEngagementChart, jaimdangEngagementChart, budgetSalesChart, geoChart };
+    /* project-specific "extra" charts (e.g. LaBab's PVV benchmark) */
+    R.projects.forEach((p) => {
+      if (!p.extra) return;
+      const x = p.extra;
+      const cd = x.chartData;
+      charts[x.chartId] = new Chart(document.getElementById(x.chartId), {
+        type: "bar",
+        data: {
+          labels: cd.labels,
+          datasets: [{
+            data: cd.values.slice(),
+            backgroundColor: (c) => {
+              const { ctx, chartArea } = c.chart;
+              if (!chartArea) return GRAY;
+              if (c.dataIndex === cd.highlightIndex) return vGradient(ctx, chartArea, "rgba(16,185,129,0.5)", MINT);
+              return vGradient(ctx, chartArea, "rgba(15,23,42,0.1)", GRAY2);
+            },
+            borderRadius: 8, borderSkipped: false, maxBarThickness: 72
+          }]
+        },
+        options: {
+          responsive: true, maintainAspectRatio: false,
+          animation: { duration: 1400, easing: "easeOutQuart", delay: (c) => c.dataIndex * 160 },
+          plugins: {
+            legend: { display: false },
+            valueLabels: { prefix: "₩", suffix: "/뷰" },
+            tooltip: { callbacks: { label: (ctx) => " ₩" + Math.round(ctx.raw).toLocaleString() + "/뷰" } }
+          },
+          scales: {
+            x: { ticks: { color: axisColor, font: { size: 12, weight: "700" } }, grid: { display: false } },
+            y: { ticks: { color: axisColor, callback: (v) => "₩" + v }, grid: { color: gridColor } }
+          }
+        },
+        plugins: [valueLabels]
+      });
+      baseData[x.chartId] = cd.values.slice();
+    });
+
+    /* replay chart animation on scroll into view */
     const chartObserver = new IntersectionObserver((entries) => {
       entries.forEach((e) => {
         if (e.isIntersecting) {
-          const ch = chartByCanvas[e.target.id];
-          ch.reset();
-          ch.update();
+          const ch = charts[e.target.id];
+          if (ch) { ch.reset(); ch.update(); }
         }
       });
     }, { threshold: 0.4 });
-    Object.keys(chartByCanvas).forEach((id) => chartObserver.observe(document.getElementById(id)));
+    Object.keys(charts).forEach((id) => chartObserver.observe(document.getElementById(id)));
 
-    /* gentle "live breathing" so charts keep moving */
-    const baseData = {
-      cpmChart: [7000, 20000, 3000, 12000, 2731, 3165],
-      junoEngagementChart: [366126, 22868, 410, 249],
-      jaimdangEngagementChart: [63179, 1250, 207, 50]
-    };
+    /* gentle "live breathing" on cpm + engagement charts */
     setInterval(() => {
       Object.keys(baseData).forEach((id) => {
-        const ch = chartByCanvas[id];
+        const ch = charts[id];
         ch.data.datasets[0].data = baseData[id].map((v) => v * (1 + (Math.random() - 0.5) * 0.012));
         ch.update({ duration: 1600, easing: "easeInOutSine" });
       });
@@ -986,7 +1020,6 @@
       }
       requestAnimationFrame(frame);
     }
-    /* live ticker: ongoing-campaign views keep creeping up */
     function startTicker(el, base) {
       let v = base;
       setInterval(() => {
@@ -1010,28 +1043,19 @@
     }, { threshold: 0.12 });
     document.querySelectorAll(".reveal").forEach((el) => revealObserver.observe(el));
 
-    /* ============ reel media slots (4 per project, 9:16) ============ */
-    const REEL_SETS = {
-      "reels-juno": "juno",
-      "reels-jaimdang": "jaimdang"
-    };
+    /* ============ reel media slots (4 per project, 9:16) ============
+       Files load from ./media — "<id>-1.mp4" … "<id>-4.mp4"
+       Formats tried in order: .mp4 → .webm → .gif → .jpg → .png */
     const EXTS = ["mp4", "webm", "gif", "jpg", "png"];
-
     function tryLoad(slot, name, extIndex) {
       if (extIndex >= EXTS.length) return;
       const ext = EXTS[extIndex];
       const src = "media/" + name + "." + ext;
       if (ext === "mp4" || ext === "webm") {
         const v = document.createElement("video");
-        v.muted = true;
-        v.loop = true;
-        v.autoplay = true;
-        v.playsInline = true;
+        v.muted = true; v.loop = true; v.autoplay = true; v.playsInline = true;
         v.setAttribute("playsinline", "");
-        v.addEventListener("loadeddata", () => {
-          slot.classList.add("filled");
-          v.play().catch(() => {});
-        });
+        v.addEventListener("loadeddata", () => { slot.classList.add("filled"); v.play().catch(() => {}); });
         v.addEventListener("error", () => { v.remove(); tryLoad(slot, name, extIndex + 1); });
         v.src = src;
         slot.appendChild(v);
@@ -1044,11 +1068,10 @@
         slot.appendChild(img);
       }
     }
-
-    function buildReels(containerId, prefix) {
-      const wrap = document.getElementById(containerId);
+    R.projects.forEach((p) => {
+      const wrap = document.getElementById("reels-" + p.id);
       for (let i = 1; i <= 4; i++) {
-        const name = prefix + "-" + i;
+        const name = p.id + "-" + i;
         const slot = document.createElement("div");
         slot.className = "reel";
         slot.innerHTML =
@@ -1058,8 +1081,7 @@
         tryLoad(slot, name, 0);
         wrap.appendChild(slot);
       }
-    }
-    Object.keys(REEL_SETS).forEach((id) => buildReels(id, REEL_SETS[id]));
+    });
   </script>
 </body>
 </html>
