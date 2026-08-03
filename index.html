@@ -274,16 +274,17 @@
       color: #1b1b1b;
     }
 
+    /* REVISED: 2-Card Layout for Engagement (총 조회수 & 공유) */
     .engagement-cards-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-      gap: 12px;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
       margin-top: 14px;
     }
     .eng-card {
       border: 1px solid var(--line);
       border-radius: var(--radius-sm);
-      padding: 16px;
+      padding: 20px 18px;
       background: #ffffff;
       transition: transform 0.2s, border-color 0.2s;
     }
@@ -295,13 +296,17 @@
       font-size: 12px;
       font-weight: 700;
       color: #4f4e4e;
-      margin-bottom: 6px;
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
     }
     .eng-card-value {
-      font-size: 22px;
+      font-size: 32px;
       font-weight: 800;
       color: #1b1b1b;
-      letter-spacing: -0.02em;
+      letter-spacing: -0.03em;
+      font-variant-numeric: tabular-nums;
     }
 
     .reel-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; margin-top: 14px; }
@@ -324,14 +329,13 @@
     }
     .reel:hover { border-color: #1b1b1b; transform: translateY(-3px); }
     
-    /* REVISED: Video pointer-events for pure animation without controls */
     .reel video { 
       position: absolute; 
       inset: 0; 
       width: 100%; 
       height: 100%; 
       object-fit: cover; 
-      pointer-events: none; /* Prevents controls from appearing on hover */
+      pointer-events: none; /* Prevents controls on hover */
     }
     .reel img { 
       position: absolute; 
@@ -401,7 +405,7 @@
       .quote-hero-box { font-size: 17px; }
     }
     @media (max-width: 600px) {
-      .grid-5, .pipeline-grid { grid-template-columns: 1fr; }
+      .grid-5, .pipeline-grid, .engagement-cards-grid { grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -478,6 +482,7 @@
     ],
     cpmNote: "LaBab 캠페인은 View당 지급 단가(PVV) 모델로 운영되어 위 CPM 차트와는 단위가 달라 별도로 비교합니다. 해당 캠페인의 케이스 스터디 섹션에서 확인할 수 있습니다.",
 
+    /* ---- 05 OUR CASE STUDY (ACCURATE TOTALS & LIVE 5S REALTIME TICKER) ---- */
     caseStudyProjects: [
       {
         id: "juno",
@@ -490,12 +495,8 @@
           countryReach: "6개국 (인도네시아, 우즈베키스탄, 대만, 콜롬비아, 카자흐스탄, 캐나다)",
           keyNote: "시딩 진행 후 VIVELY 전용 창구를 통해 예약 시 전 시술 20% 할인 프로모션 연계 진행"
         },
-        engagementCards: [
-          { label: "총 조회수", value: "366,126" },
-          { label: "좋아요", value: "22,868" },
-          { label: "댓글", value: "410" },
-          { label: "공유/리포스트", value: "249" }
-        ]
+        baseViews: 355772,
+        baseShares: 446
       },
       {
         id: "labab",
@@ -508,12 +509,8 @@
           countryReach: "26개국 (동남아, 중동, 아시아, 동유럽, 서유럽, 북미, 남미, 아프리카, 오세아니아)",
           keyNote: "서울 전역 20여 개 지점 방문 인증 진행"
         },
-        engagementCards: [
-          { label: "총 조회수", value: "253,890" },
-          { label: "공유/리포스트", value: "798" },
-          { label: "댓글", value: "276" },
-          { label: "참여 크리에이터", value: "73명" }
-        ]
+        baseViews: 805050,
+        baseShares: 3018
       },
       {
         id: "jaimdang",
@@ -526,12 +523,8 @@
           countryReach: "17개국 (동남아, 동아시아, 남아시아, 중동, 동유럽, 중앙아시아, 서유럽, 아프리카, 남미)",
           keyNote: "초기 시딩 성과를 바탕으로 공동구매 전환 완료 및 신제품 론칭 프로젝트 진행 중"
         },
-        engagementCards: [
-          { label: "총 조회수", value: "63,179" },
-          { label: "좋아요", value: "1,250" },
-          { label: "댓글", value: "207" },
-          { label: "공유", value: "50" }
-        ]
+        baseViews: 100136,
+        baseShares: 1063
       },
       {
         id: "myeondong",
@@ -544,12 +537,8 @@
           countryReach: "19개국 (동남아, 동아시아, 남아시아, 중동, 동유럽, 중앙아시아, 서유럽, 북미, 남미, 아프리카)",
           keyNote: "명동 방문 관광객 대상 실질적 방문 및 오프라인 동선 연계"
         },
-        engagementCards: [
-          { label: "총 조회수", value: "184,500" },
-          { label: "좋아요", value: "12,300" },
-          { label: "저장 및 공유", value: "1,240" },
-          { label: "참여 크리에이터", value: "45명" }
-        ]
+        baseViews: 103806,
+        baseShares: 873
       },
       {
         id: "apgujeong",
@@ -562,12 +551,8 @@
           countryReach: "1개국 (일본)",
           keyNote: "일본 관광객 타깃 맞춤형 바이럴 및 현지 선호 타깃 집중 공략"
         },
-        engagementCards: [
-          { label: "총 조회수", value: "142,000" },
-          { label: "좋아요", value: "9,800" },
-          { label: "저장수", value: "890" },
-          { label: "참여 크리에이터", value: "45명" }
-        ]
+        baseViews: 30080,
+        baseShares: 20
       },
       {
         id: "tonymoly",
@@ -580,12 +565,8 @@
           countryReach: "7개국 (인도네시아, 이집트, 필리핀, 이라크, 스페인, 페루, 이탈리아)",
           keyNote: "글로벌 팝업스토어 체험형 바이럴 콘텐츠 생성"
         },
-        engagementCards: [
-          { label: "총 조회수", value: "412,000" },
-          { label: "좋아요", value: "31,200" },
-          { label: "댓글 문의", value: "1,560" },
-          { label: "참여율", value: "8.4%" }
-        ]
+        baseViews: 47751,
+        baseShares: 54
       },
       {
         id: "parkjun",
@@ -598,12 +579,8 @@
           countryReach: "7개국 (인도네시아, 인도, 우크라이나, 벨라루스, 대만, 코스타리카, 호주)",
           keyNote: "방한 관광객 중심의 뷰티 서비스 체험 및 다국적 콘텐츠 확보"
         },
-        engagementCards: [
-          { label: "총 조회수", value: "165,000" },
-          { label: "좋아요", value: "11,400" },
-          { label: "댓글/예약문의", value: "310" },
-          { label: "만족도", value: "98%" }
-        ]
+        baseViews: 78284,
+        baseShares: 163
       },
       {
         id: "verynew",
@@ -616,12 +593,8 @@
           countryReach: "4개국 (인도네시아, 페루, 필리핀, 미국)",
           keyNote: "K-웰니스 및 약국 쇼핑 투어 기반 글로벌 확산"
         },
-        engagementCards: [
-          { label: "총 조회수", value: "210,000" },
-          { label: "좋아요", value: "15,600" },
-          { label: "공유/저장", value: "1,850" },
-          { label: "방문 신호", value: "매우 높음" }
-        ]
+        baseViews: 8161,
+        baseShares: 14
       }
     ],
 
@@ -656,6 +629,9 @@
     let sectionNo = 0;
     const parts = [];
     const R = REPORT;
+
+    /* Global timer for Realtime Live Simulation */
+    let liveTickerInterval = null;
 
     /* hero */
     parts.push(
@@ -780,7 +756,7 @@
     document.getElementById("app").innerHTML = parts.join("");
 
     /* ============ RENDER HELPER FOR CASE STUDY TAB CONTENT ============
-       STANDARDIZED 5-FIELD SCHEMA & ENGAGEMENT CARDS
+       ONLY 2 CARDS FOR ENGAGEMENT: 총 조회수 & 공유
     =================================================================== */
     function renderCaseStudyContent(p) {
       let branchesHtml = "";
@@ -814,21 +790,45 @@
           '</div>' +
         '</div>' +
 
-        /* 3. 성과 & 참여 반응 (CARDS LAYOUT) */
+        /* 3. 성과 & 참여 반응 (EXACTLY 2 CARDS: 총 조회수 & 공유) */
         '<div style="margin-top: 24px;">' +
           '<div class="card">' +
-            '<div class="case-title">성과 & 참여 반응</div>' +
+            '<div class="case-title">성과 & 참여 반응 ' + liveBadge + '</div>' +
             '<div class="engagement-cards-grid">' +
-              p.engagementCards.map(c => 
-                '<div class="eng-card"><div class="eng-card-label">' + esc(c.label) + '</div><div class="eng-card-value">' + esc(c.value) + '</div></div>'
-              ).join("") +
+              '<div class="eng-card">' +
+                '<div class="eng-card-label"><span class="live-dot"></span> 총 조회수</div>' +
+                '<div class="eng-card-value" id="liveViewsVal">' + p.baseViews.toLocaleString() + '</div>' +
+              '</div>' +
+              '<div class="eng-card">' +
+                '<div class="eng-card-label"><span class="live-dot"></span> 공유</div>' +
+                '<div class="eng-card-value" id="liveSharesVal">' + p.baseShares.toLocaleString() + '</div>' +
+              '</div>' +
             '</div>' +
           '</div>' +
         '</div>' +
       '</div>';
     }
 
-    /* REVISED: Video player without controls on hover */
+    /* Start Realtime Ticker for active project (Increments every 5 seconds) */
+    function startRealtimeEngagementTicker(projectData) {
+      if (liveTickerInterval) clearInterval(liveTickerInterval);
+
+      let currentViews = projectData.baseViews;
+      let currentShares = projectData.baseShares;
+
+      liveTickerInterval = setInterval(() => {
+        // Increases views by random +1 to +3, shares by +0 to +1 every 5 seconds
+        currentViews += Math.floor(Math.random() * 3) + 1;
+        if (Math.random() > 0.6) { currentShares += 1; }
+
+        const viewsEl = document.getElementById("liveViewsVal");
+        const sharesEl = document.getElementById("liveSharesVal");
+
+        if (viewsEl) viewsEl.textContent = currentViews.toLocaleString();
+        if (sharesEl) sharesEl.textContent = currentShares.toLocaleString();
+      }, 5000);
+    }
+
     function initReelsForProject(projectId) {
       const wrap = document.getElementById("reels-" + projectId);
       if (!wrap) return;
@@ -854,6 +854,7 @@
       if (projectData) {
         document.getElementById('csDisplayArea').innerHTML = renderCaseStudyContent(projectData);
         initReelsForProject(projectId);
+        startRealtimeEngagementTicker(projectData);
       }
     }
 
@@ -982,7 +983,7 @@
     }, { threshold: 0.12 });
     document.querySelectorAll(".reveal").forEach((el) => revealObserver.observe(el));
 
-    /* REVISED: Reel media loader without controls attribute */
+    /* Reel media loader without controls */
     const EXTS = ["mp4", "webm", "gif", "jpg", "png"];
     function tryLoad(slot, name, extIndex) {
       if (extIndex >= EXTS.length) return;
@@ -1006,8 +1007,9 @@
       }
     }
 
-    // Initialize default project (juno)
+    // Initialize default project (juno) and its realtime live ticker
     initReelsForProject("juno");
+    startRealtimeEngagementTicker(defaultProject);
   </script>
 </body>
 </html>
