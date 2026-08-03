@@ -179,52 +179,69 @@
     .list li { margin-bottom: 9px; }
     .list li::marker { color: #232c27; }
 
-    /* NEW STYLES FOR SECTION 03 (Pipeline & Service Grid) */
+    /* SECTION 03: VERTICAL STACK & STYLING ADJUSTMENTS */
+    .vertical-stack {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
     .pipeline-grid {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
-      gap: 12px;
-      margin-top: 16px;
+      gap: 14px;
+      margin-top: 18px;
     }
     .pipeline-step {
       border: 1px solid var(--line);
       border-radius: var(--radius-sm);
-      padding: 16px;
+      padding: 18px 16px;
       background: #ffffff;
       position: relative;
+      transition: transform 0.2s, border-color 0.2s;
     }
-    .pipeline-step .step-num {
-      font-size: 11px;
+    .pipeline-step:hover {
+      border-color: var(--line-strong);
+      transform: translateY(-2px);
+    }
+    .pipeline-step .step-badge {
+      display: inline-block;
+      font-size: 10px;
       font-weight: 800;
-      color: #232c27;
-      margin-bottom: 6px;
-      display: block;
+      letter-spacing: 0.06em;
+      padding: 3px 8px;
+      border-radius: 999px;
+      background: rgba(139, 92, 246, 0.08);
+      color: #6d28d9;
+      border: 1px solid rgba(139, 92, 246, 0.25);
+      margin-bottom: 10px;
     }
     .pipeline-step .step-text {
-      font-size: 14px;
+      font-size: 15px;
       font-weight: 700;
       color: #1b1b1b;
+      line-height: 1.35;
     }
     .service-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
-      gap: 10px;
-      margin-top: 16px;
+      grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+      gap: 12px;
+      margin-top: 18px;
     }
     .service-chip {
       border: 1px solid var(--line-strong);
       border-radius: var(--radius-sm);
-      padding: 12px 14px;
+      padding: 14px;
       background: #ffffff;
-      font-size: 13.5px;
+      font-size: 14px;
       font-weight: 700;
       color: #1b1b1b;
       text-align: center;
-      transition: background 0.2s, border-color 0.2s;
+      transition: background 0.2s, border-color 0.2s, transform 0.2s;
     }
     .service-chip:hover {
-      background: rgba(35, 44, 39, 0.05);
+      background: rgba(35, 44, 39, 0.04);
       border-color: #1b1b1b;
+      transform: translateY(-2px);
     }
 
     .metric-strip { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-top: 18px; }
@@ -340,7 +357,6 @@
     ],
     kpiInsight: "본 리포트의 강점은 단순 노출 수치가 아니라, 저예산 집행·글로벌 타깃 도달·실제 세일즈 연계 가능성을 함께 보여준다는 점입니다.",
 
-    /* ---- 02 포지셔닝 (REVISED) ---- */
     positioning: [
       { 
         label: "POSITIONING", 
@@ -354,9 +370,9 @@
       }
     ],
 
-    /* ---- 03 HOW IT WORKS & OUR SERVICES (NEW REVISION) ---- */
+    /* ---- 03 HOW IT WORKS & OUR SERVICES (VERTICAL STACK UPDATED) ---- */
     howItWorks: {
-      pipelineTitle: "KOL 시딩 프로세스 (How It Works)",
+      pipelineTitle: "KOL 시딩 프로세스",
       pipelineSub: "브랜드는 전달만 받으세요. 섭외부터 리포트까지 원스톱으로 해결합니다.",
       steps: [
         "크리에이터 리스트 제공",
@@ -364,7 +380,7 @@
         "팔로우업 & 리마인더",
         "성과 분석 및 리포트 전달"
       ],
-      servicesTitle: "OUR SERVICES",
+      servicesTitle: "VIVELY 서비스",
       servicesList: [
         "인플루언서 시딩",
         "공동구매",
@@ -638,7 +654,7 @@
       "</section>"
     );
 
-    /* 02 — VIVELY POSITIONING (REVISED) */
+    /* 02 — POSITIONING */
     sectionNo++;
     parts.push(
       '<section class="section reveal">' +
@@ -650,23 +666,23 @@
       "</div></section>"
     );
 
-    /* 03 — HOW IT WORKS & OUR SERVICES (NEW REVISED SECTION) */
+    /* 03 — HOW IT WORKS & OUR SERVICES (UPDATED VERTICAL STACK) */
     sectionNo++;
     const hw = R.howItWorks;
     parts.push(
       '<section class="section reveal">' +
       '<h2><span class="num">' + num2(sectionNo) + " — HOW IT WORKS & OUR SERVICES</span>서비스 프로세스 및 생태계</h2>" +
-      '<div class="grid-2">' +
-      /* Block A: KOL Seeding Pipeline */
+      '<div class="vertical-stack">' +
+      /* Top Container: KOL Seeding Process */
       '<div class="card">' +
       '<div class="case-title">' + esc(hw.pipelineTitle) + '</div>' +
-      '<div class="kpi-note" style="margin-bottom: 16px;">' + esc(hw.pipelineSub) + '</div>' +
+      '<div class="kpi-note" style="margin-bottom: 12px;">' + esc(hw.pipelineSub) + '</div>' +
       '<div class="pipeline-grid">' +
       hw.steps.map((step, idx) => 
-        '<div class="pipeline-step"><span class="step-num">STEP 0' + (idx + 1) + '</span><div class="step-text">' + esc(step) + '</div></div>'
+        '<div class="pipeline-step"><span class="step-badge">STEP 0' + (idx + 1) + '</span><div class="step-text">' + esc(step) + '</div></div>'
       ).join("") +
       '</div></div>' +
-      /* Block B: Our Services Ecosystem */
+      /* Bottom Container: Vively Services */
       '<div class="card">' +
       '<div class="case-title">' + esc(hw.servicesTitle) + '</div>' +
       '<div class="service-grid">' +
