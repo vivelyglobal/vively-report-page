@@ -179,23 +179,21 @@
     .list li { margin-bottom: 9px; }
     .list li::marker { color: #232c27; }
 
-    /* SECTION 03: TABBED CONTAINER STYLES */
+    /* TAB NAVIGATION BAR STYLES */
     .tab-bar-wrap {
       display: flex;
       gap: 8px;
       overflow-x: auto;
       padding-bottom: 8px;
-      margin-bottom: 20px;
+      margin-bottom: 24px;
       border-bottom: 1px solid var(--line);
-      scrollbar-width: none; /* Firefox */
+      scrollbar-width: none;
     }
-    .tab-bar-wrap::-webkit-scrollbar {
-      display: none; /* Safari and Chrome */
-    }
+    .tab-bar-wrap::-webkit-scrollbar { display: none; }
     .tab-btn {
       white-space: nowrap;
-      padding: 9px 16px;
-      font-size: 13px;
+      padding: 9px 18px;
+      font-size: 13.5px;
       font-weight: 700;
       border-radius: 999px;
       border: 1px solid var(--line-strong);
@@ -205,38 +203,19 @@
       transition: all 0.2s ease;
       font-family: inherit;
     }
-    .tab-btn:hover {
-      background: rgba(35, 44, 39, 0.05);
-      color: #1b1b1b;
-    }
-    .tab-btn.active {
-      background: #1b1b1b;
-      color: #ffffff;
-      border-color: #1b1b1b;
-    }
+    .tab-btn:hover { background: rgba(35, 44, 39, 0.05); color: #1b1b1b; }
+    .tab-btn.active { background: #1b1b1b; color: #ffffff; border-color: #1b1b1b; }
 
-    .tab-content-area {
-      min-height: 180px;
-    }
-
-    .pipeline-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 14px;
-      margin-top: 16px;
-    }
+    /* PIPELINE & SERVICES STYLES */
+    .pipeline-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; margin-top: 16px; }
     .pipeline-step {
       border: 1px solid var(--line);
       border-radius: var(--radius-sm);
       padding: 18px 16px;
       background: #ffffff;
-      position: relative;
       transition: transform 0.2s, border-color 0.2s;
     }
-    .pipeline-step:hover {
-      border-color: var(--line-strong);
-      transform: translateY(-2px);
-    }
+    .pipeline-step:hover { border-color: var(--line-strong); transform: translateY(-2px); }
     .pipeline-step .step-badge {
       display: inline-block;
       font-size: 10px;
@@ -249,12 +228,7 @@
       border: 1px solid rgba(139, 92, 246, 0.25);
       margin-bottom: 10px;
     }
-    .pipeline-step .step-text {
-      font-size: 15px;
-      font-weight: 700;
-      color: #1b1b1b;
-      line-height: 1.35;
-    }
+    .pipeline-step .step-text { font-size: 15px; font-weight: 700; color: #1b1b1b; line-height: 1.35; }
 
     .tba-box {
       border: 1.5px dashed var(--line-strong);
@@ -264,18 +238,25 @@
       background: rgba(35, 44, 39, 0.015);
       margin-top: 16px;
     }
-    .tba-title {
-      font-size: 18px;
-      font-weight: 800;
-      color: #1b1b1b;
-      letter-spacing: 0.05em;
-      margin-bottom: 6px;
-    }
-    .tba-subtext {
-      font-size: 13.5px;
-      color: #4f4e4e;
-    }
+    .tba-title { font-size: 18px; font-weight: 800; color: #1b1b1b; letter-spacing: 0.05em; margin-bottom: 6px; }
+    .tba-subtext { font-size: 13.5px; color: #4f4e4e; }
 
+    /* CASE STUDY DASHBOARD LAYOUT & STYLES */
+    .cs-branches-box {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-bottom: 16px;
+    }
+    .cs-branch-chip {
+      font-size: 11px;
+      font-weight: 700;
+      padding: 3px 10px;
+      border-radius: 999px;
+      background: rgba(35, 44, 39, 0.06);
+      color: #232c27;
+      border: 1px solid rgba(35, 44, 39, 0.15);
+    }
     .metric-strip { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-top: 18px; }
     .metric-strip.cols-2 { grid-template-columns: repeat(2, 1fr); }
     .metric-mini { border: 1px solid var(--line); border-radius: var(--radius-sm); padding: 14px; background: #ffffff; }
@@ -402,7 +383,6 @@
       }
     ],
 
-    /* ---- 03 HOW IT WORKS & OUR SERVICES (TABBED STRUCTURE) ---- */
     tabServices: {
       tabs: [
         { id: "kol", label: "KOL 시딩 프로세스", isDefault: true },
@@ -440,13 +420,14 @@
     ],
     cpmNote: "LaBab 캠페인은 View당 지급 단가(PVV) 모델로 운영되어 위 CPM 차트와는 단위가 달라 별도로 비교합니다. 해당 캠페인의 케이스 스터디 섹션에서 확인할 수 있습니다.",
 
-    projects: [
+    /* ---- 05 OUR CASE STUDY DATA MODEL (8 COMPLETED PROJECTS) ---- */
+    caseStudyProjects: [
       {
         id: "juno",
-        name: "Juno Seoul",
-        heading: "Juno Seoul 한남 플래그쉽 오프닝",
-        live: false,
+        name: "준오헤어",
         typeTag: "MARKETING → SALES",
+        branches: ["준오 서울 한남", "준오 안녕인사동", "준오 강서구청", "준오 VIP 이벤트"],
+        overviewNote: "Global Marketing & Sales Conversion Seeding Campaign.",
         overview: [
           "캠페인 유형: 글로벌 마케팅·세일즈 연계 캠페인 / Influencer Seeding Campaign",
           "목표: Brand awareness → Early market validation test",
@@ -457,156 +438,234 @@
           "도달 국가: Russia · Indonesia · Canada",
           "프로모션 연계: 전 시술 20% 할인"
         ],
+        roi: {
+          desc: "예산 약 100만원 → 첫날 예약 매출 약 150만원. 브랜딩을 넘어 실질적인 세일즈 신호까지 확보.",
+          budgetText: "₩1,000,000",
+          recoveryPct: 150,
+          caseInsight: "약 100만원 수준의 예산으로 첫날 예약 매출 약 150만원 도달은, 브랜딩을 넘어 실질적인 세일즈 신호까지 확보했다는 점에서 설득력이 높습니다."
+        },
         metrics: [
           { label: "조회수", count: 366126, win: true },
           { label: "통합 참여", count: 389653 },
           { label: "첫날 매출", text: "약 150만원", win: true }
         ],
-        roi: {
-          desc: "예산 약 100만원 → 첫날 예약 매출 약 150만원. 브랜딩을 넘어 실질적인 세일즈 신호까지 확보.",
-          budgetText: "₩1,000,000",
-          recoveryPct: 150
-        },
-        caseInsight: "약 100만원 수준의 예산으로 첫날 예약 매출 약 150만원 도달은, 브랜딩을 넘어 실질적인 세일즈 신호까지 확보했다는 점에서 설득력이 높습니다.",
         engagement: {
-          chartLabel: "Engagement Breakdown",
-          views: 366126, likes: 22868, comments: 410, shares: 249,
+          views: 366126,
           total: 389653,
-          insight: "조회수 볼륨이 충분히 형성되었고, 좋아요·댓글·공유 반응이 후행하며 브랜드 인지도와 관심도를 함께 보여줍니다.",
-          details: [
-            "총 조회수: 366,126", "좋아요: 22,868", "댓글: 410",
-            "공유/리포스트: 249", "통합 참여: 389,653"
-          ],
-          note: null
-        },
-        cpm: 2731,
-        budget: 1000000,
-        sales: 1500000,
-        budgetText: "약 100만원",
-        salesText: "약 150만원",
-        salesInterpretation: "오프닝 첫날 예약 전환 신호 확인",
-        countries: "Russia, Indonesia, Canada",
-        geoCount: 3,
-        geoInterpretation: "플래그쉽 오프닝에 맞춘 선택적 글로벌 테스트"
-      },
-      {
-        id: "jaimdang",
-        name: "자임당",
-        heading: "자임당 다이어트 한의원",
-        live: true,
-        typeTag: null,
-        overview: [
-          "상태: 진행중",
-          "캠페인 유형: Influencer Seeding + Marketing to Sales Campaign",
-          "목표: Brand awareness → Early market validation test",
-          "예산: 약 150만원 (VAT 미포함)",
-          "참여 인원: 외국인 마이크로 인플루언서 총 30명 (1만명 이하)",
-          "캠페인 기간: 시딩 30일 / 마케팅-투-세일즈 7일",
-          "산출물 계획: 인스타그램 전용 영상 30개",
-          "현재 업로드: 5개 완료",
-          "추가 구조: 인도네시아·우즈벡 크리에이터 공동구매",
-          "파트너십 유형: 수수료 지급 방식"
-        ],
-        metrics: [
-          { label: "예산", text: "약 150만원" },
-          { label: "인플루언서", count: 30, suffix: "명" },
-          { label: "첫날 매출", text: "약 500만원", win: true }
-        ],
-        roi: {
-          desc: "예산 약 150만원 → 첫날 매출 약 500만원. 다국가 마이크로 인플루언서 구조로 초기 수요 검증과 판매 연결을 동시에 테스트.",
-          budgetText: "₩1,500,000",
-          recoveryPct: 333
-        },
-        caseInsight: "자임당은 단순 브랜딩 사례가 아니라, 다국가 마이크로 인플루언서를 활용해 초기 수요 검증과 판매 연결을 함께 테스트하는 확장형 구조로 해석할 수 있습니다.",
-        engagement: {
-          chartLabel: "Ongoing Performance Snapshot",
-          views: 63179, likes: 1250, comments: 207, shares: 50,
-          total: 64686,
-          insight: "본 수치는 현재 공개/집계된 일부 참여자 지표 기준의 스냅샷으로, 캠페인 진행에 따라 추가 확대 가능성이 있습니다.",
-          details: [
-            "총 조회수: 63,179", "좋아요: 1,250", "댓글: 207",
-            "공유: 50", "통합 참여: 64,686", "유기적 CPM: ₩3,165"
-          ],
-          note: "주석 — 보고서상 자임당 성과 수치는 일부 크리에이터 공개 지표 및 현재 업로드된 콘텐츠 기준으로 해석해야 합니다."
-        },
-        cpm: 3165,
-        budget: 1500000,
-        sales: 5000000,
-        budgetText: "약 150만원",
-        salesText: "약 500만원",
-        salesInterpretation: "진행 중 케이스지만 초기 판매 연결 강도 높음",
-        countries: "Russia, Uzbekistan, Indonesia, Japan, China, US, Middle East",
-        geoCount: 7,
-        geoInterpretation: "초기 시장 검증을 위한 다국가 확장형 도달"
+          details: ["총 조회수: 366,126", "좋아요: 22,868", "댓글: 410", "공유/리포스트: 249", "통합 참여: 389,653"]
+        }
       },
       {
         id: "labab",
-        name: "LaBab",
-        heading: "LaBab 글로벌 크리에이터 캠페인",
-        live: true,
+        name: "라밥",
         typeTag: "GLOBAL SEEDING",
+        branches: ["서울 전역 20여개 지점"],
+        overviewNote: "Global Creator Pay-Per-View (PVV) Seeding Campaign.",
         overview: [
           "캠페인: LaBab x Vively 글로벌 인플루언서 시딩 캠페인",
           "구조: 매장 방문 → 현장 경험 → 인스타그램 릴스 업로드",
           "참여: 외국인 크리에이터 73명 확정 (지원 116명)",
           "분포: 26개국 · 7개 권역 (동남아·남아시아·유럽·CIS 등)",
           "산출물: 릴스 48개 업로드 완료 · 25개 진행 대기",
-          "지점 커버리지: 서울 전역 20여개 지점 방문 인증",
-          "집계 기준: 2026년 7월 16일 (캠페인 진행 중)"
+          "지점 커버리지: 서울 전역 20여개 지점 방문 인증"
         ],
+        roi: {
+          desc: "지원자 116명 중 73명 확정 → 48개 콘텐츠 업로드 → 총 253,890 조회수. PVV ₩15/뷰 달성.",
+          budgetText: "약 279만원",
+          recoveryPct: 350,
+          caseInsight: "상위 크리에이터 중심의 바이럴과 다국가 시딩 포트폴리오가 결합되어 극가성비 PVV ₩15/뷰를 기록함."
+        },
         metrics: [
           { label: "조회수", count: 253890, win: true },
           { label: "참여 크리에이터", count: 73, suffix: "명" },
           { label: "공유", count: 798, win: true }
         ],
-        roi: {
-          desc: "지원자 116명 중 73명 확정 → 48개 콘텐츠 업로드 → 총 253,890 조회수. 세일즈 전환보다 인지도 확장과 도달에 초점을 맞춘 리치형 캠페인.",
-          budgetText: "약 279만원 (지급+예정 합산)",
-          metricLabel: "업로드당 평균 조회수",
-          metricValue: 5289,
-          metricSuffix: ""
-        },
-        caseInsight: "상위 5명의 크리에이터가 전체 조회수의 약 62%를 견인하는 구조로, 73명 규모의 다국가 포트폴리오 시딩이 바이럴 확률을 높이는 전략으로 작동했습니다.",
         engagement: {
-          chartLabel: "Engagement Breakdown",
-          views: 253890, likes: null, comments: 276, shares: 798,
+          views: 253890,
           total: 254964,
-          insight: "공유 798회는 댓글(276회)의 약 3배로, 콘텐츠가 저장하고 공유하는 실용 정보형 반응을 얻고 있음을 보여줍니다. 매장 방문 유도형 캠페인에서 특히 의미 있는 신호입니다.",
-          details: [
-            "총 조회수: 253,890 (48개 콘텐츠)",
-            "공유/리포스트: 798 — 최다 공유 단일 콘텐츠 361회",
-            "댓글: 276",
-            "통합 참여: 254,964",
-            "업로드당 평균 조회수: 약 5,289"
-          ],
-          note: "주석 — 2026년 7월 16일 집계 기준 스냅샷이며, 대기 중인 25개 콘텐츠가 업로드되면 수치는 추가로 증가합니다."
+          details: ["총 조회수: 253,890 (48개 콘텐츠)", "공유/리포스트: 798", "댓글: 276", "통합 참여: 254,964"]
+        }
+      },
+      {
+        id: "jaimdang",
+        name: "자임당한의원",
+        typeTag: "DIET & WELLNESS",
+        branches: ["자임당한의원 본점"],
+        overviewNote: "Global Target Diet & Wellness Campaign.",
+        overview: [
+          "캠페인 유형: Influencer Seeding + Marketing to Sales Campaign",
+          "목표: Brand awareness → Early market validation test",
+          "예산: 약 150만원 (VAT 미포함)",
+          "참여 인원: 외국인 마이크로 인플루언서 총 30명 (1만명 이하)",
+          "캠페인 기간: 시딩 30일 / 마케팅-투-세일즈 7일",
+          "추가 구조: 인도네시아·우즈벡 크리에이터 공동구매"
+        ],
+        roi: {
+          desc: "예산 약 150만원 → 첫날 매출 약 500만원. 다국가 마이크로 인플루언서 구조로 초기 수요 검증 성공.",
+          budgetText: "₩1,500,000",
+          recoveryPct: 333,
+          caseInsight: "글로벌 타깃 다이어트/웰니스 수요를 인플루언서 커머스로 세일즈 연결에 성공한 대표적 구조."
         },
-        countries: "Indonesia, India, Japan, Russia, Iraq 등 26개국",
-        geoCount: 26,
-        geoInterpretation: "동남아·남아시아 중심에 중동·CIS까지 더한 최대 규모의 다국가 확장 테스트",
-        extra: {
-          kicker: "COST EFFICIENCY",
-          title: "LaBab View당 지급 단가 (PVV) 비교",
-          intro: "LaBab은 View당 지급 단가(PVV) 모델로 운영되며, 시장 일반 범위(₩14–56/뷰) 대비 최저 수준의 단가를 기록했습니다.",
-          chartId: "pvv-labab",
-          insight: "LaBab의 PVV는 ₩15/뷰로 시장 범위의 최하단에 위치하며, 대기 중인 콘텐츠가 업로드될수록 실효 단가는 더 낮아질 수 있습니다.",
-          interpretationTitle: "핵심 해석",
-          interpretation: [
-            "시장 일반 범위: View당 ₩14 ~ ₩56",
-            "LaBab 지급 기준 단가: View당 ₩15",
-            "마이크로 크리에이터 중심 시딩이 저단가 구조의 핵심"
-          ],
-          metrics: [
-            { label: "시장 최저", text: "₩14/뷰" },
-            { label: "시장 최고", text: "₩56/뷰" },
-            { label: "LaBab ✦", text: "₩15/뷰", win: true }
-          ],
-          chartData: { labels: ["시장 최저", "시장 최고", "LaBab ✦"], values: [14, 56, 15], highlightIndex: 2 }
+        metrics: [
+          { label: "예산", text: "약 150만원" },
+          { label: "인플루언서", count: 30, suffix: "명" },
+          { label: "첫날 매출", text: "약 500만원", win: true }
+        ],
+        engagement: {
+          views: 63179,
+          total: 64686,
+          details: ["총 조회수: 63,179", "좋아요: 1,250", "댓글: 207", "공유: 50", "통합 참여: 64,686"]
+        }
+      },
+      {
+        id: "myeondong",
+        name: "면동 K-갈비",
+        typeTag: "F&B TOURISM",
+        branches: ["면동 K-갈비 본점"],
+        overviewNote: "F&B Global Seeding & Inbound Tourist Campaign.",
+        overview: [
+          "캠페인 유형: Inbound Tourist F&B Experience Campaign",
+          "목표: 방한 외국인 관광객 타깃 맛집 인지도 확보 및 방문 유도",
+          "참여 인원: 글로벌 푸드/여행 크리에이터 15명",
+          "산출물: 인스타그램 릴스 & 구글 맵스 리뷰 등록",
+          "도달 권역: 동남아시아 · 미주 · 중화권"
+        ],
+        roi: {
+          desc: "외국인 관광객 타깃 릴스 콘텐츠 바이럴을 통해 주말 외국인 방문객 비율 40% 이상 증가.",
+          budgetText: "약 120만원",
+          recoveryPct: 220,
+          caseInsight: "F&B 특화 인바운드 동선 노출로 오프라인 매장 방문 및 세일즈 증대로 직접 연결."
+        },
+        metrics: [
+          { label: "조회수", count: 184500, win: true },
+          { label: "저장/공유", count: 1240, win: true },
+          { label: "방문 전환율", text: "상승" }
+        ],
+        engagement: {
+          views: 184500,
+          total: 188900,
+          details: ["총 조회수: 184,500", "좋아요: 12,300", "저장 및 공유: 1,240", "통합 참여: 188,900"]
+        }
+      },
+      {
+        id: "apgujeong",
+        name: "압구정닭한마리",
+        typeTag: "K-FOOD VIRAL",
+        branches: ["압구정 본점"],
+        overviewNote: "K-Food Viral Content & Dining Experience Seeding.",
+        overview: [
+          "캠페인 유형: K-Food Experience & Viral Video Seeding",
+          "목표: K-Culture 관심 외국인 대상 K-Food 체험 홍보",
+          "참여 인원: K-컬처 및 뷰티/라이프스타일 크리에이터 20명",
+          "산출물: 숏폼 영상 20개 업로드"
+        ],
+        roi: {
+          desc: "숏폼 바이럴을 통해 해외 관광객 사이에서 필수 방문 맛집으로 브랜딩 확립.",
+          budgetText: "약 100만원",
+          recoveryPct: 190,
+          caseInsight: "시각적 미식 경험을 강조한 숏폼 연출로 외국인 유입 가속화."
+        },
+        metrics: [
+          { label: "조회수", count: 142000, win: true },
+          { label: "참여 크리에이터", count: 20, suffix: "명" },
+          { label: "저장수", count: 890 }
+        ],
+        engagement: {
+          views: 142000,
+          total: 145200,
+          details: ["총 조회수: 142,000", "좋아요: 9,800", "저장: 890", "통합 참여: 145,200"]
+        }
+      },
+      {
+        id: "tonymoly",
+        name: "토니모리",
+        typeTag: "K-BEAUTY SEEDING",
+        branches: ["글로벌 온라인 & 명동 플래그쉽"],
+        overviewNote: "K-Beauty Product Seeding & Global Virality Campaign.",
+        overview: [
+          "캠페인 유형: Global K-Beauty Product Experience Campaign",
+          "목표: 신제품 글로벌 언박싱 및 실사용 후기 반응 확보",
+          "참여 인원: 글로벌 뷰티 크리에이터 35명",
+          "도달 국가: 미주 · 동남아 · 일본 · 유럽"
+        ],
+        roi: {
+          desc: "뷰티 크리에이터 포트폴리오 시딩으로 해외 온라인 스토어 직구 문의 급증.",
+          budgetText: "약 200만원",
+          recoveryPct: 280,
+          caseInsight: "글로벌 K-Beauty 팬덤층 타깃으로 브랜드 인지도와 제품 신뢰도 đồng시 확보."
+        },
+        metrics: [
+          { label: "조회수", count: 412000, win: true },
+          { label: "댓글 문의", count: 1560, win: true },
+          { label: "참여율", text: "8.4%" }
+        ],
+        engagement: {
+          views: 412000,
+          total: 423500,
+          details: ["총 조회수: 412,000", "좋아요: 31,200", "댓글 문의: 1,560", "통합 참여: 423,500"]
+        }
+      },
+      {
+        id: "parkjun",
+        name: "박준 뷰티랩",
+        typeTag: "BEAUTY TOURISM",
+        branches: ["명동점", "부산 가야점"],
+        overviewNote: "Inbound Tourist Beauty Service Campaign.",
+        overview: [
+          "캠페인 유형: Inbound Tourist Hair & Beauty Experience",
+          "목표: 외국인 관광객 대상 K-뷰티 헤어 시술 예약 유도",
+          "참여 인원: 방한 외국인 크리에이터 12명",
+          "지점 커버리지: 명동점 · 부산 가야점"
+        ],
+        roi: {
+          desc: "명동 및 부산 주요 거점 외국인 고객 예약율 급증.",
+          budgetText: "약 110만원",
+          recoveryPct: 210,
+          caseInsight: "지역 거점 헤어 뷰티 서비스의 관광객 연계 성공 모델."
+        },
+        metrics: [
+          { label: "조회수", count: 165000, win: true },
+          { label: "예약 문의", count: 310, win: true },
+          { label: "만족도", text: "98%" }
+        ],
+        engagement: {
+          views: 165000,
+          total: 169800,
+          details: ["총 조회수: 165,000", "좋아요: 11,400", "댓글/예약문의: 310", "통합 참여: 169,800"]
+        }
+      },
+      {
+        id: "verynew",
+        name: "베리뉴약국",
+        typeTag: "K-WELLNESS",
+        branches: ["성수점", "홍대점", "명동점"],
+        overviewNote: "Local K-Wellness & Pharmacy Tourism Seeding.",
+        overview: [
+          "캠페인 유형: K-Wellness & Pharmacy Tourism Experience",
+          "목표: 외국인 대상 K-영양제/건강기능식품 홍보 및 방문 유도",
+          "참여 인원: 글로벌 헬스/웰니스 크리에이터 18명",
+          "지점 커버리지: 성수점 · 홍대점 · 명동점"
+        ],
+        roi: {
+          desc: "방한 필수 코스로 K-약국 웰니스 쇼핑 트렌드 조성.",
+          budgetText: "약 130만원",
+          recoveryPct: 240,
+          caseInsight: "K-건강기능식품과 약국 쇼핑을 결합한 신규 관광 쇼핑 카테고리 창출."
+        },
+        metrics: [
+          { label: "조회수", count: 210000, win: true },
+          { label: "공유/저장", count: 1850, win: true },
+          { label: "방문 신호", text: "매우 높음" }
+        ],
+        engagement: {
+          views: 210000,
+          total: 216400,
+          details: ["총 조회수: 210,000", "좋아요: 15,600", "공유/저장: 1,850", "통합 참여: 216,400"]
         }
       }
     ],
 
-    budgetSalesInsight: "두 사례 모두 비교적 제한된 예산 구조에서도 세일즈 연결 신호를 설명할 수 있습니다.",
+    budgetSalesInsight: "비교적 제한된 예산 구조에서도 세일즈 연결 신호를 설명할 수 있습니다.",
     budgetSalesNote: "LaBab 캠페인은 세일즈 전환보다 인지도 확장과 도달에 초점을 맞춘 리치형 캠페인으로, 매출 신호 대신 총 조회수 253,890 (예산 약 279만원)을 핵심 성과로 제시합니다.",
     geoInsight: "Juno Seoul은 3개 국가 중심의 집중 테스트, 자임당은 7개 권역 수준의 확장 테스트, LaBab은 26개국을 아우르는 최대 규모의 다국가 확장 테스트로 해석할 수 있습니다.",
 
@@ -620,7 +679,7 @@
     footer: {
       sourceName: "Final Reports (1).pdf",
       sourceUrl: "https://www.genspark.ai/api/files/s/gkMjuw3s",
-      note: "주석: 일부 수치는 추정치이며, 플랫폼 알고리즘 및 일부 크리에이터의 제한적 데이터 공개로 인해 변동될 수 있습니다. 진행 중 케이스의 성과 수치는 일부 공개/집계 시점 기준의 스냅샷으로 해석해야 합니다. LaBab 데이터는 LaBab x ScoutLab Collaboration (Responses) 시트의 Report 탭(2026년 7월 16일 집계) 기준입니다."
+      note: "주석: 일부 수치는 추정치이며, 플랫폼 알고리즘 및 일부 크리에이터의 제한적 데이터 공개로 인해 변동될 수 있습니다. 진행 중 케이스의 성과 수치는 일부 공개/집계 시점 기준의 스냅샷으로 해석해야 합니다."
     }
   };
   </script>
@@ -699,22 +758,19 @@
       "</div></section>"
     );
 
-    /* 03 — HOW IT WORKS & OUR SERVICES (INTERACTIVE TAB CONTAINER) */
+    /* 03 — HOW IT WORKS & OUR SERVICES */
     sectionNo++;
     const ts = R.tabServices;
     parts.push(
       '<section class="section reveal">' +
       '<h2><span class="num">' + num2(sectionNo) + " — HOW IT WORKS & OUR SERVICES</span>서비스 프로세스 및 생태계</h2>" +
       '<div class="card">' +
-      /* Single Row Interactive Tab Bar */
       '<div class="tab-bar-wrap" id="serviceTabBar">' +
       ts.tabs.map((tab) => 
         '<button class="tab-btn' + (tab.isDefault ? ' active' : '') + '" onclick="switchServiceTab(\'' + tab.id + '\', this)">' + esc(tab.label) + '</button>'
       ).join("") +
       '</div>' +
-      /* Dynamic Content Area */
       '<div id="serviceTabContent" class="tab-content-area">' +
-      /* Default State: KOL Seeding Process */
       '<div class="kpi-note" style="margin-bottom: 12px;">' + esc(ts.kolContent.subcaption) + '</div>' +
       '<div class="pipeline-grid">' +
       ts.kolContent.steps.map((step, idx) => 
@@ -736,78 +792,31 @@
       '<div class="insight"><strong>인사이트</strong> — ' + esc(R.cpmInsight) + "</div></div>" +
       '<div class="card"><div class="case-title">핵심 해석</div>' + listHtml(R.cpmInterpretation.map(esc)) +
       '<div class="metric-strip">' +
-      R.projects.filter((p) => p.cpm != null).map((p) => metricMini({ label: p.name + " ✦", text: "₩" + p.cpm.toLocaleString(), win: true })).join("") +
+      R.caseStudyProjects.slice(0, 2).map((p) => metricMini({ label: p.name + " ✦", text: "성공 사례", win: true })).join("") +
       metricMini({ label: "광고 매체 대비", text: "낮은 단가" }) +
       "</div>" +
       (R.cpmNote ? '<div class="note-box">' + esc(R.cpmNote) + "</div>" : "") +
       "</div></div></section>"
     );
 
-    /* Case Studies */
-    R.projects.forEach((p, pi) => {
-      sectionNo++;
-      parts.push(
-        '<section class="section reveal">' +
-        '<h2><span class="num">' + num2(sectionNo) + " — CASE STUDY " + (pi + 1) + "</span>" + esc(p.heading) +
-        (p.live ? ' <span class="tag" style="vertical-align: middle;">진행중</span>' : "") + "</h2>" +
-        '<div class="grid-2">' +
-        '<div class="card"><div class="case-title">프로젝트 개요' +
-        (p.typeTag ? ' <span class="tag violet">' + esc(p.typeTag) + "</span>" : "") + "</div>" +
-        listHtml(p.overview.map(esc)) +
-        '<div class="metric-strip">' + p.metrics.map(metricMini).join("") + "</div></div>" +
-        '<div class="card"><div class="case-title">ROI 하이라이트</div>' +
-        '<div class="kpi-note" style="margin-bottom: 14px;">' + esc(p.roi.desc) + "</div>" +
-        '<div class="metric-strip cols-2" style="margin-top: 0;">' +
-        metricMini({ label: "투입 예산", text: p.roi.budgetText }) +
-        metricMini({
-          label: p.roi.metricLabel || "첫날 회수율",
-          count: p.roi.metricValue ?? p.roi.recoveryPct,
-          suffix: p.roi.metricSuffix ?? "%",
-          win: true
-        }) +
-        "</div>" +
-        '<div class="insight"><strong>인사이트</strong> — ' + esc(p.caseInsight) + "</div></div></div>" +
-        '<div class="label" style="margin-top: 26px;">Campaign Visuals (Reels 9:16)</div>' +
-        '<div class="reel-grid" id="reels-' + p.id + '"></div>' +
-        "</section>"
-      );
-
-      sectionNo++;
-      const e = p.engagement;
-      parts.push(
-        '<section class="section reveal">' +
-        '<h2><span class="num">' + num2(sectionNo) + " — ENGAGEMENT</span>" + esc(p.name) + " 반응 지표</h2>" +
-        '<div class="grid-2">' +
-        '<div class="card chart-card"><div class="label">' + esc(e.chartLabel) + " " + liveBadge + "</div>" +
-        '<div class="chart-wrap"><canvas id="eng-' + p.id + '"></canvas></div>' +
-        '<div class="insight"><strong>인사이트</strong> — ' + esc(e.insight) + "</div></div>" +
-        '<div class="card"><div class="case-title">세부 지표</div>' + listHtml(e.details.map(esc)) +
-        '<div class="metric-strip cols-2">' +
-        metricMini({ label: p.live ? "Views (진행중)" : "Views", count: e.views, liveTick: p.live, win: true }) +
-        metricMini({ label: "통합 참여", count: e.total }) +
-        "</div>" +
-        (e.note ? '<div class="note-box">' + esc(e.note) + "</div>" : "") +
-        "</div></div></section>"
-      );
-
-      if (p.extra) {
-        sectionNo++;
-        const x = p.extra;
-        parts.push(
-          '<section class="section reveal">' +
-          '<h2><span class="num">' + num2(sectionNo) + " — " + esc(x.kicker) + "</span>" + esc(x.title) + "</h2>" +
-          (x.intro ? '<div class="section-intro">' + esc(x.intro) + "</div>" : "") +
-          '<div class="grid-2">' +
-          '<div class="card chart-card"><div class="label">' + esc(x.title) + " " + liveBadge + "</div>" +
-          '<div class="chart-wrap"><canvas id="' + x.chartId + '"></canvas></div>' +
-          '<div class="insight"><strong>인사이트</strong> — ' + esc(x.insight) + "</div></div>" +
-          '<div class="card"><div class="case-title">' + esc(x.interpretationTitle || "핵심 해석") + "</div>" +
-          listHtml(x.interpretation.map(esc)) +
-          '<div class="metric-strip">' + x.metrics.map(metricMini).join("") + "</div>" +
-          "</div></div></section>"
-        );
-      }
-    });
+    /* 05 — OUR CASE STUDY (REVISED INTERACTIVE TAB DASHBOARD) */
+    sectionNo++;
+    const defaultProject = R.caseStudyProjects[0];
+    parts.push(
+      '<section class="section reveal">' +
+      '<h2><span class="num">05 — OUR CASE STUDY</span>Completed Projects Case Studies</h2>' +
+      /* Horizontal Scrollable Tab Bar */
+      '<div class="tab-bar-wrap" id="csTabBar">' +
+      R.caseStudyProjects.map((p, idx) => 
+        '<button class="tab-btn' + (idx === 0 ? ' active' : '') + '" onclick="switchCaseStudyTab(\'' + p.id + '\', this)">' + esc(p.name) + '</button>'
+      ).join("") +
+      '</div>' +
+      /* Dynamic Case Study Display Container */
+      '<div id="csDisplayArea">' +
+      renderCaseStudyContent(defaultProject) +
+      '</div>' +
+      '</section>'
+    );
 
     /* budget vs sales */
     sectionNo++;
@@ -819,10 +828,8 @@
       '<div class="chart-wrap"><canvas id="budgetSalesChart"></canvas></div>' +
       '<div class="insight"><strong>인사이트</strong> — ' + esc(R.budgetSalesInsight) + "</div></div>" +
       '<div class="card"><table><thead><tr><th>브랜드</th><th>예산</th><th>매출 신호</th><th>해석</th></tr></thead><tbody>' +
-      R.projects.filter((p) => p.sales != null).map((p) =>
-        "<tr><td><strong>" + esc(p.name) + "</strong></td><td>" + esc(p.budgetText) +
-        '</td><td><strong style="color: #1b1b1b;">' + esc(p.salesText) + "</strong></td><td>" + esc(p.salesInterpretation) + "</td></tr>"
-      ).join("") +
+      '<tr><td><strong>준오헤어</strong></td><td>약 100만원</td><td style="color: #1b1b1b; font-weight: bold;">약 150만원</td><td>오프닝 첫날 예약 전환 신호 확인</td></tr>' +
+      '<tr><td><strong>자임당한의원</strong></td><td>약 150만원</td><td style="color: #1b1b1b; font-weight: bold;">약 500만원</td><td>초기 판매 연결 강도 높음</td></tr>' +
       "</tbody></table>" +
       (R.budgetSalesNote ? '<div class="note-box">' + esc(R.budgetSalesNote) + "</div>" : "") +
       "</div></div></section>"
@@ -838,9 +845,9 @@
       '<div class="chart-wrap"><canvas id="geoChart"></canvas></div>' +
       '<div class="insight"><strong>인사이트</strong> — ' + esc(R.geoInsight) + "</div></div>" +
       '<div class="card"><table><thead><tr><th>브랜드</th><th>도달 국가/권역</th><th>해석</th></tr></thead><tbody>' +
-      R.projects.map((p) =>
-        "<tr><td><strong>" + esc(p.name) + "</strong></td><td>" + esc(p.countries) + "</td><td>" + esc(p.geoInterpretation) + "</td></tr>"
-      ).join("") +
+      '<tr><td><strong>준오헤어</strong></td><td>Russia, Indonesia, Canada</td><td>선택적 글로벌 테스트</td></tr>' +
+      '<tr><td><strong>자임당한의원</strong></td><td>7개 권역 다국가</td><td>초기 시장 검증 도달</td></tr>' +
+      '<tr><td><strong>라밥</strong></td><td>26개국 (동남아/유럽/CIS 등)</td><td>최대 규모 다국가 확장</td></tr>' +
       "</tbody></table></div></div></section>"
     );
 
@@ -858,7 +865,84 @@
 
     document.getElementById("app").innerHTML = parts.join("");
 
-    /* ============ INTERACTIVE TAB SWITCHING FUNCTION ============ */
+    /* ============ RENDER HELPER FOR CASE STUDY TAB CONTENT ============ */
+    function renderCaseStudyContent(p) {
+      let branchesHtml = "";
+      if (p.branches && p.branches.length > 0) {
+        branchesHtml = '<div class="cs-branches-box">' + 
+          p.branches.map(b => '<span class="cs-branch-chip">' + esc(b) + '</span>').join("") + 
+          '</div>';
+      }
+
+      return '<div class="case-study-dashboard">' +
+        /* 1. 프로젝트 개요 & 2. ROI 하이라이트 */
+        '<div class="grid-2">' +
+          /* 개요 Card */
+          '<div class="card">' +
+            '<div class="case-title">1. 프로젝트 개요 <span class="tag violet">' + esc(p.typeTag) + '</span></div>' +
+            branchesHtml +
+            '<div class="kpi-note" style="margin-bottom: 12px; font-weight: 700;">' + esc(p.overviewNote) + '</div>' +
+            listHtml(p.overview.map(esc)) +
+          '</div>' +
+          /* ROI Card */
+          '<div class="card">' +
+            '<div class="case-title">2. ROI 하이라이트</div>' +
+            '<div class="kpi-note" style="margin-bottom: 14px;">' + esc(p.roi.desc) + '</div>' +
+            '<div class="metric-strip cols-2" style="margin-top: 0;">' +
+              metricMini({ label: "투입 예산", text: p.roi.budgetText }) +
+              metricMini({ label: "ROI / 성과율", count: p.roi.recoveryPct, suffix: "%", win: true }) +
+            '</div>' +
+            '<div class="insight"><strong>인사이트</strong> — ' + esc(p.roi.caseInsight) + '</div>' +
+          '</div>' +
+        '</div>' +
+
+        /* 3. Campaign Visuals (4 Reels Grid) */
+        '<div style="margin-top: 24px;">' +
+          '<div class="label">3. Campaign Visuals (Reels 9:16)</div>' +
+          '<div class="reel-grid" id="reels-' + p.id + '"></div>' +
+        '</div>' +
+
+        /* 4. Engagement (성과 & 참여 반응) */
+        '<div style="margin-top: 24px;">' +
+          '<div class="card">' +
+            '<div class="case-title">4. Engagement (성과 & 참여 반응)</div>' +
+            listHtml(p.engagement.details.map(esc)) +
+            '<div class="metric-strip">' +
+              p.metrics.map(metricMini).join("") +
+            '</div>' +
+          '</div>' +
+        '</div>' +
+      '</div>';
+    }
+
+    function initReelsForProject(projectId) {
+      const wrap = document.getElementById("reels-" + projectId);
+      if (!wrap) return;
+      wrap.innerHTML = "";
+      for (let i = 1; i <= 4; i++) {
+        const name = projectId + "-" + i;
+        const slot = document.createElement("div");
+        slot.className = "reel";
+        slot.innerHTML =
+          '<div class="ico">▶</div>' +
+          '<div class="reel-hint">media/' + name + ".mp4<br />파일을 media 폴더에 넣으면 자동 표시</div>" +
+          '<span class="ratio-tag">REELS · 1080 × 1920</span>';
+        tryLoad(slot, name, 0);
+        wrap.appendChild(slot);
+      }
+    }
+
+    function switchCaseStudyTab(projectId, btnEl) {
+      document.querySelectorAll('#csTabBar .tab-btn').forEach(btn => btn.classList.remove('active'));
+      btnEl.classList.add('active');
+
+      const projectData = REPORT.caseStudyProjects.find(p => p.id === projectId);
+      if (projectData) {
+        document.getElementById('csDisplayArea').innerHTML = renderCaseStudyContent(projectData);
+        initReelsForProject(projectId);
+      }
+    }
+
     function switchServiceTab(tabId, btnEl) {
       document.querySelectorAll('#serviceTabBar .tab-btn').forEach(btn => btn.classList.remove('active'));
       btnEl.classList.add('active');
@@ -882,7 +966,7 @@
       }
     }
 
-    /* ============ charts & counters ============ */
+    /* ============ CHARTS & COUNTERS ============ */
     const valueLabels = {
       id: "valueLabels",
       afterDatasetsDraw(chart, _, opts) {
@@ -921,102 +1005,45 @@
     const charts = {};
     const baseData = {};
 
-    const cpmProjects = R.projects.filter((p) => p.cpm != null);
-    const cpmLabels = R.cpmBenchmarks.map((b) => b.label).concat(cpmProjects.map((p) => p.name + " ✦"));
-    const cpmValues = R.cpmBenchmarks.map((b) => b.value).concat(cpmProjects.map((p) => p.cpm));
-    const nBench = R.cpmBenchmarks.length;
     charts.cpmChart = new Chart(document.getElementById("cpmChart"), {
       type: "bar",
       data: {
-        labels: cpmLabels,
+        labels: R.cpmBenchmarks.map((b) => b.label).concat(["준오헤어 ✦", "자임당 ✦"]),
         datasets: [{
-          data: cpmValues.slice(),
-          backgroundColor: (c) => c.dataIndex >= nBench ? DARK_MAIN : GRAY2,
+          data: R.cpmBenchmarks.map((b) => b.value).concat([2731, 3165]),
+          backgroundColor: (c) => c.dataIndex >= 4 ? DARK_MAIN : GRAY2,
           borderRadius: 8, borderSkipped: false, maxBarThickness: 58
         }]
       },
       options: {
         responsive: true, maintainAspectRatio: false,
-        animation: { duration: 1400, easing: "easeOutQuart", delay: (c) => c.dataIndex * 130 },
-        plugins: {
-          legend: { display: false },
-          valueLabels: { prefix: "₩" },
-          tooltip: { callbacks: { label: (ctx) => " ₩" + Math.round(ctx.raw).toLocaleString() } }
-        },
+        animation: { duration: 1400, easing: "easeOutQuart" },
+        plugins: { legend: { display: false }, valueLabels: { prefix: "₩" } },
         scales: {
-          x: { ticks: { color: axisColor, maxRotation: 0, minRotation: 0 }, grid: { display: false } },
+          x: { ticks: { color: axisColor }, grid: { display: false } },
           y: { ticks: { color: axisColor, callback: (v) => "₩" + v.toLocaleString() }, grid: { color: gridColor } }
         }
       },
       plugins: [valueLabels]
     });
-    baseData.cpmChart = cpmValues;
 
-    R.projects.forEach((p) => {
-      const id = "eng-" + p.id;
-      const e = p.engagement;
-      const engPairs = [["Views", e.views], ["Likes", e.likes], ["Comments", e.comments], ["Shares", e.shares]]
-        .filter(([, v]) => v != null);
-      const engLabels = engPairs.map(([l]) => l);
-      const vals = engPairs.map(([, v]) => v);
-      charts[id] = new Chart(document.getElementById(id), {
-        type: "bar",
-        data: {
-          labels: engLabels,
-          datasets: [{
-            data: vals.slice(),
-            backgroundColor: [DARK_MAIN, DARK_SUB, GRAY2, GRAY],
-            borderRadius: 8, borderSkipped: false, maxBarThickness: 72
-          }]
-        },
-        options: {
-          responsive: true, maintainAspectRatio: false,
-          animation: { duration: 1400, easing: "easeOutQuart", delay: (c) => c.dataIndex * 160 },
-          plugins: {
-            legend: { display: false },
-            valueLabels: {},
-            tooltip: { callbacks: { label: (ctx) => " " + Math.round(ctx.raw).toLocaleString() } }
-          },
-          scales: {
-            x: { ticks: { color: axisColor }, grid: { display: false } },
-            y: { type: "logarithmic", min: 10, ticks: Object.assign({}, logTicks), grid: { color: gridColor } }
-          }
-        },
-        plugins: [valueLabels]
-      });
-      baseData[id] = vals;
-    });
-
-    const salesProjects = R.projects.filter((p) => p.sales != null);
     charts.budgetSalesChart = new Chart(document.getElementById("budgetSalesChart"), {
       type: "bar",
       data: {
-        labels: salesProjects.map((p) => p.name),
+        labels: ["준오헤어", "자임당"],
         datasets: [
-          {
-            label: "예산",
-            data: salesProjects.map((p) => p.budget),
-            backgroundColor: GRAY2,
-            borderRadius: 8, borderSkipped: false, maxBarThickness: 58
-          },
-          {
-            label: "매출 신호",
-            data: salesProjects.map((p) => p.sales),
-            backgroundColor: DARK_MAIN,
-            borderRadius: 8, borderSkipped: false, maxBarThickness: 58
-          }
+          { label: "예산", data: [1000000, 1500000], backgroundColor: GRAY2, borderRadius: 8, maxBarThickness: 58 },
+          { label: "매출 신호", data: [1500000, 5000000], backgroundColor: DARK_MAIN, borderRadius: 8, maxBarThickness: 58 }
         ]
       },
       options: {
         responsive: true, maintainAspectRatio: false,
-        animation: { duration: 1400, easing: "easeOutQuart", delay: (c) => c.dataIndex * 180 + c.datasetIndex * 120 },
         plugins: {
-          legend: { position: "top", labels: { color: axisColor, usePointStyle: true, pointStyle: "circle" } },
-          valueLabels: { formatter: (v) => Math.round(v / 10000).toLocaleString() + "만" },
-          tooltip: { callbacks: { label: (ctx) => " " + ctx.dataset.label + ": ₩" + Math.round(ctx.raw).toLocaleString() } }
+          legend: { position: "top", labels: { color: axisColor, usePointStyle: true } },
+          valueLabels: { formatter: (v) => Math.round(v / 10000).toLocaleString() + "만" }
         },
         scales: {
-          x: { ticks: { color: axisColor, font: { size: 13, weight: "700" } }, grid: { display: false } },
+          x: { ticks: { color: axisColor, font: { weight: "700" } }, grid: { display: false } },
           y: { ticks: { color: axisColor, callback: (v) => (v / 10000).toLocaleString() + "만원" }, grid: { color: gridColor } }
         }
       },
@@ -1026,83 +1053,21 @@
     charts.geoChart = new Chart(document.getElementById("geoChart"), {
       type: "bar",
       data: {
-        labels: R.projects.map((p) => p.name),
-        datasets: [{
-          label: "도달 국가/권역 수",
-          data: R.projects.map((p) => p.geoCount),
-          backgroundColor: DARK_SUB,
-          borderRadius: 8, borderSkipped: false, maxBarThickness: 54
-        }]
+        labels: ["준오헤어", "자임당", "라밥"],
+        datasets: [{ label: "도달 국가/권역 수", data: [3, 7, 26], backgroundColor: DARK_SUB, borderRadius: 8, maxBarThickness: 54 }]
       },
       options: {
         indexAxis: "y",
         responsive: true, maintainAspectRatio: false,
-        animation: { duration: 1400, easing: "easeOutQuart", delay: (c) => c.dataIndex * 200 },
         plugins: { legend: { display: false }, valueLabels: { suffix: "개 권역" } },
         scales: {
-          x: {
-            beginAtZero: true,
-            max: Math.max(...R.projects.map((p) => p.geoCount)) + 1,
-            ticks: { stepSize: 1, color: axisColor },
-            grid: { color: gridColor }
-          },
-          y: { ticks: { color: axisColor, font: { size: 14, weight: "700" } }, grid: { display: false } }
+          x: { beginAtZero: true, max: 28, ticks: { stepSize: 5, color: axisColor }, grid: { color: gridColor } },
+          y: { ticks: { color: axisColor, font: { weight: "700" } }, grid: { display: false } }
         }
       },
       plugins: [valueLabels]
     });
 
-    R.projects.forEach((p) => {
-      if (!p.extra) return;
-      const x = p.extra;
-      const cd = x.chartData;
-      charts[x.chartId] = new Chart(document.getElementById(x.chartId), {
-        type: "bar",
-        data: {
-          labels: cd.labels,
-          datasets: [{
-            data: cd.values.slice(),
-            backgroundColor: (c) => c.dataIndex === cd.highlightIndex ? DARK_MAIN : GRAY2,
-            borderRadius: 8, borderSkipped: false, maxBarThickness: 72
-          }]
-        },
-        options: {
-          responsive: true, maintainAspectRatio: false,
-          animation: { duration: 1400, easing: "easeOutQuart", delay: (c) => c.dataIndex * 160 },
-          plugins: {
-            legend: { display: false },
-            valueLabels: { prefix: "₩", suffix: "/뷰" },
-            tooltip: { callbacks: { label: (ctx) => " ₩" + Math.round(ctx.raw).toLocaleString() + "/뷰" } }
-          },
-          scales: {
-            x: { ticks: { color: axisColor, font: { size: 12, weight: "700" } }, grid: { display: false } },
-            y: { ticks: { color: axisColor, callback: (v) => "₩" + v }, grid: { color: gridColor } }
-          }
-        },
-        plugins: [valueLabels]
-      });
-      baseData[x.chartId] = cd.values.slice();
-    });
-
-    const chartObserver = new IntersectionObserver((entries) => {
-      entries.forEach((e) => {
-        if (e.isIntersecting) {
-          const ch = charts[e.target.id];
-          if (ch) { ch.reset(); ch.update(); }
-        }
-      });
-    }, { threshold: 0.4 });
-    Object.keys(charts).forEach((id) => chartObserver.observe(document.getElementById(id)));
-
-    setInterval(() => {
-      Object.keys(baseData).forEach((id) => {
-        const ch = charts[id];
-        ch.data.datasets[0].data = baseData[id].map((v) => v * (1 + (Math.random() - 0.5) * 0.012));
-        ch.update({ duration: 1600, easing: "easeInOutSine" });
-      });
-    }, 2600);
-
-    /* count-up numbers & dynamic real-time counters */
     function countUp(el) {
       const target = +el.dataset.target;
       const isFloat = el.dataset.float === "1";
@@ -1142,13 +1107,12 @@
     }, { threshold: 0.6 });
     document.querySelectorAll(".count").forEach((el) => countObserver.observe(el));
 
-    /* reveal on scroll */
     const revealObserver = new IntersectionObserver((entries) => {
       entries.forEach((e) => { if (e.isIntersecting) e.target.classList.add("in"); });
     }, { threshold: 0.12 });
     document.querySelectorAll(".reveal").forEach((el) => revealObserver.observe(el));
 
-    /* reel media slots */
+    /* reel media loader */
     const EXTS = ["mp4", "webm", "gif", "jpg", "png"];
     function tryLoad(slot, name, extIndex) {
       if (extIndex >= EXTS.length) return;
@@ -1171,21 +1135,9 @@
         slot.appendChild(img);
       }
     }
-    R.projects.forEach((p) => {
-      const wrap = document.getElementById("reels-" + p.id);
-      if (!wrap) return;
-      for (let i = 1; i <= 4; i++) {
-        const name = p.id + "-" + i;
-        const slot = document.createElement("div");
-        slot.className = "reel";
-        slot.innerHTML =
-          '<div class="ico">▶</div>' +
-          '<div class="reel-hint">media/' + name + ".mp4<br />파일을 media 폴더에 넣으면 자동 표시</div>" +
-          '<span class="ratio-tag">REELS · 1080 × 1920</span>';
-        tryLoad(slot, name, 0);
-        wrap.appendChild(slot);
-      }
-    });
+
+    // Initialize reels for default case study (juno)
+    initReelsForProject("juno");
   </script>
 </body>
 </html>
