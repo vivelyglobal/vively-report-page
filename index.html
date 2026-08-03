@@ -167,7 +167,6 @@
       background: #ffffff;
     }
 
-    /* COST SAVING HIGHLIGHT CALLOUT BOX FOR SLIDE 04 */
     .cost-saving-box {
       margin-top: 18px;
       padding: 14px 16px;
@@ -467,7 +466,6 @@
     ],
     kpiInsight: "본 리포트의 강점은 단순 노출 수치가 아니라, 저예산 집행·글로벌 타깃 도달·실제 세일즈 연계 가능성을 함께 보여준다는 점입니다.",
 
-    /* ---- 02 POSITIONING (UPDATED WITH 48 COUNTRIES REGION DATA) ---- */
     positioningCards: [
       { 
         label: "POSITIONING", 
@@ -503,10 +501,10 @@
       { name: "오세아니아 (1개국)", desc: "호주" }
     ],
 
+    /* ---- 03 REVISED: TAB TITLE TO "KOL 인플루언서 시딩" & REMOVED "인플루언서 시딩" ---- */
     tabServices: {
       tabs: [
-        { id: "kol", label: "KOL 시딩 프로세스", isDefault: true },
-        { id: "influencer", label: "인플루언서 시딩" },
+        { id: "kol", label: "KOL 인플루언서 시딩", isDefault: true },
         { id: "group", label: "공동구매" },
         { id: "live", label: "라이브 커머스" },
         { id: "sales", label: "세일즈 프로그램" },
@@ -540,7 +538,6 @@
     ],
     cpmNote: "LaBab 캠페인은 View당 지급 단가(PVV) 모델로 운영되어 위 CPM 차트와는 단위가 달라 별도로 비교합니다. 해당 캠페인의 케이스 스터디 섹션에서 확인할 수 있습니다.",
 
-    /* ---- 05 OUR CASE STUDY DATA MODEL ---- */
     caseStudyProjects: [
       {
         id: "juno",
@@ -724,7 +721,7 @@
       "</section>"
     );
 
-    /* 02 — POSITIONING (UPDATED WITH 48 COUNTRIES REACH CHART) */
+    /* 02 — POSITIONING */
     sectionNo++;
     parts.push(
       '<section class="section reveal">' +
@@ -735,7 +732,6 @@
       ).join("") +
       "</div>" +
 
-      /* 48 Countries Global Reach Network Chart & List */
       '<div class="grid-2">' +
         '<div class="card chart-card">' +
           '<div class="label">글로벌 오디언스 도달 국가 현황 (총 48개국) ' + liveBadge + '</div>' +
@@ -777,7 +773,7 @@
       '</div></section>'
     );
 
-    /* 04 — COST EFFICIENCY (CPM Benchmark) — REVISED Y-AXIS HEADROOM & CALLOUT BOX */
+    /* 04 — COST EFFICIENCY (CPM Benchmark) */
     sectionNo++;
     parts.push(
       '<section class="section reveal">' +
@@ -786,9 +782,8 @@
       '<div class="card chart-card"><div class="label">CPM Benchmark ' + liveBadge + "</div>" +
       '<div class="chart-wrap"><canvas id="cpmChart"></canvas></div>' +
       '<div class="insight"><strong>인사이트</strong> — ' + esc(R.cpmInsight) + "</div>" +
-      /* Cost Saving Highlight Callout Box */
       '<div class="cost-saving-box">' +
-        '★ <strong>비용 절감 효과:</strong> Meta 대비 최대 <strong>86%</strong> / TikTok 대비 최대 <strong>73%</strong> CPM 절감' +
+        '★ <strong>비용 절감 효과 (Efisiensi Biaya):</strong> Meta 대비 최대 <strong>86%</strong> / TikTok 대비 최대 <strong>73%</strong> CPM 절감' +
       '</div>' +
       '</div>' +
       '<div class="card"><div class="case-title">핵심 해석</div>' + listHtml(R.cpmInterpretation.map(esc)) +
@@ -1013,7 +1008,7 @@
       plugins: [valueLabels]
     });
 
-    /* CPM Chart in Section 04 — FIXED Y-AXIS HEADROOM (max: 25000) */
+    /* CPM Chart in Section 04 */
     charts.cpmChart = new Chart(document.getElementById("cpmChart"), {
       type: "bar",
       data: {
@@ -1032,7 +1027,7 @@
           x: { ticks: { color: axisColor }, grid: { display: false } },
           y: { 
             beginAtZero: true,
-            max: 25000, /* Headroom adjustment for 20,000 Meta High bar */
+            max: 25000,
             suggestedMax: 25000,
             ticks: { stepSize: 5000, color: axisColor, callback: (v) => "₩" + v.toLocaleString() }, 
             grid: { color: gridColor } 
