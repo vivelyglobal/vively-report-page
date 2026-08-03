@@ -36,7 +36,7 @@
       line-height: 1.6;
       overflow-x: hidden;
     }
-    .glow-field { display: none; } /* Disabled glow for pure solid background */
+    .glow-field { display: none; }
     
     .report { position: relative; z-index: 1; max-width: var(--max-width); margin: 0 auto; padding: 56px 40px 90px; }
     .hero { padding: 44px 0 40px; border-bottom: 1px solid var(--line); }
@@ -178,6 +178,55 @@
     .list { margin: 0; padding-left: 18px; color: #4f4e4e; }
     .list li { margin-bottom: 9px; }
     .list li::marker { color: #232c27; }
+
+    /* NEW STYLES FOR SECTION 03 (Pipeline & Service Grid) */
+    .pipeline-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+      margin-top: 16px;
+    }
+    .pipeline-step {
+      border: 1px solid var(--line);
+      border-radius: var(--radius-sm);
+      padding: 16px;
+      background: #ffffff;
+      position: relative;
+    }
+    .pipeline-step .step-num {
+      font-size: 11px;
+      font-weight: 800;
+      color: #232c27;
+      margin-bottom: 6px;
+      display: block;
+    }
+    .pipeline-step .step-text {
+      font-size: 14px;
+      font-weight: 700;
+      color: #1b1b1b;
+    }
+    .service-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+      gap: 10px;
+      margin-top: 16px;
+    }
+    .service-chip {
+      border: 1px solid var(--line-strong);
+      border-radius: var(--radius-sm);
+      padding: 12px 14px;
+      background: #ffffff;
+      font-size: 13.5px;
+      font-weight: 700;
+      color: #1b1b1b;
+      text-align: center;
+      transition: background 0.2s, border-color 0.2s;
+    }
+    .service-chip:hover {
+      background: rgba(35, 44, 39, 0.05);
+      border-color: #1b1b1b;
+    }
+
     .metric-strip { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-top: 18px; }
     .metric-strip.cols-2 { grid-template-columns: repeat(2, 1fr); }
     .metric-mini { border: 1px solid var(--line); border-radius: var(--radius-sm); padding: 14px; background: #ffffff; }
@@ -253,6 +302,7 @@
 
     @media (max-width: 1100px) {
       .grid-5 { grid-template-columns: repeat(2, 1fr); }
+      .pipeline-grid { grid-template-columns: repeat(2, 1fr); }
     }
     @media (max-width: 1024px) {
       .grid-4, .grid-2, .metric-strip { grid-template-columns: 1fr; }
@@ -263,7 +313,7 @@
       .chart-wrap { height: 280px; }
     }
     @media (max-width: 600px) {
-      .grid-5 { grid-template-columns: 1fr; }
+      .grid-5, .pipeline-grid { grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -290,12 +340,41 @@
     ],
     kpiInsight: "본 리포트의 강점은 단순 노출 수치가 아니라, 저예산 집행·글로벌 타깃 도달·실제 세일즈 연계 가능성을 함께 보여준다는 점입니다.",
 
+    /* ---- 02 포지셔닝 (REVISED) ---- */
     positioning: [
-      { label: "Positioning", title: "Global Expansion & Growth Partner",
-        note: "브랜드 인지도 형성에서 끝나지 않고, 해외 타깃 도달과 초기 매출 전환 테스트까지 연결하는 실행형 파트너." },
-      { label: "What Clients Buy", title: "콘텐츠 생산 + 국가 테스트 + 세일즈 연계",
-        note: "인플루언서 시딩, 공동 작업형 콘텐츠, 프로모션 연계, 초기 시장 검증을 하나의 구조로 설계." }
+      { 
+        label: "POSITIONING", 
+        title: "Global Expansion & Growth Partner",
+        note: "단순 노출을 넘어, 200+ 글로벌 인플루언서 네트워크와 지속 가능한 파트너십을 통해 해외 시장 진출을 실현하는 실행형 성장 파트너." 
+      },
+      { 
+        label: "WHAT CLIENTS BUY", 
+        title: "원스톱 KOL 시딩 + 글로벌 세일즈 확장",
+        note: "크리에이터 섭외부터 리포트까지 담당하는 원스톱 KOL 시딩, 로컬라이제이션, 공동구매 및 라이브 커머스까지 연결되는 통합 성장 구조." 
+      }
     ],
+
+    /* ---- 03 HOW IT WORKS & OUR SERVICES (NEW REVISION) ---- */
+    howItWorks: {
+      pipelineTitle: "KOL 시딩 프로세스 (How It Works)",
+      pipelineSub: "브랜드는 전달만 받으세요. 섭외부터 리포트까지 원스톱으로 해결합니다.",
+      steps: [
+        "크리에이터 리스트 제공",
+        "아웃리치 & 섭외",
+        "팔로우업 & 리마인더",
+        "성과 분석 및 리포트 전달"
+      ],
+      servicesTitle: "OUR SERVICES",
+      servicesList: [
+        "인플루언서 시딩",
+        "공동구매",
+        "라이브 커머스",
+        "세일즈 프로그램",
+        "로컬라이제이션",
+        "글로벌 컨설팅",
+        "법적 등록 & 인증 지원"
+      ]
+    },
 
     cpmBenchmarks: [
       { label: "Meta Low", value: 7000 },
@@ -534,7 +613,7 @@
       "</section>"
     );
 
-    /* 01 — KPI summary */
+    /* 01 — KEY RESULTS */
     sectionNo++;
     parts.push(
       '<section class="section reveal">' +
@@ -559,11 +638,11 @@
       "</section>"
     );
 
-    /* 02 — positioning */
+    /* 02 — VIVELY POSITIONING (REVISED) */
     sectionNo++;
     parts.push(
       '<section class="section reveal">' +
-      '<h2><span class="num">' + num2(sectionNo) + " — POSITIONING</span>Vively 포지셔닝</h2>" +
+      '<h2><span class="num">' + num2(sectionNo) + " — POSITIONING</span>VIVELY 포지셔닝</h2>" +
       '<div class="grid-2">' +
       R.positioning.map((p) =>
         '<div class="card"><div class="label">' + esc(p.label) + '</div><div class="case-title">' + esc(p.title) + '</div><div class="kpi-note">' + esc(p.note) + "</div></div>"
@@ -571,7 +650,32 @@
       "</div></section>"
     );
 
-    /* 03 — CPM benchmark */
+    /* 03 — HOW IT WORKS & OUR SERVICES (NEW REVISED SECTION) */
+    sectionNo++;
+    const hw = R.howItWorks;
+    parts.push(
+      '<section class="section reveal">' +
+      '<h2><span class="num">' + num2(sectionNo) + " — HOW IT WORKS & OUR SERVICES</span>서비스 프로세스 및 생태계</h2>" +
+      '<div class="grid-2">' +
+      /* Block A: KOL Seeding Pipeline */
+      '<div class="card">' +
+      '<div class="case-title">' + esc(hw.pipelineTitle) + '</div>' +
+      '<div class="kpi-note" style="margin-bottom: 16px;">' + esc(hw.pipelineSub) + '</div>' +
+      '<div class="pipeline-grid">' +
+      hw.steps.map((step, idx) => 
+        '<div class="pipeline-step"><span class="step-num">STEP 0' + (idx + 1) + '</span><div class="step-text">' + esc(step) + '</div></div>'
+      ).join("") +
+      '</div></div>' +
+      /* Block B: Our Services Ecosystem */
+      '<div class="card">' +
+      '<div class="case-title">' + esc(hw.servicesTitle) + '</div>' +
+      '<div class="service-grid">' +
+      hw.servicesList.map((srv) => '<div class="service-chip">' + esc(srv) + '</div>').join("") +
+      '</div></div>' +
+      '</div></section>'
+    );
+
+    /* 04 — COST EFFICIENCY (CPM Benchmark) */
     sectionNo++;
     parts.push(
       '<section class="section reveal">' +
@@ -589,7 +693,7 @@
       "</div></div></section>"
     );
 
-    /* per-project */
+    /* Case Studies */
     R.projects.forEach((p, pi) => {
       sectionNo++;
       parts.push(
