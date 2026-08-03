@@ -86,12 +86,12 @@
     .card {
       border: 1px solid var(--line);
       border-radius: var(--radius);
-      padding: 18px 14px;
+      padding: 22px 20px;
       background: #ffffff !important;
       transition: transform 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease;
     }
     .card:hover { transform: translateY(-4px); border-color: var(--line-strong); box-shadow: 0 12px 30px rgba(35, 44, 39, 0.08); }
-    .kpi.card { position: relative; overflow: hidden; display: flex; flex-direction: column; }
+    .kpi.card { position: relative; overflow: hidden; display: flex; flex-direction: column; padding: 18px 14px; }
     .kpi.hot {
       border: 1px solid var(--line-strong);
       background: #ffffff !important;
@@ -179,17 +179,51 @@
     .list li { margin-bottom: 9px; }
     .list li::marker { color: #232c27; }
 
-    /* SECTION 03: VERTICAL STACK & STYLING ADJUSTMENTS */
-    .vertical-stack {
+    /* SECTION 03: TABBED CONTAINER STYLES */
+    .tab-bar-wrap {
       display: flex;
-      flex-direction: column;
-      gap: 20px;
+      gap: 8px;
+      overflow-x: auto;
+      padding-bottom: 8px;
+      margin-bottom: 20px;
+      border-bottom: 1px solid var(--line);
+      scrollbar-width: none; /* Firefox */
     }
+    .tab-bar-wrap::-webkit-scrollbar {
+      display: none; /* Safari and Chrome */
+    }
+    .tab-btn {
+      white-space: nowrap;
+      padding: 9px 16px;
+      font-size: 13px;
+      font-weight: 700;
+      border-radius: 999px;
+      border: 1px solid var(--line-strong);
+      background: #ffffff;
+      color: #4f4e4e;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      font-family: inherit;
+    }
+    .tab-btn:hover {
+      background: rgba(35, 44, 39, 0.05);
+      color: #1b1b1b;
+    }
+    .tab-btn.active {
+      background: #1b1b1b;
+      color: #ffffff;
+      border-color: #1b1b1b;
+    }
+
+    .tab-content-area {
+      min-height: 180px;
+    }
+
     .pipeline-grid {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
       gap: 14px;
-      margin-top: 18px;
+      margin-top: 16px;
     }
     .pipeline-step {
       border: 1px solid var(--line);
@@ -221,27 +255,25 @@
       color: #1b1b1b;
       line-height: 1.35;
     }
-    .service-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-      gap: 12px;
-      margin-top: 18px;
-    }
-    .service-chip {
-      border: 1px solid var(--line-strong);
+
+    .tba-box {
+      border: 1.5px dashed var(--line-strong);
       border-radius: var(--radius-sm);
-      padding: 14px;
-      background: #ffffff;
-      font-size: 14px;
-      font-weight: 700;
-      color: #1b1b1b;
+      padding: 42px 20px;
       text-align: center;
-      transition: background 0.2s, border-color 0.2s, transform 0.2s;
+      background: rgba(35, 44, 39, 0.015);
+      margin-top: 16px;
     }
-    .service-chip:hover {
-      background: rgba(35, 44, 39, 0.04);
-      border-color: #1b1b1b;
-      transform: translateY(-2px);
+    .tba-title {
+      font-size: 18px;
+      font-weight: 800;
+      color: #1b1b1b;
+      letter-spacing: 0.05em;
+      margin-bottom: 6px;
+    }
+    .tba-subtext {
+      font-size: 13.5px;
+      color: #4f4e4e;
     }
 
     .metric-strip { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-top: 18px; }
@@ -370,26 +402,27 @@
       }
     ],
 
-    /* ---- 03 HOW IT WORKS & OUR SERVICES (VERTICAL STACK UPDATED) ---- */
-    howItWorks: {
-      pipelineTitle: "KOL 시딩 프로세스",
-      pipelineSub: "브랜드는 전달만 받으세요. 섭외부터 리포트까지 원스톱으로 해결합니다.",
-      steps: [
-        "크리에이터 리스트 제공",
-        "아웃리치 & 섭외",
-        "팔로우업 & 리마인더",
-        "성과 분석 및 리포트 전달"
+    /* ---- 03 HOW IT WORKS & OUR SERVICES (TABBED STRUCTURE) ---- */
+    tabServices: {
+      tabs: [
+        { id: "kol", label: "KOL 시딩 프로세스", isDefault: true },
+        { id: "influencer", label: "인플루언서 시딩" },
+        { id: "group", label: "공동구매" },
+        { id: "live", label: "라이브 커머스" },
+        { id: "sales", label: "세일즈 프로그램" },
+        { id: "loc", label: "로컬라이제이션" },
+        { id: "consulting", label: "글로벌 컨설팅" },
+        { id: "legal", label: "법적 등록 & 인증 지원" }
       ],
-      servicesTitle: "VIVELY 서비스",
-      servicesList: [
-        "인플루언서 시딩",
-        "공동구매",
-        "라이브 커머스",
-        "세일즈 프로그램",
-        "로컬라이제이션",
-        "글로벌 컨설팅",
-        "법적 등록 & 인증 지원"
-      ]
+      kolContent: {
+        subcaption: "브랜드는 전달만 받으세요. 섭외부터 리포트까지 원스톱으로 해결합니다.",
+        steps: [
+          "크리에이터 리스트 제공",
+          "아웃리치 & 섭외",
+          "팔로우업 & 리마인더",
+          "성과 분석 및 리포트 전달"
+        ]
+      }
     },
 
     cpmBenchmarks: [
@@ -666,28 +699,29 @@
       "</div></section>"
     );
 
-    /* 03 — HOW IT WORKS & OUR SERVICES (UPDATED VERTICAL STACK) */
+    /* 03 — HOW IT WORKS & OUR SERVICES (INTERACTIVE TAB CONTAINER) */
     sectionNo++;
-    const hw = R.howItWorks;
+    const ts = R.tabServices;
     parts.push(
       '<section class="section reveal">' +
       '<h2><span class="num">' + num2(sectionNo) + " — HOW IT WORKS & OUR SERVICES</span>서비스 프로세스 및 생태계</h2>" +
-      '<div class="vertical-stack">' +
-      /* Top Container: KOL Seeding Process */
       '<div class="card">' +
-      '<div class="case-title">' + esc(hw.pipelineTitle) + '</div>' +
-      '<div class="kpi-note" style="margin-bottom: 12px;">' + esc(hw.pipelineSub) + '</div>' +
+      /* Single Row Interactive Tab Bar */
+      '<div class="tab-bar-wrap" id="serviceTabBar">' +
+      ts.tabs.map((tab) => 
+        '<button class="tab-btn' + (tab.isDefault ? ' active' : '') + '" onclick="switchServiceTab(\'' + tab.id + '\', this)">' + esc(tab.label) + '</button>'
+      ).join("") +
+      '</div>' +
+      /* Dynamic Content Area */
+      '<div id="serviceTabContent" class="tab-content-area">' +
+      /* Default State: KOL Seeding Process */
+      '<div class="kpi-note" style="margin-bottom: 12px;">' + esc(ts.kolContent.subcaption) + '</div>' +
       '<div class="pipeline-grid">' +
-      hw.steps.map((step, idx) => 
+      ts.kolContent.steps.map((step, idx) => 
         '<div class="pipeline-step"><span class="step-badge">STEP 0' + (idx + 1) + '</span><div class="step-text">' + esc(step) + '</div></div>'
       ).join("") +
-      '</div></div>' +
-      /* Bottom Container: Vively Services */
-      '<div class="card">' +
-      '<div class="case-title">' + esc(hw.servicesTitle) + '</div>' +
-      '<div class="service-grid">' +
-      hw.servicesList.map((srv) => '<div class="service-chip">' + esc(srv) + '</div>').join("") +
-      '</div></div>' +
+      '</div>' +
+      '</div>' +
       '</div></section>'
     );
 
@@ -823,6 +857,30 @@
     );
 
     document.getElementById("app").innerHTML = parts.join("");
+
+    /* ============ INTERACTIVE TAB SWITCHING FUNCTION ============ */
+    function switchServiceTab(tabId, btnEl) {
+      document.querySelectorAll('#serviceTabBar .tab-btn').forEach(btn => btn.classList.remove('active'));
+      btnEl.classList.add('active');
+
+      const contentArea = document.getElementById('serviceTabContent');
+      if (tabId === 'kol') {
+        const kol = REPORT.tabServices.kolContent;
+        contentArea.innerHTML = 
+          '<div class="kpi-note" style="margin-bottom: 12px;">' + esc(kol.subcaption) + '</div>' +
+          '<div class="pipeline-grid">' +
+          kol.steps.map((step, idx) => 
+            '<div class="pipeline-step"><span class="step-badge">STEP 0' + (idx + 1) + '</span><div class="step-text">' + esc(step) + '</div></div>'
+          ).join("") +
+          '</div>';
+      } else {
+        contentArea.innerHTML = 
+          '<div class="tba-box">' +
+          '<div class="tba-title">TBA (To Be Announced)</div>' +
+          '<div class="tba-subtext">해당 서비스의 프로세스 및 가이드라인은 곧 업데이트될 예정입니다.</div>' +
+          '</div>';
+      }
+    }
 
     /* ============ charts & counters ============ */
     const valueLabels = {
