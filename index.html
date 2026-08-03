@@ -132,7 +132,6 @@
     .kpi.hot .kpi-value { color: #1b1b1b !important; }
     .kpi-note { font-size: 12px; color: #4f4e4e; line-height: 1.4; }
     
-    /* REVISED: Key Results Dynamic Tag Colors */
     .tag {
       display: inline-block;
       font-size: 9.5px;
@@ -275,7 +274,6 @@
       color: #1b1b1b;
     }
 
-    /* REVISED: Engagement Metrics in Cards */
     .engagement-cards-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
@@ -325,7 +323,24 @@
       transition: border-color 0.3s ease, background 0.3s ease, transform 0.3s ease;
     }
     .reel:hover { border-color: #1b1b1b; transform: translateY(-3px); }
-    .reel video, .reel img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+    
+    /* REVISED: Video pointer-events for pure animation without controls */
+    .reel video { 
+      position: absolute; 
+      inset: 0; 
+      width: 100%; 
+      height: 100%; 
+      object-fit: cover; 
+      pointer-events: none; /* Prevents controls from appearing on hover */
+    }
+    .reel img { 
+      position: absolute; 
+      inset: 0; 
+      width: 100%; 
+      height: 100%; 
+      object-fit: cover; 
+    }
+    
     .reel .ico {
       width: 40px; height: 40px;
       border-radius: 50%;
@@ -340,13 +355,8 @@
     .reel .reel-hint { padding: 0 12px; transition: opacity 0.3s; }
     .reel .ratio-tag { position: absolute; bottom: 10px; font-size: 10px; letter-spacing: 0.1em; color: #4f4e4e; }
     .reel.filled .ratio-tag, .reel.filled .ico { display: none; }
-    table { width: 100%; border-collapse: collapse; font-size: 14px; }
-    th, td { text-align: left; vertical-align: top; padding: 13px 10px; border-bottom: 1px solid var(--line); }
-    th { font-size: 11px; text-transform: uppercase; letter-spacing: 0.1em; color: #232c27; }
-    td { color: #4f4e4e; }
-    td strong { color: #1b1b1b; }
 
-    /* REVISED: WHY VIVELY QUOTE & ANIMATED HIGHLIGHTS */
+    /* WHY VIVELY QUOTE & ANIMATED HIGHLIGHTS */
     .quote-hero-box {
       border-left: 4px solid #1b1b1b;
       padding: 24px 28px;
@@ -468,7 +478,6 @@
     ],
     cpmNote: "LaBab 캠페인은 View당 지급 단가(PVV) 모델로 운영되어 위 CPM 차트와는 단위가 달라 별도로 비교합니다. 해당 캠페인의 케이스 스터디 섹션에서 확인할 수 있습니다.",
 
-    /* ---- 05 OUR CASE STUDY DATA MODEL (REVISED ENGAGEMENT CARDS & SCHEMA) ---- */
     caseStudyProjects: [
       {
         id: "juno",
@@ -735,7 +744,7 @@
       "</div></div></section>"
     );
 
-    /* 05 — OUR CASE STUDY (STANDARDIZED SCHEMA & REVISED CARDS) */
+    /* 05 — OUR CASE STUDY */
     sectionNo++;
     const defaultProject = R.caseStudyProjects[0];
     parts.push(
@@ -752,23 +761,18 @@
       '</section>'
     );
 
-    /* 06 — WHY VIVELY (REVISED QUOTE FIRST & ANIMATED HIGHLIGHTS) */
+    /* 06 — WHY VIVELY */
     sectionNo++;
     parts.push(
       '<section class="section reveal">' +
       '<h2><span class="num">' + num2(sectionNo) + " — WHY VIVELY</span>왜 신규 한국 클라이언트가 주목해야 하는가</h2>" +
-      
-      /* Quote First with Animated Yellow Highlights */
       '<div class="quote-hero-box">' +
         '“VIVELY는 해외 타깃 대상 <span class="hl-anim">인플루언서 시딩</span>을 통해, <span class="hl-anim">브랜드 인지도</span> 확보와 초기 세일즈 검증을 동시에 수행하는 파트너입니다. <span class="hl-anim">저예산 구조</span>에서도 CPM 효율과 실제 예약 또는 구매 전환 신호를 함께 제시할 수 있습니다.”' +
       '</div>' +
-
-      /* 설득 포인트 Below */
       '<div class="card">' +
         '<div class="case-title">설득 포인트</div>' + 
         listHtml(R.whyPoints.map(esc)) + 
       '</div>' +
-
       '<div class="footer">' + esc(R.footer.note) + '</div>' +
       '</section>'
     );
@@ -824,6 +828,7 @@
       '</div>';
     }
 
+    /* REVISED: Video player without controls on hover */
     function initReelsForProject(projectId) {
       const wrap = document.getElementById("reels-" + projectId);
       if (!wrap) return;
@@ -977,7 +982,7 @@
     }, { threshold: 0.12 });
     document.querySelectorAll(".reveal").forEach((el) => revealObserver.observe(el));
 
-    /* Reel media loader */
+    /* REVISED: Reel media loader without controls attribute */
     const EXTS = ["mp4", "webm", "gif", "jpg", "png"];
     function tryLoad(slot, name, extIndex) {
       if (extIndex >= EXTS.length) return;
@@ -986,7 +991,6 @@
       if (ext === "mp4" || ext === "webm") {
         const v = document.createElement("video");
         v.muted = true; v.loop = true; v.autoplay = true; v.playsInline = true;
-        v.controls = true;
         v.setAttribute("playsinline", "");
         v.addEventListener("loadeddata", () => { slot.classList.add("filled"); v.play().catch(() => {}); });
         v.addEventListener("error", () => { v.remove(); tryLoad(slot, name, extIndex + 1); });
