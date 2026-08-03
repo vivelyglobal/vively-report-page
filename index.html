@@ -6,17 +6,20 @@
   <title>Vively Performance Report</title>
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.min.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;600;700;800&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg: #f7f8fb;
+      --bg: #fffcf1;
       --surface: #ffffff;
-      --surface-2: #fbfbfe;
+      --surface-2: #faf8ee;
       --text: #14161c;
       --muted: #5c6474;
       --subtle: #9aa1ae;
       --line: rgba(15, 23, 42, 0.09);
       --line-strong: rgba(15, 23, 42, 0.17);
-      --accent: #8b5cf6;
+      --accent: #ff0aa3;
       --accent-2: #ec4899;
       --mint: #0ea371;
       --gold: #f59e0b;
@@ -30,7 +33,7 @@
       margin: 0;
       background: var(--bg);
       color: var(--text);
-      font-family: "Pretendard", -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", "Helvetica Neue", Arial, sans-serif;
+      font-family: "Noto Sans KR", "Pretendard", -apple-system, BlinkMacSystemFont, Arial, sans-serif;
       line-height: 1.6;
       overflow-x: hidden;
     }
@@ -80,12 +83,9 @@
       70% { box-shadow: 0 0 0 10px rgba(16, 185, 129, 0); }
       100% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
     }
-    .title { font-size: 60px; line-height: 1.1; font-weight: 800; letter-spacing: -0.035em; margin: 0 0 20px; }
+    .title { font-size: 60px; line-height: 1.1; font-weight: 800; letter-spacing: -0.035em; margin: 0 0 20px; font-family: "Noto Sans KR", sans-serif; }
     .title .grad {
-      background: linear-gradient(92deg, var(--accent) 0%, var(--accent-2) 60%, var(--gold) 120%);
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
+      color: #ff0aa3;
     }
     .subtitle { font-size: 24px; font-weight: 600; letter-spacing: -0.02em; color: #4a5264; line-height: 1.5; max-width: 820px; }
     .section { padding: 46px 0; border-bottom: 1px solid var(--line); }
@@ -108,14 +108,14 @@
       background:
         linear-gradient(180deg, var(--surface), var(--surface-2)) padding-box,
         linear-gradient(135deg, var(--accent), var(--accent-2)) border-box;
-      box-shadow: 0 0 34px rgba(139, 92, 246, 0.14);
+      box-shadow: 0 0 34px rgba(255, 10, 163, 0.14);
     }
     .kpi.hot::after {
       content: "";
       position: absolute;
       top: 0; left: -80%;
       width: 60%; height: 100%;
-      background: linear-gradient(100deg, transparent, rgba(139, 92, 246, 0.06), transparent);
+      background: linear-gradient(100deg, transparent, rgba(255, 10, 163, 0.06), transparent);
       animation: sheen 4.5s ease-in-out infinite;
     }
     @keyframes sheen { 0% { left: -80%; } 55%, 100% { left: 130%; } }
@@ -132,10 +132,7 @@
     }
     .kpi-value { font-size: 38px; line-height: 1.05; font-weight: 800; letter-spacing: -0.03em; margin-bottom: 10px; font-variant-numeric: tabular-nums; }
     .kpi.hot .kpi-value {
-      background: linear-gradient(92deg, #6d28d9, #db2777);
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
+      color: #ff0aa3;
     }
     .kpi-note { font-size: 13.5px; color: var(--muted); }
     .tag {
@@ -149,13 +146,13 @@
       color: var(--mint);
       border: 1px solid rgba(14, 163, 113, 0.35);
     }
-    .tag.violet { background: rgba(139, 92, 246, 0.1); color: #6d4fd0; border-color: rgba(139, 92, 246, 0.35); }
+    .tag.violet { background: rgba(255, 10, 163, 0.1); color: #ff0aa3; border-color: rgba(255, 10, 163, 0.35); }
     .insight {
       margin-top: 22px;
       padding: 16px 18px;
       border-left: 3px solid var(--accent);
       border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
-      background: rgba(139, 92, 246, 0.06);
+      background: rgba(255, 10, 163, 0.06);
       font-size: 14.5px;
       color: #454d5f;
     }
@@ -220,7 +217,7 @@
       overflow: hidden;
       transition: border-color 0.3s ease, background 0.3s ease, transform 0.3s ease;
     }
-    .reel:hover { border-color: var(--accent); background-color: rgba(139, 92, 246, 0.08); transform: translateY(-3px); }
+    .reel:hover { border-color: var(--accent); background-color: rgba(255, 10, 163, 0.08); transform: translateY(-3px); }
     .reel video, .reel img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
     .reel .ico {
       width: 40px; height: 40px;
@@ -249,7 +246,7 @@
       letter-spacing: -0.015em;
       background:
         linear-gradient(180deg, var(--surface), var(--surface-2)) padding-box,
-        linear-gradient(135deg, rgba(139,92,246,.6), rgba(236,72,153,.6)) border-box;
+        linear-gradient(135deg, rgba(255,10,163,.6), rgba(236,72,153,.6)) border-box;
       color: #2b3242;
     }
     .footer { font-size: 13px; color: var(--muted); line-height: 1.7; padding-top: 28px; }
@@ -276,32 +273,21 @@
   <div class="report" id="app"></div>
 
   <script>
-  /* ═════════════════════════════════════════════════════════════════════
-     ★★★  데이터 블록 — 여기만 수정하면 됩니다  ★★★
-     ─────────────────────────────────────────────────────────────────────
-     새 프로젝트 추가 방법:
-       1. REPORT.projects 배열에 기존 항목을 복사해 붙여넣고 값만 바꾸세요.
-       2. 영상/이미지는 media 폴더에 "<id>-1.mp4" ~ "<id>-4.mp4"로 저장하세요.
-          (id는 아래 프로젝트의 id 값. 예: id가 "newbrand"면 newbrand-1.mp4)
-       3. KPI 카드(kpis)도 필요하면 추가/수정하세요. 카드 수는 자유입니다.
-     섹션 번호, 차트, 표, 릴 슬롯은 모두 자동으로 생성됩니다.
-     ═════════════════════════════════════════════════════════════════════ */
   const REPORT = {
     hero: {
       eyebrow: "Performance Report · Korea Client Edition · LIVE",
-      title: "Vively 퍼포먼스 리포트",
+      title: "VIVELY GLOBAL 퍼포먼스 리포트",
       subtitle: ["비블리와 함께", "글로벌 성장을 극대화하세요"]
     },
 
-    /* ---- 01 핵심 성과 요약 ----
-       hot: true → 그라데이션 강조 카드 / tag → 카드 라벨 옆 뱃지 */
-    kpiIntro: "Juno, 자임당, LaBab 3개 캠페인의 핵심 성과를 한눈에 정리했습니다. 비용 효율·도달 규모·참여 반응·매출 연결 신호를 우선 배치했습니다.",
+    /* ---- 01 핵심 성과 요약 (REVISED METRICS) ---- */
+    kpiIntro: "VIVELY와 함께한 브랜드 캠페인의 핵심 지표를 한눈에 정리했습니다. 비용 효율성, 그리고 브랜드 및 인플루언서와의 지속적인 파트너십을 최우선으로 고려합니다.",
     kpis: [
-      { label: "Juno CPM", tag: "BEST-IN-CLASS", prefix: "₩", value: 2731, suffix: "", note: "Vively Global Organic Campaign", hot: true },
-      { label: "Jaimdang CPM", prefix: "₩", value: 3165, suffix: "", note: "Vively Organic Campaign", hot: false },
-      { label: "LaBab PVV", tag: "BEST-IN-MARKET", prefix: "₩", value: 15, suffix: "/뷰", note: "시장 범위 ₩14–56 대비 최저 수준", hot: true },
-      { label: "Juno 첫날 매출", tag: "SALES SIGNAL", prefix: "약 ", value: 150, suffix: "만원", note: "예약 도달 기준", hot: true },
-      { label: "Jaimdang 첫날 매출", tag: "SALES SIGNAL", prefix: "약 ", value: 500, suffix: "만원", note: "해외 구매자 타깃 기준", hot: true }
+      { label: "Conversion Rate", tag: "BRAND ONBOARDING", prefix: "", value: 60.5, suffix: "%", note: "38개 제안 브랜드 중 23개 계약 체결 완료", hot: true, isFloat: true },
+      { label: "Retention Rate", tag: "PARTNERSHIP", prefix: "", value: 100, suffix: "%", note: "기존 파트너 브랜드 재계약 및 유지율", hot: true },
+      { label: "Influencers Database", tag: "NETWORK", prefix: "", value: 202, suffix: "", note: "검증된 글로벌 인플루언서 풀", hot: false, dynamicType: "influencer" },
+      { label: "Total Views (30 Days)", tag: "REACH", prefix: "", value: 1203477, suffix: "", note: "최근 30일간 누적 콘텐츠 조회수", hot: true, dynamicType: "views" },
+      { label: "Non-Follower View Rate", tag: "VIRALITY", prefix: "", valueText: "95% – 99%", note: "신규 유입 및 잠재 고객 도달 비중", hot: false }
     ],
     kpiInsight: "본 리포트의 강점은 단순 노출 수치가 아니라, 저예산 집행·글로벌 타깃 도달·실제 세일즈 연계 가능성을 함께 보여준다는 점입니다.",
 
@@ -313,8 +299,7 @@
         note: "인플루언서 시딩, 공동 작업형 콘텐츠, 프로모션 연계, 초기 시장 검증을 하나의 구조로 설계." }
     ],
 
-    /* ---- 03 비용 효율성 (CPM 벤치마크) ----
-       프로젝트별 CPM은 아래 projects의 cpm 값에서 자동으로 가져옵니다 */
+    /* ---- 03 비용 효율성 (CPM 벤치마크) ---- */
     cpmBenchmarks: [
       { label: "Meta Low", value: 7000 },
       { label: "Meta High", value: 20000 },
@@ -330,12 +315,10 @@
     ],
     cpmNote: "LaBab 캠페인은 View당 지급 단가(PVV) 모델로 운영되어 위 CPM 차트와는 단위가 달라 별도로 비교합니다. 해당 캠페인의 케이스 스터디 섹션에서 확인할 수 있습니다.",
 
-    /* ---- 프로젝트 (케이스 스터디) ----
-       ★ 새 프로젝트는 여기에 추가하세요 ★
-       live: true → 진행중 표시 + 조회수가 실시간처럼 계속 올라감 */
+    /* ---- 프로젝트 (케이스 스터디) ---- */
     projects: [
       {
-        id: "juno",                          // media 파일명 접두사 (juno-1.mp4 …)
+        id: "juno",
         name: "Juno Seoul",
         heading: "Juno Seoul 한남 플래그쉽 오프닝",
         live: false,
@@ -350,7 +333,6 @@
           "도달 국가: Russia · Indonesia · Canada",
           "프로모션 연계: 전 시술 20% 할인"
         ],
-        /* 케이스 카드 하단 미니 지표 3개 (count: 숫자 카운트업 / text: 문자 그대로) */
         metrics: [
           { label: "조회수", count: 366126, win: true },
           { label: "통합 참여", count: 389653 },
@@ -387,7 +369,7 @@
         id: "jaimdang",
         name: "자임당",
         heading: "자임당 다이어트 한의원",
-        live: true,                          // 진행중 → LIVE 카운터 작동
+        live: true,
         typeTag: null,
         overview: [
           "상태: 진행중",
@@ -437,7 +419,7 @@
         id: "labab",
         name: "LaBab",
         heading: "LaBab 글로벌 크리에이터 캠페인",
-        live: true,                          // 진행중 → LIVE 카운터 작동
+        live: true,
         typeTag: "GLOBAL SEEDING",
         overview: [
           "캠페인: LaBab x Vively 글로벌 인플루언서 시딩 캠페인",
@@ -475,11 +457,9 @@
           ],
           note: "주석 — 2026년 7월 16일 집계 기준 스냅샷이며, 대기 중인 25개 콘텐츠가 업로드되면 수치는 추가로 증가합니다."
         },
-        /* CPM 대신 View당 지급 단가(PVV) 모델 — 아래 extra 섹션에서 별도 비교 */
         countries: "Indonesia, India, Japan, Russia, Iraq 등 26개국",
         geoCount: 26,
         geoInterpretation: "동남아·남아시아 중심에 중동·CIS까지 더한 최대 규모의 다국가 확장 테스트",
-        /* 프로젝트 전용 추가 섹션 (선택 사항) — 이 프로젝트만의 별도 비교 차트가 필요할 때 사용 */
         extra: {
           kicker: "COST EFFICIENCY",
           title: "LaBab View당 지급 단가 (PVV) 비교",
@@ -502,7 +482,7 @@
       }
     ],
 
-    /* ---- 예산 대비 매출 / 글로벌 도달 (차트는 위 projects에서 자동 생성) ---- */
+    /* ---- 예산 대비 매출 / 글로벌 도달 ---- */
     budgetSalesInsight: "두 사례 모두 비교적 제한된 예산 구조에서도 세일즈 연결 신호를 설명할 수 있습니다.",
     budgetSalesNote: "LaBab 캠페인은 세일즈 전환보다 인지도 확장과 도달에 초점을 맞춘 리치형 캠페인으로, 매출 신호 대신 총 조회수 253,890 (예산 약 279만원)을 핵심 성과로 제시합니다.",
     geoInsight: "Juno Seoul은 3개 국가 중심의 집중 테스트, 자임당은 7개 권역 수준의 확장 테스트, LaBab은 26개국을 아우르는 최대 규모의 다국가 확장 테스트로 해석할 수 있습니다.",
@@ -521,34 +501,32 @@
       note: "주석: 일부 수치는 추정치이며, 플랫폼 알고리즘 및 일부 크리에이터의 제한적 데이터 공개로 인해 변동될 수 있습니다. 진행 중 케이스의 성과 수치는 일부 공개/집계 시점 기준의 스냅샷으로 해석해야 합니다. LaBab 데이터는 LaBab x ScoutLab Collaboration (Responses) 시트의 Report 탭(2026년 7월 16일 집계) 기준입니다."
     }
   };
-  /* ═══════════════════ 데이터 블록 끝 — 아래는 수정 불필요 ═══════════════════ */
   </script>
 
   <script>
     /* ============ theme constants ============ */
     const axisColor = "#5c6474";
     const gridColor = "rgba(15,23,42,0.07)";
-    const VIOLET = "#8b5cf6";
+    const VIOLET = "#ff0aa3";
     const PINK = "#ec4899";
     const MINT = "#10b981";
     const GOLD = "#f59e0b";
     const GRAY = "rgba(15,23,42,0.2)";
     const GRAY2 = "rgba(15,23,42,0.36)";
-    /* per-project accent color pairs (cycles if more than 4 projects) */
     const PROJECT_COLORS = [
       ["rgba(16,185,129,0.5)", MINT],
-      ["rgba(139,92,246,0.5)", VIOLET],
+      ["rgba(255,10,163,0.5)", VIOLET],
       ["rgba(236,72,153,0.4)", PINK],
       ["rgba(245,158,11,0.45)", GOLD]
     ];
     const projColor = (i) => PROJECT_COLORS[i % PROJECT_COLORS.length];
 
-    Chart.defaults.font.family = '"Pretendard", -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", Arial, sans-serif';
+    Chart.defaults.font.family = '"Noto Sans KR", "Pretendard", -apple-system, BlinkMacSystemFont, Arial, sans-serif';
     Chart.defaults.color = axisColor;
 
     /* ============ html helpers ============ */
     const esc = (s) => String(s ?? "").replace(/&/g, "&amp;").replace(/</g, "&lt;");
-    const countSpan = (v, live) => '<span class="count' + (live ? " tick" : "") + '" data-target="' + v + '">0</span>';
+    const countSpan = (v, dynType, isFloat) => '<span class="count' + (dynType ? ' dyn-' + dynType : '') + '" data-target="' + v + '" data-float="' + (isFloat ? '1' : '0') + '">0</span>';
     const liveBadge = '<span class="live-badge"><span class="live-dot"></span>LIVE</span>';
     const num2 = (n) => String(n).padStart(2, "0");
     const listHtml = (items) => '<ul class="list">' + items.map((li) => "<li>" + li + "</li>").join("") + "</ul>";
@@ -556,7 +534,7 @@
     function metricMini(m) {
       const val = m.text !== undefined
         ? esc(m.text)
-        : countSpan(m.count, m.liveTick) + (m.suffix || "");
+        : countSpan(m.count, null, m.isFloat) + (m.suffix || "");
       return '<div class="metric-mini' + (m.win ? " win" : "") + '"><span>' + esc(m.label) + "</span><strong>" + val + "</strong></div>";
     }
 
@@ -574,19 +552,25 @@
       "</section>"
     );
 
-    /* 01 — KPI summary */
+    /* 01 — KPI summary (Revised) */
     sectionNo++;
     parts.push(
       '<section class="section reveal">' +
       '<h2><span class="num">' + num2(sectionNo) + " — KEY RESULTS</span>핵심 성과 요약</h2>" +
       '<div class="section-intro">' + esc(R.kpiIntro) + "</div>" +
       '<div class="grid-4">' +
-      R.kpis.map((k) =>
-        '<div class="card kpi' + (k.hot ? " hot" : "") + '">' +
+      R.kpis.map((k) => {
+        let valDisplay = "";
+        if (k.valueText) {
+          valDisplay = esc(k.valueText);
+        } else {
+          valDisplay = esc(k.prefix || "") + countSpan(k.value, k.dynamicType, k.isFloat) + esc(k.suffix || "");
+        }
+        return '<div class="card kpi' + (k.hot ? " hot" : "") + '">' +
         '<div class="kpi-label">' + esc(k.label) + (k.tag ? ' <span class="tag">' + esc(k.tag) + "</span>" : "") + "</div>" +
-        '<div class="kpi-value">' + esc(k.prefix || "") + countSpan(k.value) + esc(k.suffix || "") + "</div>" +
-        '<div class="kpi-note">' + esc(k.note) + "</div></div>"
-      ).join("") +
+        '<div class="kpi-value">' + valDisplay + "</div>" +
+        '<div class="kpi-note">' + esc(k.note) + "</div></div>";
+      }).join("") +
       "</div>" +
       '<div class="insight"><strong>인사이트</strong> — ' + esc(R.kpiInsight) + "</div>" +
       "</section>"
@@ -669,7 +653,6 @@
         "</div></div></section>"
       );
 
-      /* 프로젝트 전용 추가 섹션 (선택 사항) */
       if (p.extra) {
         sectionNo++;
         const x = p.extra;
@@ -752,7 +735,7 @@
         const horizontal = chart.options.indexAxis === "y";
         const fmt = opts.formatter || ((v) => (opts.prefix || "") + Math.round(v).toLocaleString() + (opts.suffix || ""));
         ctx.save();
-        ctx.font = "700 12px Pretendard, sans-serif";
+        ctx.font = "700 12px 'Noto Sans KR', sans-serif";
         ctx.fillStyle = "#1a1d26";
         chart.data.datasets.forEach((ds, di) => {
           const meta = chart.getDatasetMeta(di);
@@ -780,10 +763,9 @@
       }
     };
 
-    const charts = {};       // id → Chart instance
-    const baseData = {};     // id → original data (for live breathing)
+    const charts = {};
+    const baseData = {};
 
-    /* CPM chart: benchmarks (gray) + one colored bar per project that defines a cpm value */
     const cpmProjects = R.projects.filter((p) => p.cpm != null);
     const cpmLabels = R.cpmBenchmarks.map((b) => b.label).concat(cpmProjects.map((p) => p.name + " ✦"));
     const cpmValues = R.cpmBenchmarks.map((b) => b.value).concat(cpmProjects.map((p) => p.cpm));
@@ -823,7 +805,6 @@
     });
     baseData.cpmChart = cpmValues;
 
-    /* engagement chart per project (skips metrics a project doesn't report, e.g. no "likes" data) */
     R.projects.forEach((p) => {
       const id = "eng-" + p.id;
       const e = p.engagement;
@@ -841,7 +822,7 @@
               const { ctx, chartArea } = c.chart;
               if (!chartArea) return VIOLET;
               const pairs = [
-                ["rgba(139,92,246,0.45)", VIOLET],
+                ["rgba(255,10,163,0.45)", VIOLET],
                 ["rgba(236,72,153,0.4)", PINK],
                 ["rgba(15,23,42,0.12)", GRAY2],
                 ["rgba(15,23,42,0.08)", GRAY]
@@ -870,7 +851,6 @@
       baseData[id] = vals;
     });
 
-    /* budget vs sales (grouped) — only projects that report an actual sales/revenue signal */
     const salesProjects = R.projects.filter((p) => p.sales != null);
     charts.budgetSalesChart = new Chart(document.getElementById("budgetSalesChart"), {
       type: "bar",
@@ -911,7 +891,6 @@
       plugins: [valueLabels]
     });
 
-    /* geo (horizontal) */
     charts.geoChart = new Chart(document.getElementById("geoChart"), {
       type: "bar",
       data: {
@@ -948,7 +927,6 @@
       plugins: [valueLabels]
     });
 
-    /* project-specific "extra" charts (e.g. LaBab's PVV benchmark) */
     R.projects.forEach((p) => {
       if (!p.extra) return;
       const x = p.extra;
@@ -986,7 +964,6 @@
       baseData[x.chartId] = cd.values.slice();
     });
 
-    /* replay chart animation on scroll into view */
     const chartObserver = new IntersectionObserver((entries) => {
       entries.forEach((e) => {
         if (e.isIntersecting) {
@@ -997,7 +974,6 @@
     }, { threshold: 0.4 });
     Object.keys(charts).forEach((id) => chartObserver.observe(document.getElementById(id)));
 
-    /* gentle "live breathing" on cpm + engagement charts */
     setInterval(() => {
       Object.keys(baseData).forEach((id) => {
         const ch = charts[id];
@@ -1006,27 +982,36 @@
       });
     }, 2600);
 
-    /* ============ count-up numbers ============ */
+    /* ============ count-up numbers & dynamic real-time counters ============ */
     function countUp(el) {
       const target = +el.dataset.target;
+      const isFloat = el.dataset.float === "1";
       const dur = 1800;
       const start = performance.now();
       function frame(now) {
         const p = Math.min((now - start) / dur, 1);
         const eased = 1 - Math.pow(1 - p, 4);
-        el.textContent = Math.round(target * eased).toLocaleString();
+        const curr = target * eased;
+        el.textContent = isFloat ? curr.toFixed(1) : Math.round(curr).toLocaleString();
         if (p < 1) requestAnimationFrame(frame);
-        else if (el.classList.contains("tick")) startTicker(el, target);
+        else {
+          el.textContent = isFloat ? target.toFixed(1) : target.toLocaleString();
+          if (el.classList.contains("dyn-influencer")) startDynamicCounter(el, target, 20000, 1, false);
+          if (el.classList.contains("dyn-views")) startDynamicCounter(el, target, 8000, 5, true);
+        }
       }
       requestAnimationFrame(frame);
     }
-    function startTicker(el, base) {
-      let v = base;
+
+    function startDynamicCounter(el, initialBase, intervalMs, addVal, isRandom) {
+      let currentVal = initialBase;
       setInterval(() => {
-        v += Math.floor(Math.random() * 3) + 1;
-        el.textContent = v.toLocaleString();
-      }, 2200);
+        const increment = isRandom ? Math.floor(Math.random() * addVal) + 1 : addVal;
+        currentVal += increment;
+        el.textContent = currentVal.toLocaleString();
+      }, intervalMs);
     }
+
     const countObserver = new IntersectionObserver((entries) => {
       entries.forEach((e) => {
         if (e.isIntersecting && !e.target.dataset.done) {
@@ -1043,9 +1028,7 @@
     }, { threshold: 0.12 });
     document.querySelectorAll(".reveal").forEach((el) => revealObserver.observe(el));
 
-    /* ============ reel media slots (4 per project, 9:16) ============
-       Files load from ./media — "<id>-1.mp4" … "<id>-4.mp4"
-       Formats tried in order: .mp4 → .webm → .gif → .jpg → .png */
+    /* ============ reel media slots ============ */
     const EXTS = ["mp4", "webm", "gif", "jpg", "png"];
     function tryLoad(slot, name, extIndex) {
       if (extIndex >= EXTS.length) return;
@@ -1070,6 +1053,7 @@
     }
     R.projects.forEach((p) => {
       const wrap = document.getElementById("reels-" + p.id);
+      if (!wrap) return;
       for (let i = 1; i <= 4; i++) {
         const name = p.id + "-" + i;
         const slot = document.createElement("div");
