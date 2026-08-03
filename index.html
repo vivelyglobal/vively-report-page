@@ -257,6 +257,21 @@
       color: #232c27;
       border: 1px solid rgba(35, 44, 39, 0.15);
     }
+    .overview-schema-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      color: #4f4e4e;
+      font-size: 14.5px;
+    }
+    .overview-schema-list li {
+      margin-bottom: 10px;
+      line-height: 1.5;
+    }
+    .overview-schema-list strong {
+      color: #1b1b1b;
+    }
+
     .metric-strip { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-top: 18px; }
     .metric-strip.cols-2 { grid-template-columns: repeat(2, 1fr); }
     .metric-mini { border: 1px solid var(--line); border-radius: var(--radius-sm); padding: 14px; background: #ffffff; }
@@ -420,24 +435,19 @@
     ],
     cpmNote: "LaBab 캠페인은 View당 지급 단가(PVV) 모델로 운영되어 위 CPM 차트와는 단위가 달라 별도로 비교합니다. 해당 캠페인의 케이스 스터디 섹션에서 확인할 수 있습니다.",
 
-    /* ---- 05 OUR CASE STUDY DATA MODEL (8 COMPLETED PROJECTS) ---- */
+    /* ---- 05 OUR CASE STUDY DATA MODEL (STANDARDIZED 5-FIELD SCHEMA) ---- */
     caseStudyProjects: [
       {
         id: "juno",
         name: "준오헤어",
-        typeTag: "MARKETING → SALES",
         branches: ["준오 서울 한남", "준오 안녕인사동", "준오 강서구청", "준오 VIP 이벤트"],
-        overviewNote: "Global Marketing & Sales Conversion Seeding Campaign.",
-        overview: [
-          "캠페인 유형: 글로벌 마케팅·세일즈 연계 캠페인 / Influencer Seeding Campaign",
-          "목표: Brand awareness → Early market validation test",
-          "예산: 약 100만원 (VAT 미포함)",
-          "참여 인원: 외국인 인플루언서 4명 + 외국인 모델 1명",
-          "캠페인 기간: 시딩 7일 / 마케팅-투-세일즈 3일",
-          "산출물: 인스타그램 전용 캠페인 7개",
-          "도달 국가: Russia · Indonesia · Canada",
-          "프로모션 연계: 전 시술 20% 할인"
-        ],
+        schema: {
+          service: "인플루언서 KOL 시딩",
+          goal: "브랜드 인지도 제고 및 외국인 방문객 유치",
+          participants: "외국인 인플루언서 14명",
+          countryReach: "6개국 (인도네시아, 우즈베키스탄, 대만, 콜롬비아, 카자흐스탄, 캐나다)",
+          keyNote: "시딩 진행 후 VIVELY 전용 창구를 통해 예약 시 전 시술 20% 할인 프로모션 연계 진행"
+        },
         metrics: [
           { label: "조회수", count: 366126, win: true },
           { label: "통합 참여", count: 389653 },
@@ -452,17 +462,14 @@
       {
         id: "labab",
         name: "라밥",
-        typeTag: "GLOBAL SEEDING",
-        branches: ["서울 전역 20여개 지점"],
-        overviewNote: "Global Creator Pay-Per-View (PVV) Seeding Campaign.",
-        overview: [
-          "캠페인: LaBab x Vively 글로벌 인플루언서 시딩 캠페인",
-          "구조: 매장 방문 → 현장 경험 → 인스타그램 릴스 업로드",
-          "참여: 외국인 크리에이터 73명 확정 (지원 116명)",
-          "분포: 26개국 · 7개 권역 (동남아·남아시아·유럽·CIS 등)",
-          "산출물: 릴스 48개 업로드 완료 · 25개 진행 대기",
-          "지점 커버리지: 서울 전역 20여개 지점 방문 인증"
-        ],
+        branches: ["서울 전역 20여 개 지점"],
+        schema: {
+          service: "인플루언서 KOL 시딩",
+          goal: "방한 외국인 관광객 타깃 맛집 인지도 확보 및 방문 유도",
+          participants: "외국인 크리에이터 73명",
+          countryReach: "26개국 (동남아, 중동, 아시아, 동유럽, 서유럽, 북미, 남미, 아프리카, 오세아니아)",
+          keyNote: "서울 전역 20여 개 지점 방문 인증 진행"
+        },
         metrics: [
           { label: "조회수", count: 253890, win: true },
           { label: "참여 크리에이터", count: 73, suffix: "명" },
@@ -477,17 +484,14 @@
       {
         id: "jaimdang",
         name: "자임당한의원",
-        typeTag: "DIET & WELLNESS",
         branches: ["자임당한의원 본점"],
-        overviewNote: "Global Target Diet & Wellness Campaign.",
-        overview: [
-          "캠페인 유형: Influencer Seeding + Marketing to Sales Campaign",
-          "목표: Brand awareness → Early market validation test",
-          "예산: 약 150만원 (VAT 미포함)",
-          "참여 인원: 외국인 마이크로 인플루언서 총 30명 (1만명 이하)",
-          "캠페인 기간: 시딩 30일 / 마케팅-투-세일즈 7일",
-          "추가 구조: 인도네시아·우즈벡 크리에이터 공동구매"
-        ],
+        schema: {
+          service: "인플루언서 KOL 시딩, 공동구매",
+          goal: "글로벌 타깃 브랜드 인지도 형성 및 세일즈 전환 검증",
+          participants: "외국인 크리에이터 30명",
+          countryReach: "17개국 (동남아, 동아시아, 남아시아, 중동, 동유럽, 중앙아시아, 서유럽, 아프리카, 남미)",
+          keyNote: "초기 시딩 성과를 바탕으로 공동구매 전환 완료 및 신제품 론칭 프로젝트 진행 중"
+        },
         metrics: [
           { label: "예산", text: "약 150만원" },
           { label: "인플루언서", count: 30, suffix: "명" },
@@ -501,17 +505,15 @@
       },
       {
         id: "myeondong",
-        name: "면동 K-갈비",
-        typeTag: "F&B TOURISM",
-        branches: ["면동 K-갈비 본점"],
-        overviewNote: "F&B Global Seeding & Inbound Tourist Campaign.",
-        overview: [
-          "캠페인 유형: Inbound Tourist F&B Experience Campaign",
-          "목표: 방한 외국인 관광객 타깃 맛집 인지도 확보 및 방문 유도",
-          "참여 인원: 글로벌 푸드/여행 크리에이터 15명",
-          "산출물: 인스타그램 릴스 & 구글 맵스 리뷰 등록",
-          "도달 권역: 동남아시아 · 미주 · 중화권"
-        ],
+        name: "명동 K-갈비",
+        branches: ["명동 K-갈비 본점"],
+        schema: {
+          service: "인플루언서 KOL 시딩",
+          goal: "방한 외국인 관광객 타깃 맛집 인지도 확보 및 방문 유도",
+          participants: "외국인 크리에이터 45명",
+          countryReach: "19개국 (동남아, 동아시아, 남아시아, 중동, 동유럽, 중앙아시아, 서유럽, 북미, 남미, 아프리카)",
+          keyNote: "명동 방문 관광객 대상 실질적 방문 및 오프라인 동선 연계"
+        },
         metrics: [
           { label: "조회수", count: 184500, win: true },
           { label: "저장/공유", count: 1240, win: true },
@@ -525,19 +527,18 @@
       },
       {
         id: "apgujeong",
-        name: "압구정닭한마리",
-        typeTag: "K-FOOD VIRAL",
+        name: "압구정 닭한마리",
         branches: ["압구정 본점"],
-        overviewNote: "K-Food Viral Content & Dining Experience Seeding.",
-        overview: [
-          "캠페인 유형: K-Food Experience & Viral Video Seeding",
-          "목표: K-Culture 관심 외국인 대상 K-Food 체험 홍보",
-          "참여 인원: K-컬처 및 뷰티/라이프스타일 크리에이터 20명",
-          "산출물: 숏폼 영상 20개 업로드"
-        ],
+        schema: {
+          service: "인플루언서 KOL 시딩",
+          goal: "방한 일본 관광객 타깃 맛집 인지도 확보 및 방문 유도",
+          participants: "일본인 크리에이터 45명",
+          countryReach: "1개국 (일본)",
+          keyNote: "일본 관광객 타깃 맞춤형 바이럴 및 현지 선호 타깃 집중 공략"
+        },
         metrics: [
           { label: "조회수", count: 142000, win: true },
-          { label: "참여 크리에이터", count: 20, suffix: "명" },
+          { label: "참여 크리에이터", count: 45, suffix: "명" },
           { label: "저장수", count: 890 }
         ],
         engagement: {
@@ -549,15 +550,14 @@
       {
         id: "tonymoly",
         name: "토니모리",
-        typeTag: "K-BEAUTY SEEDING",
-        branches: ["글로벌 온라인 & 명동 플래그쉽"],
-        overviewNote: "K-Beauty Product Seeding & Global Virality Campaign.",
-        overview: [
-          "캠페인 유형: Global K-Beauty Product Experience Campaign",
-          "목표: 신제품 글로벌 언박싱 및 실사용 후기 반응 확보",
-          "참여 인원: 글로벌 뷰티 크리에이터 35명",
-          "도달 국가: 미주 · 동남아 · 일본 · 유럽"
-        ],
+        branches: ["글로벌 온라인 & 명동 팝업스토어"],
+        schema: {
+          service: "인플루언서 KOL 시딩",
+          goal: "토니모리 20주년 팝업스토어 현장 현장감 전달 및 인지도 확산",
+          participants: "외국인 크리에이터 10명",
+          countryReach: "7개국 (인도네시아, 이집트, 필리핀, 이라크, 스페인, 페루, 이탈리아)",
+          keyNote: "글로벌 팝업스토어 체험형 바이럴 콘텐츠 생성"
+        },
         metrics: [
           { label: "조회수", count: 412000, win: true },
           { label: "댓글 문의", count: 1560, win: true },
@@ -572,15 +572,14 @@
       {
         id: "parkjun",
         name: "박준 뷰티랩",
-        typeTag: "BEAUTY TOURISM",
         branches: ["명동점", "부산 가야점"],
-        overviewNote: "Inbound Tourist Beauty Service Campaign.",
-        overview: [
-          "캠페인 유형: Inbound Tourist Hair & Beauty Experience",
-          "목표: 외국인 관광객 대상 K-뷰티 헤어 시술 예약 유도",
-          "참여 인원: 방한 외국인 크리에이터 12명",
-          "지점 커버리지: 명동점 · 부산 가야점"
-        ],
+        schema: {
+          service: "인플루언서 KOL 시딩",
+          goal: "타깃 시장 검증 및 글로벌 브랜드 인지도 제고",
+          participants: "외국인 크리에이터 9명",
+          countryReach: "7개국 (인도네시아, 인도, 우크라이나, 벨라루스, 대만, 코스타리카, 호주)",
+          keyNote: "방한 관광객 중심의 뷰티 서비스 체험 및 다국적 콘텐츠 확보"
+        },
         metrics: [
           { label: "조회수", count: 165000, win: true },
           { label: "예약 문의", count: 310, win: true },
@@ -595,15 +594,14 @@
       {
         id: "verynew",
         name: "베리뉴약국",
-        typeTag: "K-WELLNESS",
         branches: ["성수점", "홍대점", "명동점"],
-        overviewNote: "Local K-Wellness & Pharmacy Tourism Seeding.",
-        overview: [
-          "캠페인 유형: K-Wellness & Pharmacy Tourism Experience",
-          "목표: 외국인 대상 K-영양제/건강기능식품 홍보 및 방문 유도",
-          "참여 인원: 글로벌 헬스/웰니스 크리에이터 18명",
-          "지점 커버리지: 성수점 · 홍대점 · 명동점"
-        ],
+        schema: {
+          service: "인플루언서 KOL 시딩",
+          goal: "타깃 시장 검증 및 글로벌 브랜드 인지도 제고",
+          participants: "외국인 크리에이터 5명",
+          countryReach: "4개국 (인도네시아, 페루, 필리핀, 미국)",
+          keyNote: "K-웰니스 및 약국 쇼핑 투어 기반 글로벌 확산"
+        },
         metrics: [
           { label: "조회수", count: 210000, win: true },
           { label: "공유/저장", count: 1850, win: true },
@@ -747,19 +745,19 @@
       "</div></div></section>"
     );
 
-    /* 05 — OUR CASE STUDY (STRICT SEQUENCE UPDATED & ROI COMPLETELY REMOVED) */
+    /* 05 — OUR CASE STUDY (STANDARDIZED SCHEMA & TOP-TO-BOTTOM SEQUENCE) */
     sectionNo++;
     const defaultProject = R.caseStudyProjects[0];
     parts.push(
       '<section class="section reveal">' +
-      '<h2><span class="num">05 — CASE STUDY</span>주요 성공 사례 (Completed Projects)</h2>' +
+      '<h2><span class="num">05 — CASE STUDY</span>주요 성공 사례</h2>' +
       /* Scrollable Horizontal Tabs */
       '<div class="tab-bar-wrap" id="csTabBar">' +
       R.caseStudyProjects.map((p, idx) => 
         '<button class="tab-btn' + (idx === 0 ? ' active' : '') + '" onclick="switchCaseStudyTab(\'' + p.id + '\', this)">' + esc(p.name) + '</button>'
       ).join("") +
       '</div>' +
-      /* Case Study Container */
+      /* Case Study Dynamic Display Container */
       '<div id="csDisplayArea">' +
       renderCaseStudyContent(defaultProject) +
       '</div>' +
@@ -781,9 +779,9 @@
     document.getElementById("app").innerHTML = parts.join("");
 
     /* ============ RENDER HELPER FOR CASE STUDY TAB CONTENT ============
-       STRICT ORDER:
+       STRICT TOP-TO-BOTTOM SEQUENCE:
        1. CAMPAIGN VISUALS (4 REELS GRID)
-       2. 프로젝트 개요 (PROJECT OVERVIEW)
+       2. 프로젝트 개요 (STANDARDIZED 5-FIELD SCHEMA)
        3. 성과 & 참여 반응 (ENGAGEMENT & RESULTS)
     =================================================================== */
     function renderCaseStudyContent(p) {
@@ -794,24 +792,31 @@
           '</div>';
       }
 
+      const s = p.schema;
+
       return '<div class="case-study-dashboard">' +
-        /* 1. CAMPAIGN VISUALS (FIRST POSITION) */
+        /* 1. CAMPAIGN VISUALS */
         '<div>' +
           '<div class="label">CAMPAIGN VISUALS (Reels 9:16 Video Player)</div>' +
           '<div class="reel-grid" id="reels-' + p.id + '"></div>' +
         '</div>' +
 
-        /* 2. 프로젝트 개요 (SECOND POSITION) */
+        /* 2. 프로젝트 개요 (STANDARDIZED 5-FIELD SCHEMA) */
         '<div style="margin-top: 24px;">' +
           '<div class="card">' +
-            '<div class="case-title">프로젝트 개요 <span class="tag violet">' + esc(p.typeTag) + '</span></div>' +
+            '<div class="case-title">프로젝트 개요</div>' +
             branchesHtml +
-            '<div class="kpi-note" style="margin-bottom: 12px; font-weight: 700;">' + esc(p.overviewNote) + '</div>' +
-            listHtml(p.overview.map(esc)) +
+            '<ul class="overview-schema-list">' +
+              '<li><strong>• 서비스 (Service):</strong> ' + esc(s.service) + '</li>' +
+              '<li><strong>• 목표 (Goal):</strong> ' + esc(s.goal) + '</li>' +
+              '<li><strong>• 참여 (Participants):</strong> ' + esc(s.participants) + '</li>' +
+              '<li><strong>• 분포 (Country Reach):</strong> ' + esc(s.countryReach) + '</li>' +
+              '<li><strong>• 노트 (Key Note):</strong> ' + esc(s.keyNote) + '</li>' +
+            '</ul>' +
           '</div>' +
         '</div>' +
 
-        /* 3. 성과 & 참여 반응 (THIRD POSITION) */
+        /* 3. 성과 & 참여 반응 */
         '<div style="margin-top: 24px;">' +
           '<div class="card">' +
             '<div class="case-title">성과 & 참여 반응</div>' +
