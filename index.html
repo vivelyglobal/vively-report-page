@@ -132,19 +132,22 @@
     .kpi.hot .kpi-value { color: #1b1b1b !important; }
     .kpi-note { font-size: 12px; color: #4f4e4e; line-height: 1.4; }
     
+    /* REVISED: Key Results Dynamic Tag Colors */
     .tag {
       display: inline-block;
       font-size: 9.5px;
-      font-weight: 700;
+      font-weight: 800;
       letter-spacing: 0.04em;
-      padding: 2px 7px;
+      padding: 3px 8px;
       border-radius: 999px;
-      background: rgba(35, 44, 39, 0.08);
-      color: #232c27;
-      border: 1px solid rgba(35, 44, 39, 0.2);
       line-height: 1;
     }
-    .tag.violet { background: rgba(35, 44, 39, 0.08); color: #232c27; border-color: rgba(35, 44, 39, 0.2); }
+    .tag-brand { background: #e0f2fe; color: #0284c7; border: 1px solid #bae6fd; }
+    .tag-partnership { background: #fce7f3; color: #db2777; border: 1px solid #fbcfe8; }
+    .tag-network { background: #f3e8ff; color: #7e22ce; border: 1px solid #e9d5ff; }
+    .tag-reach { background: #dcfce7; color: #15803d; border: 1px solid #bbf7d0; }
+    .tag-virality { background: #fef3c7; color: #b45309; border: 1px solid #fde68a; }
+
     .insight {
       margin-top: 22px;
       padding: 16px 18px;
@@ -272,25 +275,37 @@
       color: #1b1b1b;
     }
 
-    .metric-strip { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-top: 18px; }
-    .metric-strip.cols-2 { grid-template-columns: repeat(2, 1fr); }
-    .metric-mini { border: 1px solid var(--line); border-radius: var(--radius-sm); padding: 14px; background: #ffffff; }
-    .metric-mini.win { border-color: rgba(35, 44, 39, 0.3); background: #ffffff; }
-    .metric-mini span { display: block; font-size: 12.5px; color: #4f4e4e; margin-bottom: 6px; }
-    .metric-mini strong { font-size: 22px; letter-spacing: -0.02em; font-variant-numeric: tabular-nums; color: #1b1b1b; }
-    .metric-mini.win strong { color: #1b1b1b; }
-    .chart-card { padding-bottom: 16px; }
-    .chart-wrap { position: relative; width: 100%; height: 320px; }
-    .live-badge {
-      margin-left: auto;
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      font-size: 10px;
-      font-weight: 800;
-      letter-spacing: 0.14em;
-      color: #0ea371;
+    /* REVISED: Engagement Metrics in Cards */
+    .engagement-cards-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 12px;
+      margin-top: 14px;
     }
+    .eng-card {
+      border: 1px solid var(--line);
+      border-radius: var(--radius-sm);
+      padding: 16px;
+      background: #ffffff;
+      transition: transform 0.2s, border-color 0.2s;
+    }
+    .eng-card:hover {
+      border-color: var(--line-strong);
+      transform: translateY(-2px);
+    }
+    .eng-card-label {
+      font-size: 12px;
+      font-weight: 700;
+      color: #4f4e4e;
+      margin-bottom: 6px;
+    }
+    .eng-card-value {
+      font-size: 22px;
+      font-weight: 800;
+      color: #1b1b1b;
+      letter-spacing: -0.02em;
+    }
+
     .reel-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; margin-top: 14px; }
     .reel {
       position: relative;
@@ -330,18 +345,35 @@
     th { font-size: 11px; text-transform: uppercase; letter-spacing: 0.1em; color: #232c27; }
     td { color: #4f4e4e; }
     td strong { color: #1b1b1b; }
-    .quote-box {
-      border: 1px solid var(--line-strong);
-      border-radius: var(--radius);
-      padding: 30px;
-      font-size: 21px;
-      line-height: 1.55;
-      letter-spacing: -0.015em;
+
+    /* REVISED: WHY VIVELY QUOTE & ANIMATED HIGHLIGHTS */
+    .quote-hero-box {
+      border-left: 4px solid #1b1b1b;
+      padding: 24px 28px;
       background: #ffffff;
-      color: #232c27;
+      border-radius: 0 var(--radius) var(--radius) 0;
+      font-size: 20px;
+      line-height: 1.6;
+      color: #1b1b1b;
+      font-weight: 600;
+      margin-bottom: 28px;
+      box-shadow: 0 4px 20px rgba(35, 44, 39, 0.04);
     }
+
+    .hl-anim {
+      display: inline;
+      background: linear-gradient(to right, #fde047 50%, transparent 50%);
+      background-size: 200% 100%;
+      background-position: 100% 0;
+      transition: background-position 1.2s ease-out;
+      padding: 0 4px;
+      border-radius: 4px;
+    }
+    .hl-anim.active {
+      background-position: 0 0;
+    }
+
     .footer { font-size: 13px; color: #4f4e4e; line-height: 1.7; padding-top: 28px; }
-    .footer a { color: #1b1b1b; text-decoration: none; border-bottom: 1px solid var(--line-strong); }
     .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.7s ease, transform 0.7s ease; }
     .reveal.in { opacity: 1; transform: none; }
 
@@ -356,6 +388,7 @@
       .subtitle { font-size: 19px; }
       .report { padding: 32px 20px 60px; }
       .chart-wrap { height: 280px; }
+      .quote-hero-box { font-size: 17px; }
     }
     @media (max-width: 600px) {
       .grid-5, .pipeline-grid { grid-template-columns: 1fr; }
@@ -377,11 +410,11 @@
 
     kpiIntro: "VIVELY와 함께한 브랜드 캠페인의 핵심 지표를 한눈에 정리했습니다. 비용 효율성, 그리고 브랜드 및 인플루언서와의 지속적인 파트너십을 최우선으로 고려합니다.",
     kpis: [
-      { label: "Conversion Rate", tag: "BRAND ONBOARDING", prefix: "", value: 60.5, suffix: "%", note: "38개 제안 브랜드 중 23개 계약 체결 완료", hot: true, isFloat: true },
-      { label: "Retention Rate", tag: "PARTNERSHIP", prefix: "", value: 100, suffix: "%", note: "기존 파트너 브랜드 재계약 및 유지율", hot: true },
-      { label: "Influencers Database", tag: "NETWORK", prefix: "", value: 202, suffix: "", note: "검증된 글로벌 인플루언서 풀", hot: false, dynamicType: "influencer" },
-      { label: "Total Views (30 Days)", tag: "REACH", prefix: "", value: 1203477, suffix: "", note: "최근 30일간 누적 콘텐츠 조회수", hot: true, dynamicType: "views" },
-      { label: "Non-Follower View Rate", tag: "VIRALITY", prefix: "", valueText: "95% – 99%", note: "신규 유입 및 잠재 고객 도달 비중", hot: false }
+      { label: "Conversion Rate", tagClass: "tag-brand", tag: "BRAND ONBOARDING", prefix: "", value: 60.5, suffix: "%", note: "38개 제안 브랜드 중 23개 계약 체결 완료", hot: true, isFloat: true },
+      { label: "Retention Rate", tagClass: "tag-partnership", tag: "PARTNERSHIP", prefix: "", value: 100, suffix: "%", note: "기존 파트너 브랜드 재계약 및 유지율", hot: true },
+      { label: "Influencers Database", tagClass: "tag-network", tag: "NETWORK", prefix: "", value: 202, suffix: "", note: "검증된 글로벌 인플루언서 풀", hot: false, dynamicType: "influencer" },
+      { label: "Total Views (30 Days)", tagClass: "tag-reach", tag: "REACH", prefix: "", value: 1203477, suffix: "", note: "최근 30일간 누적 콘텐츠 조회수", hot: true, dynamicType: "views" },
+      { label: "Non-Follower View Rate", tagClass: "tag-virality", tag: "VIRALITY", prefix: "", valueText: "95% – 99%", note: "신규 유입 및 잠재 고객 도달 비중", hot: false }
     ],
     kpiInsight: "본 리포트의 강점은 단순 노출 수치가 아니라, 저예산 집행·글로벌 타깃 도달·실제 세일즈 연계 가능성을 함께 보여준다는 점입니다.",
 
@@ -435,7 +468,7 @@
     ],
     cpmNote: "LaBab 캠페인은 View당 지급 단가(PVV) 모델로 운영되어 위 CPM 차트와는 단위가 달라 별도로 비교합니다. 해당 캠페인의 케이스 스터디 섹션에서 확인할 수 있습니다.",
 
-    /* ---- 05 OUR CASE STUDY DATA MODEL (STANDARDIZED 5-FIELD SCHEMA) ---- */
+    /* ---- 05 OUR CASE STUDY DATA MODEL (REVISED ENGAGEMENT CARDS & SCHEMA) ---- */
     caseStudyProjects: [
       {
         id: "juno",
@@ -448,16 +481,12 @@
           countryReach: "6개국 (인도네시아, 우즈베키스탄, 대만, 콜롬비아, 카자흐스탄, 캐나다)",
           keyNote: "시딩 진행 후 VIVELY 전용 창구를 통해 예약 시 전 시술 20% 할인 프로모션 연계 진행"
         },
-        metrics: [
-          { label: "조회수", count: 366126, win: true },
-          { label: "통합 참여", count: 389653 },
-          { label: "첫날 매출 / 세일즈 신호", text: "약 150만원", win: true }
-        ],
-        engagement: {
-          views: 366126,
-          total: 389653,
-          details: ["총 조회수: 366,126", "좋아요: 22,868", "댓글: 410", "공유/리포스트: 249", "통합 참여: 389,653"]
-        }
+        engagementCards: [
+          { label: "총 조회수", value: "366,126" },
+          { label: "좋아요", value: "22,868" },
+          { label: "댓글", value: "410" },
+          { label: "공유/리포스트", value: "249" }
+        ]
       },
       {
         id: "labab",
@@ -470,16 +499,12 @@
           countryReach: "26개국 (동남아, 중동, 아시아, 동유럽, 서유럽, 북미, 남미, 아프리카, 오세아니아)",
           keyNote: "서울 전역 20여 개 지점 방문 인증 진행"
         },
-        metrics: [
-          { label: "조회수", count: 253890, win: true },
-          { label: "참여 크리에이터", count: 73, suffix: "명" },
-          { label: "공유 / 리포스트", count: 798, win: true }
-        ],
-        engagement: {
-          views: 253890,
-          total: 254964,
-          details: ["총 조회수: 253,890 (48개 콘텐츠)", "공유/리포스트: 798", "댓글: 276", "통합 참여: 254,964"]
-        }
+        engagementCards: [
+          { label: "총 조회수", value: "253,890" },
+          { label: "공유/리포스트", value: "798" },
+          { label: "댓글", value: "276" },
+          { label: "참여 크리에이터", value: "73명" }
+        ]
       },
       {
         id: "jaimdang",
@@ -492,16 +517,12 @@
           countryReach: "17개국 (동남아, 동아시아, 남아시아, 중동, 동유럽, 중앙아시아, 서유럽, 아프리카, 남미)",
           keyNote: "초기 시딩 성과를 바탕으로 공동구매 전환 완료 및 신제품 론칭 프로젝트 진행 중"
         },
-        metrics: [
-          { label: "예산", text: "약 150만원" },
-          { label: "인플루언서", count: 30, suffix: "명" },
-          { label: "첫날 매출 / 세일즈 신호", text: "약 500만원", win: true }
-        ],
-        engagement: {
-          views: 63179,
-          total: 64686,
-          details: ["총 조회수: 63,179", "좋아요: 1,250", "댓글: 207", "공유: 50", "통합 참여: 64,686"]
-        }
+        engagementCards: [
+          { label: "총 조회수", value: "63,179" },
+          { label: "좋아요", value: "1,250" },
+          { label: "댓글", value: "207" },
+          { label: "공유", value: "50" }
+        ]
       },
       {
         id: "myeondong",
@@ -514,16 +535,12 @@
           countryReach: "19개국 (동남아, 동아시아, 남아시아, 중동, 동유럽, 중앙아시아, 서유럽, 북미, 남미, 아프리카)",
           keyNote: "명동 방문 관광객 대상 실질적 방문 및 오프라인 동선 연계"
         },
-        metrics: [
-          { label: "조회수", count: 184500, win: true },
-          { label: "저장/공유", count: 1240, win: true },
-          { label: "방문 전환율", text: "상승" }
-        ],
-        engagement: {
-          views: 184500,
-          total: 188900,
-          details: ["총 조회수: 184,500", "좋아요: 12,300", "저장 및 공유: 1,240", "통합 참여: 188,900"]
-        }
+        engagementCards: [
+          { label: "총 조회수", value: "184,500" },
+          { label: "좋아요", value: "12,300" },
+          { label: "저장 및 공유", value: "1,240" },
+          { label: "참여 크리에이터", value: "45명" }
+        ]
       },
       {
         id: "apgujeong",
@@ -536,16 +553,12 @@
           countryReach: "1개국 (일본)",
           keyNote: "일본 관광객 타깃 맞춤형 바이럴 및 현지 선호 타깃 집중 공략"
         },
-        metrics: [
-          { label: "조회수", count: 142000, win: true },
-          { label: "참여 크리에이터", count: 45, suffix: "명" },
-          { label: "저장수", count: 890 }
-        ],
-        engagement: {
-          views: 142000,
-          total: 145200,
-          details: ["총 조회수: 142,000", "좋아요: 9,800", "저장: 890", "통합 참여: 145,200"]
-        }
+        engagementCards: [
+          { label: "총 조회수", value: "142,000" },
+          { label: "좋아요", value: "9,800" },
+          { label: "저장수", value: "890" },
+          { label: "참여 크리에이터", value: "45명" }
+        ]
       },
       {
         id: "tonymoly",
@@ -558,16 +571,12 @@
           countryReach: "7개국 (인도네시아, 이집트, 필리핀, 이라크, 스페인, 페루, 이탈리아)",
           keyNote: "글로벌 팝업스토어 체험형 바이럴 콘텐츠 생성"
         },
-        metrics: [
-          { label: "조회수", count: 412000, win: true },
-          { label: "댓글 문의", count: 1560, win: true },
-          { label: "참여율", text: "8.4%" }
-        ],
-        engagement: {
-          views: 412000,
-          total: 423500,
-          details: ["총 조회수: 412,000", "좋아요: 31,200", "댓글 문의: 1,560", "통합 참여: 423,500"]
-        }
+        engagementCards: [
+          { label: "총 조회수", value: "412,000" },
+          { label: "좋아요", value: "31,200" },
+          { label: "댓글 문의", value: "1,560" },
+          { label: "참여율", value: "8.4%" }
+        ]
       },
       {
         id: "parkjun",
@@ -580,16 +589,12 @@
           countryReach: "7개국 (인도네시아, 인도, 우크라이나, 벨라루스, 대만, 코스타리카, 호주)",
           keyNote: "방한 관광객 중심의 뷰티 서비스 체험 및 다국적 콘텐츠 확보"
         },
-        metrics: [
-          { label: "조회수", count: 165000, win: true },
-          { label: "예약 문의", count: 310, win: true },
-          { label: "만족도", text: "98%" }
-        ],
-        engagement: {
-          views: 165000,
-          total: 169800,
-          details: ["총 조회수: 165,000", "좋아요: 11,400", "댓글/예약문의: 310", "통합 참여: 169,800"]
-        }
+        engagementCards: [
+          { label: "총 조회수", value: "165,000" },
+          { label: "좋아요", value: "11,400" },
+          { label: "댓글/예약문의", value: "310" },
+          { label: "만족도", value: "98%" }
+        ]
       },
       {
         id: "verynew",
@@ -602,16 +607,12 @@
           countryReach: "4개국 (인도네시아, 페루, 필리핀, 미국)",
           keyNote: "K-웰니스 및 약국 쇼핑 투어 기반 글로벌 확산"
         },
-        metrics: [
-          { label: "조회수", count: 210000, win: true },
-          { label: "공유/저장", count: 1850, win: true },
-          { label: "방문 신호", text: "매우 높음" }
-        ],
-        engagement: {
-          views: 210000,
-          total: 216400,
-          details: ["총 조회수: 210,000", "좋아요: 15,600", "공유/저장: 1,850", "통합 참여: 216,400"]
-        }
+        engagementCards: [
+          { label: "총 조회수", value: "210,000" },
+          { label: "좋아요", value: "15,600" },
+          { label: "공유/저장", value: "1,850" },
+          { label: "방문 신호", value: "매우 높음" }
+        ]
       }
     ],
 
@@ -621,10 +622,7 @@
       "콘텐츠 산출물, 국가 도달, 프로모션 연계가 하나의 체계로 연결",
       "조회수 중심이 아니라 CPM·참여·매출 신호까지 함께 제시 가능"
     ],
-    quote: "“Vively는 해외 타깃 대상 인플루언서 시딩을 통해, 브랜드 인지도 확보와 초기 세일즈 검증을 동시에 수행하는 파트너입니다. 저예산 구조에서도 CPM 효율과 실제 예약 또는 구매 전환 신호를 함께 제시할 수 있습니다.”",
     footer: {
-      sourceName: "Final Reports (1).pdf",
-      sourceUrl: "https://www.genspark.ai/api/files/s/gkMjuw3s",
       note: "주석: 일부 수치는 추정치이며, 플랫폼 알고리즘 및 일부 크리에이터의 제한적 데이터 공개로 인해 변동될 수 있습니다. 진행 중 케이스의 성과 수치는 일부 공개/집계 시점 기준의 스냅샷으로 해석해야 합니다."
     }
   };
@@ -635,7 +633,6 @@
     const gridColor = "rgba(35, 44, 39, 0.08)";
     const DARK_MAIN = "#1b1b1b";
     const DARK_SUB = "#232c27";
-    const GRAY = "rgba(35, 44, 39, 0.2)";
     const GRAY2 = "rgba(35, 44, 39, 0.4)";
 
     Chart.defaults.font.family = '"Noto Sans KR", "Pretendard", -apple-system, BlinkMacSystemFont, Arial, sans-serif';
@@ -646,13 +643,6 @@
     const liveBadge = '<span class="live-badge"><span class="live-dot"></span>LIVE</span>';
     const num2 = (n) => String(n).padStart(2, "0");
     const listHtml = (items) => '<ul class="list">' + items.map((li) => "<li>" + li + "</li>").join("") + "</ul>";
-
-    function metricMini(m) {
-      const val = m.text !== undefined
-        ? esc(m.text)
-        : countSpan(m.count, null, m.isFloat) + (m.suffix || "");
-      return '<div class="metric-mini' + (m.win ? " win" : "") + '"><span>' + esc(m.label) + "</span><strong>" + val + "</strong></div>";
-    }
 
     let sectionNo = 0;
     const parts = [];
@@ -683,7 +673,7 @@
         }
         return '<div class="card kpi' + (k.hot ? " hot" : "") + '">' +
         '<div class="kpi-title">' + esc(k.label) + '</div>' +
-        '<div class="kpi-tag-wrap">' + (k.tag ? '<span class="tag">' + esc(k.tag) + '</span>' : '') + '</div>' +
+        '<div class="kpi-tag-wrap">' + (k.tag ? '<span class="tag ' + k.tagClass + '">' + esc(k.tag) + '</span>' : '') + '</div>' +
         '<div class="kpi-value">' + valDisplay + '</div>' +
         '<div class="kpi-note">' + esc(k.note) + '</div></div>';
       }).join("") +
@@ -738,51 +728,55 @@
       '<div class="insight"><strong>인사이트</strong> — ' + esc(R.cpmInsight) + "</div></div>" +
       '<div class="card"><div class="case-title">핵심 해석</div>' + listHtml(R.cpmInterpretation.map(esc)) +
       '<div class="metric-strip">' +
-      R.caseStudyProjects.slice(0, 2).map((p) => metricMini({ label: p.name + " ✦", text: "성공 사례", win: true })).join("") +
-      metricMini({ label: "광고 매체 대비", text: "낮은 단가" }) +
+      R.caseStudyProjects.slice(0, 2).map((p) => '<div class="metric-mini win"><span>' + esc(p.name) + ' ✦</span><strong>성공 사례</strong></div>').join("") +
+      '<div class="metric-mini"><span>광고 매체 대비</span><strong>낮은 단가</strong></div>' +
       "</div>" +
       (R.cpmNote ? '<div class="note-box">' + esc(R.cpmNote) + "</div>" : "") +
       "</div></div></section>"
     );
 
-    /* 05 — OUR CASE STUDY (STANDARDIZED SCHEMA & TOP-TO-BOTTOM SEQUENCE) */
+    /* 05 — OUR CASE STUDY (STANDARDIZED SCHEMA & REVISED CARDS) */
     sectionNo++;
     const defaultProject = R.caseStudyProjects[0];
     parts.push(
       '<section class="section reveal">' +
       '<h2><span class="num">05 — CASE STUDY</span>주요 성공 사례</h2>' +
-      /* Scrollable Horizontal Tabs */
       '<div class="tab-bar-wrap" id="csTabBar">' +
       R.caseStudyProjects.map((p, idx) => 
         '<button class="tab-btn' + (idx === 0 ? ' active' : '') + '" onclick="switchCaseStudyTab(\'' + p.id + '\', this)">' + esc(p.name) + '</button>'
       ).join("") +
       '</div>' +
-      /* Case Study Dynamic Display Container */
       '<div id="csDisplayArea">' +
       renderCaseStudyContent(defaultProject) +
       '</div>' +
       '</section>'
     );
 
-    /* why + footer */
+    /* 06 — WHY VIVELY (REVISED QUOTE FIRST & ANIMATED HIGHLIGHTS) */
     sectionNo++;
     parts.push(
       '<section class="section reveal">' +
       '<h2><span class="num">' + num2(sectionNo) + " — WHY VIVELY</span>왜 신규 한국 클라이언트가 주목해야 하는가</h2>" +
-      '<div class="grid-2">' +
-      '<div class="card"><div class="case-title">설득 포인트</div>' + listHtml(R.whyPoints.map(esc)) + "</div>" +
-      '<div class="quote-box">' + esc(R.quote) + "</div></div>" +
-      '<div class="footer">Source PDF: <a href="' + R.footer.sourceUrl + '" target="_blank">' + esc(R.footer.sourceName) + "</a><br /><br />" +
-      esc(R.footer.note) + "</div></section>"
+      
+      /* Quote First with Animated Yellow Highlights */
+      '<div class="quote-hero-box">' +
+        '“VIVELY는 해외 타깃 대상 <span class="hl-anim">인플루언서 시딩</span>을 통해, <span class="hl-anim">브랜드 인지도</span> 확보와 초기 세일즈 검증을 동시에 수행하는 파트너입니다. <span class="hl-anim">저예산 구조</span>에서도 CPM 효율과 실제 예약 또는 구매 전환 신호를 함께 제시할 수 있습니다.”' +
+      '</div>' +
+
+      /* 설득 포인트 Below */
+      '<div class="card">' +
+        '<div class="case-title">설득 포인트</div>' + 
+        listHtml(R.whyPoints.map(esc)) + 
+      '</div>' +
+
+      '<div class="footer">' + esc(R.footer.note) + '</div>' +
+      '</section>'
     );
 
     document.getElementById("app").innerHTML = parts.join("");
 
     /* ============ RENDER HELPER FOR CASE STUDY TAB CONTENT ============
-       STRICT TOP-TO-BOTTOM SEQUENCE:
-       1. CAMPAIGN VISUALS (4 REELS GRID)
-       2. 프로젝트 개요 (STANDARDIZED 5-FIELD SCHEMA)
-       3. 성과 & 참여 반응 (ENGAGEMENT & RESULTS)
+       STANDARDIZED 5-FIELD SCHEMA & ENGAGEMENT CARDS
     =================================================================== */
     function renderCaseStudyContent(p) {
       let branchesHtml = "";
@@ -807,22 +801,23 @@
             '<div class="case-title">프로젝트 개요</div>' +
             branchesHtml +
             '<ul class="overview-schema-list">' +
-              '<li><strong>• 서비스 (Service):</strong> ' + esc(s.service) + '</li>' +
-              '<li><strong>• 목표 (Goal):</strong> ' + esc(s.goal) + '</li>' +
-              '<li><strong>• 참여 (Participants):</strong> ' + esc(s.participants) + '</li>' +
-              '<li><strong>• 분포 (Country Reach):</strong> ' + esc(s.countryReach) + '</li>' +
-              '<li><strong>• 노트 (Key Note):</strong> ' + esc(s.keyNote) + '</li>' +
+              '<li>★ <strong>서비스:</strong> ' + esc(s.service) + '</li>' +
+              '<li>★ <strong>목표:</strong> ' + esc(s.goal) + '</li>' +
+              '<li>★ <strong>참여:</strong> ' + esc(s.participants) + '</li>' +
+              '<li>★ <strong>분포:</strong> ' + esc(s.countryReach) + '</li>' +
+              '<li>★ <strong>노트:</strong> ' + esc(s.keyNote) + '</li>' +
             '</ul>' +
           '</div>' +
         '</div>' +
 
-        /* 3. 성과 & 참여 반응 */
+        /* 3. 성과 & 참여 반응 (CARDS LAYOUT) */
         '<div style="margin-top: 24px;">' +
           '<div class="card">' +
             '<div class="case-title">성과 & 참여 반응</div>' +
-            listHtml(p.engagement.details.map(esc)) +
-            '<div class="metric-strip">' +
-              p.metrics.map(metricMini).join("") +
+            '<div class="engagement-cards-grid">' +
+              p.engagementCards.map(c => 
+                '<div class="eng-card"><div class="eng-card-label">' + esc(c.label) + '</div><div class="eng-card-value">' + esc(c.value) + '</div></div>'
+              ).join("") +
             '</div>' +
           '</div>' +
         '</div>' +
@@ -971,8 +966,14 @@
     }, { threshold: 0.6 });
     document.querySelectorAll(".count").forEach((el) => countObserver.observe(el));
 
+    /* Reveal on Scroll & Animate Highlights */
     const revealObserver = new IntersectionObserver((entries) => {
-      entries.forEach((e) => { if (e.isIntersecting) e.target.classList.add("in"); });
+      entries.forEach((e) => { 
+        if (e.isIntersecting) {
+          e.target.classList.add("in");
+          e.target.querySelectorAll(".hl-anim").forEach(hl => hl.classList.add("active"));
+        } 
+      });
     }, { threshold: 0.12 });
     document.querySelectorAll(".reveal").forEach((el) => revealObserver.observe(el));
 
