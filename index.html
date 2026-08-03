@@ -166,6 +166,23 @@
       color: #4f4e4e;
       background: #ffffff;
     }
+
+    /* COST SAVING HIGHLIGHT CALLOUT BOX FOR SLIDE 04 */
+    .cost-saving-box {
+      margin-top: 18px;
+      padding: 14px 16px;
+      border-radius: var(--radius-sm);
+      background: #fefce8;
+      border: 1px solid #fef08a;
+      color: #854d0e;
+      font-size: 13.5px;
+      line-height: 1.5;
+    }
+    .cost-saving-box strong {
+      color: #713f12;
+      font-weight: 800;
+    }
+
     .label {
       font-size: 11px;
       text-transform: uppercase;
@@ -243,6 +260,24 @@
     .tba-title { font-size: 18px; font-weight: 800; color: #1b1b1b; letter-spacing: 0.05em; margin-bottom: 6px; }
     .tba-subtext { font-size: 13.5px; color: #4f4e4e; }
 
+    /* POSITIONING 48 COUNTRIES REGION LIST */
+    .region-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px 18px;
+      margin-top: 14px;
+      font-size: 13px;
+    }
+    .region-item {
+      padding: 8px 12px;
+      border-radius: 8px;
+      background: rgba(35, 44, 39, 0.03);
+      border: 1px solid rgba(35, 44, 39, 0.08);
+    }
+    .region-item strong {
+      color: #1b1b1b;
+    }
+
     /* CASE STUDY DASHBOARD LAYOUT & STYLES */
     .cs-branches-box {
       display: flex;
@@ -274,7 +309,6 @@
       color: #1b1b1b;
     }
 
-    /* REVISED: 2-Card Layout for Engagement (총 조회수 & 공유) */
     .engagement-cards-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
@@ -335,7 +369,7 @@
       width: 100%; 
       height: 100%; 
       object-fit: cover; 
-      pointer-events: none; /* Prevents controls on hover */
+      pointer-events: none;
     }
     .reel img { 
       position: absolute; 
@@ -394,6 +428,7 @@
     @media (max-width: 1100px) {
       .grid-5 { grid-template-columns: repeat(2, 1fr); }
       .pipeline-grid { grid-template-columns: repeat(2, 1fr); }
+      .region-grid { grid-template-columns: 1fr; }
     }
     @media (max-width: 1024px) {
       .grid-4, .grid-2, .metric-strip { grid-template-columns: 1fr; }
@@ -432,7 +467,8 @@
     ],
     kpiInsight: "본 리포트의 강점은 단순 노출 수치가 아니라, 저예산 집행·글로벌 타깃 도달·실제 세일즈 연계 가능성을 함께 보여준다는 점입니다.",
 
-    positioning: [
+    /* ---- 02 POSITIONING (UPDATED WITH 48 COUNTRIES REGION DATA) ---- */
+    positioningCards: [
       { 
         label: "POSITIONING", 
         title: "Global Expansion & Growth Partner",
@@ -443,6 +479,28 @@
         title: "원스톱 KOL 시딩 + 글로벌 세일즈 확장",
         note: "크리에이터 섭외부터 리포트까지 담당하는 원스톱 KOL 시딩, 로컬라이제이션, 공동구매 및 라이브 커머스까지 연결되는 통합 성장 구조." 
       }
+    ],
+    reachChartData: {
+      labels: [
+        "동유럽 (9)", "서유럽 (7)", "동남아시아 (5)", "남미&중미 (4)", 
+        "중앙아시아 (4)", "동아시아 (4)", "중동 (4)", "남아시아 (3)", 
+        "북아프리카 (3)", "북미 (2)", "사하라 이남 (2)", "오세아니아 (1)"
+      ],
+      values: [9, 7, 5, 4, 4, 4, 4, 3, 3, 2, 2, 1]
+    },
+    reachRegionsList: [
+      { name: "동유럽 (9개국)", desc: "러시아, 우크라이나, 벨라루스, 루마니아, 체코, 몰도바, 아제르바이잔, 슬로베니아, 헝가리" },
+      { name: "서유럽 (7개국)", desc: "영국, 프랑스, 오스트리아, 스웨덴, 스페인, 이탈리아, 튀르키예" },
+      { name: "동남아시아 (5개국)", desc: "인도네시아, 필리핀, 말레이시아, 태국, 싱가포르" },
+      { name: "남미 & 중미 (4개국)", desc: "페루, 칠레, 콜롬비아, 코스타리카" },
+      { name: "중앙아시아 (4개국)", desc: "카자흐스탄, 우즈베키스탄, 키르기스스탄, 타지키스탄" },
+      { name: "동아시아 (4개국)", desc: "일본, 대한민국, 대만, 중국" },
+      { name: "중동 (4개국)", desc: "이란, 요르단, 사우디아라비아, 바레인" },
+      { name: "남아시아 (3개국)", desc: "인도, 파키스탄, 네팔" },
+      { name: "북아프리카 (3개국)", desc: "모로코, 이집트, 튀니지" },
+      { name: "북미 (2개국)", desc: "미국, 캐나다" },
+      { name: "사하라 이남 아프리카 (2개국)", desc: "우간다, 남아프리카 공화국" },
+      { name: "오세아니아 (1개국)", desc: "호주" }
     ],
 
     tabServices: {
@@ -482,7 +540,7 @@
     ],
     cpmNote: "LaBab 캠페인은 View당 지급 단가(PVV) 모델로 운영되어 위 CPM 차트와는 단위가 달라 별도로 비교합니다. 해당 캠페인의 케이스 스터디 섹션에서 확인할 수 있습니다.",
 
-    /* ---- 05 OUR CASE STUDY (ACCURATE TOTALS & LIVE 5S REALTIME TICKER) ---- */
+    /* ---- 05 OUR CASE STUDY DATA MODEL ---- */
     caseStudyProjects: [
       {
         id: "juno",
@@ -630,7 +688,6 @@
     const parts = [];
     const R = REPORT;
 
-    /* Global timer for Realtime Live Simulation */
     let liveTickerInterval = null;
 
     /* hero */
@@ -667,16 +724,34 @@
       "</section>"
     );
 
-    /* 02 — POSITIONING */
+    /* 02 — POSITIONING (UPDATED WITH 48 COUNTRIES REACH CHART) */
     sectionNo++;
     parts.push(
       '<section class="section reveal">' +
       '<h2><span class="num">' + num2(sectionNo) + " — POSITIONING</span>VIVELY 포지셔닝</h2>" +
-      '<div class="grid-2">' +
-      R.positioning.map((p) =>
+      '<div class="grid-2" style="margin-bottom: 20px;">' +
+      R.positioningCards.map((p) =>
         '<div class="card"><div class="label">' + esc(p.label) + '</div><div class="case-title">' + esc(p.title) + '</div><div class="kpi-note">' + esc(p.note) + "</div></div>"
       ).join("") +
-      "</div></section>"
+      "</div>" +
+
+      /* 48 Countries Global Reach Network Chart & List */
+      '<div class="grid-2">' +
+        '<div class="card chart-card">' +
+          '<div class="label">글로벌 오디언스 도달 국가 현황 (총 48개국) ' + liveBadge + '</div>' +
+          '<div class="chart-wrap" style="height: 380px;"><canvas id="reach48Chart"></canvas></div>' +
+          '<div class="insight"><strong>인사이트</strong> — 전 세계 48개국을 아우르는 광범위한 글로벌 오디언스 도달력 확보</div>' +
+        '</div>' +
+        '<div class="card">' +
+          '<div class="case-title">권역별 도달 국가 분포 (총 48개국)</div>' +
+          '<div class="region-grid">' +
+            R.reachRegionsList.map(r => 
+              '<div class="region-item"><strong>★ ' + esc(r.name) + '</strong><br/><span style="color: #4f4e4e;">' + esc(r.desc) + '</span></div>'
+            ).join("") +
+          '</div>' +
+        '</div>' +
+      '</div>' +
+      '</section>'
     );
 
     /* 03 — HOW IT WORKS & OUR SERVICES */
@@ -702,7 +777,7 @@
       '</div></section>'
     );
 
-    /* 04 — COST EFFICIENCY (CPM Benchmark) */
+    /* 04 — COST EFFICIENCY (CPM Benchmark) — REVISED Y-AXIS HEADROOM & CALLOUT BOX */
     sectionNo++;
     parts.push(
       '<section class="section reveal">' +
@@ -710,7 +785,12 @@
       '<div class="grid-2">' +
       '<div class="card chart-card"><div class="label">CPM Benchmark ' + liveBadge + "</div>" +
       '<div class="chart-wrap"><canvas id="cpmChart"></canvas></div>' +
-      '<div class="insight"><strong>인사이트</strong> — ' + esc(R.cpmInsight) + "</div></div>" +
+      '<div class="insight"><strong>인사이트</strong> — ' + esc(R.cpmInsight) + "</div>" +
+      /* Cost Saving Highlight Callout Box */
+      '<div class="cost-saving-box">' +
+        '★ <strong>비용 절감 효과 (Efisiensi Biaya):</strong> Meta 대비 최대 <strong>86%</strong> / TikTok 대비 최대 <strong>73%</strong> CPM 절감' +
+      '</div>' +
+      '</div>' +
       '<div class="card"><div class="case-title">핵심 해석</div>' + listHtml(R.cpmInterpretation.map(esc)) +
       '<div class="metric-strip">' +
       R.caseStudyProjects.slice(0, 2).map((p) => '<div class="metric-mini win"><span>' + esc(p.name) + ' ✦</span><strong>성공 사례</strong></div>').join("") +
@@ -755,9 +835,7 @@
 
     document.getElementById("app").innerHTML = parts.join("");
 
-    /* ============ RENDER HELPER FOR CASE STUDY TAB CONTENT ============
-       ONLY 2 CARDS FOR ENGAGEMENT: 총 조회수 & 공유
-    =================================================================== */
+    /* ============ RENDER HELPER FOR CASE STUDY TAB CONTENT ============ */
     function renderCaseStudyContent(p) {
       let branchesHtml = "";
       if (p.branches && p.branches.length > 0) {
@@ -809,7 +887,6 @@
       '</div>';
     }
 
-    /* Start Realtime Ticker for active project (Increments every 5 seconds) */
     function startRealtimeEngagementTicker(projectData) {
       if (liveTickerInterval) clearInterval(liveTickerInterval);
 
@@ -817,7 +894,6 @@
       let currentShares = projectData.baseShares;
 
       liveTickerInterval = setInterval(() => {
-        // Increases views by random +1 to +3, shares by +0 to +1 every 5 seconds
         currentViews += Math.floor(Math.random() * 3) + 1;
         if (Math.random() > 0.6) { currentShares += 1; }
 
@@ -898,10 +974,10 @@
             const text = fmt(ds.data[i]);
             if (horizontal) {
               ctx.textAlign = "left"; ctx.textBaseline = "middle";
-              ctx.fillText(text, bar.x + 8, bar.y);
+              ctx.fillText(text, bar.x + 10, bar.y);
             } else {
               ctx.textAlign = "center"; ctx.textBaseline = "bottom";
-              ctx.fillText(text, bar.x, bar.y - 6);
+              ctx.fillText(text, bar.x, bar.y - 8);
             }
           });
         });
@@ -911,6 +987,33 @@
 
     const charts = {};
 
+    /* 48 Countries Horizontal Bar Chart in Section 02 */
+    charts.reach48Chart = new Chart(document.getElementById("reach48Chart"), {
+      type: "bar",
+      data: {
+        labels: R.reachChartData.labels,
+        datasets: [{
+          label: "도달 국가 수",
+          data: R.reachChartData.values,
+          backgroundColor: DARK_SUB,
+          borderRadius: 6,
+          maxBarThickness: 22
+        }]
+      },
+      options: {
+        indexAxis: "y",
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: { legend: { display: false }, valueLabels: { suffix: "개국" } },
+        scales: {
+          x: { beginAtZero: true, max: 11, ticks: { stepSize: 2, color: axisColor }, grid: { color: gridColor } },
+          y: { ticks: { color: axisColor, font: { size: 11, weight: "700" } }, grid: { display: false } }
+        }
+      },
+      plugins: [valueLabels]
+    });
+
+    /* CPM Chart in Section 04 — FIXED Y-AXIS HEADROOM (max: 25000) */
     charts.cpmChart = new Chart(document.getElementById("cpmChart"), {
       type: "bar",
       data: {
@@ -927,7 +1030,13 @@
         plugins: { legend: { display: false }, valueLabels: { prefix: "₩" } },
         scales: {
           x: { ticks: { color: axisColor }, grid: { display: false } },
-          y: { ticks: { color: axisColor, callback: (v) => "₩" + v.toLocaleString() }, grid: { color: gridColor } }
+          y: { 
+            beginAtZero: true,
+            max: 25000, /* Headroom adjustment for 20,000 Meta High bar */
+            suggestedMax: 25000,
+            ticks: { stepSize: 5000, color: axisColor, callback: (v) => "₩" + v.toLocaleString() }, 
+            grid: { color: gridColor } 
+          }
         }
       },
       plugins: [valueLabels]
