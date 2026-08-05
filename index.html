@@ -39,6 +39,38 @@
     .glow-field { display: none; }
     
     .report { position: relative; z-index: 1; max-width: var(--max-width); margin: 0 auto; padding: 56px 40px 90px; }
+
+    /* TOP HEADER LOGO STYLES */
+    .top-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-bottom: 24px;
+      margin-bottom: 10px;
+      border-bottom: 1px solid var(--line);
+    }
+    .top-header-left {
+      display: flex;
+      align-items: center;
+    }
+    .top-header-left img {
+      height: 36px;
+      width: auto;
+      object-fit: contain;
+      display: block;
+    }
+    .top-header-right {
+      font-family: "Noto Sans KR", sans-serif;
+      font-size: 32px;
+      font-weight: 800;
+      color: #1b1b1b;
+      line-height: 1;
+      letter-spacing: -0.02em;
+      display: flex;
+      align-items: center;
+      height: 36px;
+    }
+
     .hero { padding: 44px 0 40px; border-bottom: 1px solid var(--line); }
     .eyebrow {
       display: inline-flex;
@@ -501,7 +533,6 @@
       { name: "오세아니아 (1개국)", desc: "호주" }
     ],
 
-    /* ---- 03 REVISED: TAB TITLE TO "KOL 인플루언서 시딩" & REMOVED "인플루언서 시딩" ---- */
     tabServices: {
       tabs: [
         { id: "kol", label: "KOL 인플루언서 시딩", isDefault: true },
@@ -686,6 +717,16 @@
     const R = REPORT;
 
     let liveTickerInterval = null;
+
+    /* TOP LOGO HEADER (SEJAJAR & SAMA UKURAN) */
+    parts.push(
+      '<header class="top-header reveal">' +
+      '<div class="top-header-left">' +
+      '<img src="media/logo.png" alt="Logo" onerror="this.style.display=\'none\';" />' +
+      '</div>' +
+      '<div class="top-header-right">Vively</div>' +
+      '</header>'
+    );
 
     /* hero */
     parts.push(
